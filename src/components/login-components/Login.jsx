@@ -119,7 +119,7 @@ const Login = () => {
                                         <div>
                                             <form className="theme-form">
                                                 <div className="form-group">
-                                                    <label>Enter your Mobile Number</label>
+                                                    {/* <label>Enter your Mobile Number</label> */}
                                                     <div className="input-block">
                                                         {/* <div className="phone-with-code"> */}
                                                         {/* <select className="form-select" value={user.phone_code} name="phone_code" onChange={onChangeHandler}>
@@ -138,7 +138,7 @@ const Login = () => {
                                                     <p className="error-input-msg d-none" ref={errorRef}>*{error === 'incorrectMobile' ? 'Mobile number does not register with us.' : error === 'incorrectPassword' ? 'Wrong password entered' : error}</p>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label>Enter your password</label>
+                                                    {/* <label>Enter your password</label> */}
                                                     <div className="input-block">
                                                         <input type={!style ? 'password' : 'text'} className="form-control" placeholder="Enter your password" name="password" value={user.password} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 25 && e.preventDefault() }} />
 
