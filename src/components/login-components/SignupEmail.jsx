@@ -86,24 +86,24 @@ const SignupEmail = () => {
                               <h2>What's your email address?</h2>
                            </div>
                            <div className="login-discription">
-                              <h4>Please fill the form below.</h4>
+                              {/* <h4>Please fill the form below.</h4> */}
                            </div>
                            <div className="form-sec">
                               <div>
                                  <form className="theme-form">
                                     <div className="form-group">
-                                       <label>Enter your Email Address</label>
+                                       {/* <label>Enter your Email Address</label> */}
                                        <input type="email" className="form-control" placeholder="Enter Email Address" value={email} onChange={(ev) => { setEmail(ev.target.value); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
                                        <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                     </div>
                                     <div className="connect-with">
-                                       <h6><span>OR Connect With</span></h6>
+                                       <h6><span>OR</span></h6>
                                        <ul className="social-login-blk">
                                           <li><a href="#"><img src="assets/images/google-icon.png" /> Continue with Google</a></li>
                                           <li><a href="#"><img src="assets/images/apple-icon.png" /> Continue with Apple</a></li>
                                        </ul>
                                     </div>
-                                    <p className="notimsg-blk">Provide your email for better communication. </p>
+                                    {/* <p className="notimsg-blk">Provide your email for better communication. </p> */}
                                     <div className="btn-section">
                                        <button className="btn btn-solid btn-lg" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
 

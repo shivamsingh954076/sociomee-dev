@@ -8,6 +8,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadAllBizCategory } from '../../Services/Actions/bizCategoryAction';
 import { loadBizSubCategory } from '../../Services/Actions/bizSubCategoryAction';
 
+// Use for snakebar
+import MuiAlert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 export default function GroupDetail() {
     var FriendSuggestsettings = {
         dots: false,
@@ -64,8 +73,8 @@ export default function GroupDetail() {
         "bpCategoryId": "",
         "bpSubCategoryId": "",
         "name": "",
-        "summary": "A page on consoles and pcs",
-        "bpaddress": "STREET 456, Los Angeles",
+        "summary": "",
+        "bpaddress": "",
         "role": "admin",
         "logo": "test/rcYCvDoI7VFP3.jpg",
         "status": 1,
@@ -84,14 +93,7 @@ export default function GroupDetail() {
         "allowNotificationOnEmail": 1,
         "allowNotificationOnSms": 0,
         "allowNotification": 1,
-        "coverImages": [
-            {
-                "coverUrl": "test/sXmX6uTrTVFxT.jpg"
-            },
-            {
-                "coverUrl": "userUploads/OQGkkmWuHFHBo.jpg"
-            }
-        ],
+        "coverImages": '',
         "address": [
             {
                 "address": "STREET 456, Los Angeles",
@@ -104,6 +106,22 @@ export default function GroupDetail() {
             }
         ]
     })
+
+    const [coverImage, setCoverImage] = useState('');
+    const [logo, setLogo] = useState('');
+    const [bizPageUrl,setBizPageUrl]=useState('');
+    const[flag,setFlag]=useState(false)
+
+
+    // Snackbar Code
+    const [open, setOpen] = useState(false);
+    const [alert, setAlert] = useState({ sev: 'success', content: '' });
+
+    // Temp Images Variable
+    const [tempCoverImage, setTempCoverImage] = useState('');
+    const [tempLogo, setTempLogo] = useState('');
+
+
     // get all the categories
     const { bizCategory } = useSelector(state => state.bizCategoryData)
     // get subcategories by category
@@ -120,11 +138,44 @@ export default function GroupDetail() {
     const inputsHandler = (ev) => {
         const { name, value } = ev.target;
         setBizPage({ ...bizPage, [name]: value })
+        console.log(bizPage)
+        if(bizPage.name && bizPage.bpCategoryId && bizPage.bpSubCategoryId && bizPage.summary)
+        {
+            setFlag(true)
+        }
+    }
+
+    // submit biz page's functions
+    const createBizPages = (e) => {
+        e.preventDefault();
+        if (!bizPage.name) { setOpen(true); setAlert({ sev: "error", content: "Please Enter The BizPage Name !", }); }
+        else if (!bizPage.bpCategoryId) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Category !", }); }
+        else if (!bizPage.bpSubCategoryId) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Sub-Category !", }); }
+        else if (!logo) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Logo !", }); }
+        else if (!coverImage) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Cover Image !", }); }
+        else if (!bizPage.summary) { setOpen(true); setAlert({ sev: "error", content: "Please Enter BizPage Summary !", }); }
+        else {
+
+            console.log(bizPage)
+            console.log(logo)
+            console.log(coverImage)
+        }
+
     }
 
     useEffect(() => {
         dispatch(loadAllBizCategory())
     }, [])
+
+
+    // Cancel Snackbar
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
 
     return (
         <>
@@ -140,7 +191,7 @@ export default function GroupDetail() {
                                     <div className="row">
                                         <div className="form-group col-md-4">
                                             <label>BizPage Name</label>
-                                            <input type="text" className="form-control" required name="name" value={bizPage.name} onChange={inputsHandler}/>
+                                            <input type="text" className="form-control" required name="name" value={bizPage.name} onChange={inputsHandler} />
                                             <p className="input-hints">Max 60 charectors</p>
                                         </div>
                                         <div className="form-group col-md-4">
@@ -156,7 +207,7 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label>Sub Catagory</label>
-                                            <select id="inputState" className="form-control" >
+                                            <select id="inputState" className="form-control" name="bpSubCategoryId" value={bizPage.bpSubCategoryId} onChange={inputsHandler}>
                                                 <option>Select...</option>
                                                 {
                                                     bizSubCategory && bizSubCategory.map((subcat) => {
@@ -174,19 +225,19 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="form-group col-md-3">
                                             <label>Biz Page URL</label>
-                                            <input type="text" className="form-control" required />
+                                            <input type="text" className="form-control" required value={bizPageUrl} onChange={(e)=>setBizPageUrl(e.target.value)}/>
                                         </div>
                                         <div className="form-group col-md-3">
                                             <label>Add your biz logo</label>
-                                            <input type="file" className="form-control" required />
+                                            <input type="file" className="form-control" required onChange={(e) => { setLogo(e.target.files[0]); setTempLogo(URL.createObjectURL(e.target.files[0])) }} />
                                         </div>
                                         <div className="form-group col-md-3">
                                             <label>Add your cover image</label>
-                                            <input type="file" className="form-control" required />
+                                            <input type="file" className="form-control" required onChange={(e) => { setCoverImage(e.target.files[0]); setTempCoverImage(URL.createObjectURL(e.target.files[0])) }} />
                                         </div>
                                         <div className="form-group col-md-12">
-                                            <label>Summery</label>
-                                            <textarea rows="2" className="form-control"></textarea>
+                                            <label>Summary</label>
+                                            <textarea rows="5" className="form-control" name='summary' value={bizPage.summary} onChange={inputsHandler}></textarea>
                                             <p className="input-hints">Max 180 Characters</p>
                                         </div>
                                     </div>
@@ -203,7 +254,7 @@ export default function GroupDetail() {
                                 </div>
                             </div> */}
                                     <div className="bizcreate-btns">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#createbizmodel" className="btn btn-primary mr-3">Creat BizPage</a>
+                                        <button data-bs-toggle="modal" data-bs-target="#createbizmodel" className="btn btn-success mr-3" onClick={createBizPages} disabled={!flag}>Creat BizPage</button>
                                         <a href="#" className="btn btn-default">Cancel</a>
                                     </div>
                                 </form>
@@ -211,15 +262,16 @@ export default function GroupDetail() {
                         </div>
                         <div className="col-md-12">
                             <div className="group-details-top biz-details-top biz-cration-preview">
-                                <div className="gd-top-block" style={{ background: "url(assets/images/demo-banner-1.jpg)" }}>
+                                <div className="gd-top-block" style={{ background: `url(${tempCoverImage || 'assets/images/demo-banner-1.jpg)'}` }}>
                                 </div>
                                 <div className="heading-title-blk head-title-biz">
                                     <div className="row align-items-center">
                                         <div className="col-xl-4 col-lg-4 col-12 order-lg-2">
                                             <div className="biz-user-pro-blk">
-                                                <img src="assets/images/demo-1.jpg" />
-                                                <h5>PAGE NAME</h5>
-                                                <p><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Addess</p>
+                                                <img src={tempLogo || "assets/images/demo-1.jpg"} />
+                                                <h5>{bizPage.name || 'Page Name'}</h5>
+                                                <p>
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Addess</p>
                                             </div>
                                         </div>
                                         <div className="col-xl-4 col-lg-4 col-12 order-lg-1">
@@ -287,7 +339,9 @@ export default function GroupDetail() {
                                                 <li>0<span>Followers</span></li>
                                                 <li>0<span>Follow</span></li>
                                             </ul>
-                                            <div className="create-biz-btn"><a href="#" className="btn btn-primary green-clr-btn">Create Biz Page</a></div>
+                                            <div className="create-biz-btn">
+                                                <button className="btn btn-primary green-clr-btn">Create Biz Page</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -561,6 +615,16 @@ export default function GroupDetail() {
                     </div>
                 </div>
             </div>
+
+            {/* Snackbar */}
+            <Stack spacing={2} sx={{ width: '100%' }} id="stack">
+                <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
+                        {alert.content}
+                    </Alert>
+                </Snackbar>
+            </Stack>
+
         </>
     );
 } 

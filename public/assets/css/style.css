@@ -51840,7 +51840,7 @@ section {
     border-radius: 5px;
   }
 
-  button.btn.btn-solid:disabled {
+  .btn-solid:disabled {
     background: #ACDAD6;
     border-color: #ACDAD6;
     color:#fff;
