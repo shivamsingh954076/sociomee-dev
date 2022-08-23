@@ -5,13 +5,19 @@ import LeftSidebar from '../LeftSidebar';
 import RightSidebar from '../RightSidebar';
 import Slider from "react-slick";
 import { useDispatch, useSelector } from 'react-redux';
-import { loadAllBizCategory } from '../../Services/Actions/bizCategoryAction';
-import { loadBizSubCategory } from '../../Services/Actions/bizSubCategoryAction';
+import { loadAllBizCategory } from '../../Services/Actions/BizPage/bizCategoryAction';
+import { loadBizSubCategory } from '../../Services/Actions/BizPage/bizSubCategoryAction';
 
 // Use for snakebar
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
+
+
+// MUI Dialog box
+import Dialog from '@mui/material/Dialog';
+import axios from 'axios';
+import { createBizPage } from '../../Services/Actions/BizPage/CreateBizPageAction';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -69,20 +75,20 @@ export default function GroupDetail() {
         }
         ]
     };
-    const [bizPage, setBizPage] = useState({
+    const [bizPageBody, setBizPageBody] = useState({
         "bpCategoryId": "",
         "bpSubCategoryId": "",
         "name": "",
         "summary": "",
         "bpaddress": "",
         "role": "admin",
-        "logo": "test/rcYCvDoI7VFP3.jpg",
+        "logo": "",
         "status": 1,
         "visitorCount": 5,
         "operatingStatus": "",
         "isPrivate": "",
         "blockedByAdmin": "",
-        "blockCode": "",
+        "blockCode": 0,
         "blockMessage": "",
         "visibility": 1,
         "allowCall": 0,
@@ -105,17 +111,24 @@ export default function GroupDetail() {
                 "isDefault": 1
             }
         ]
+
     })
 
     const [coverImage, setCoverImage] = useState('');
     const [logo, setLogo] = useState('');
-    const [bizPageUrl,setBizPageUrl]=useState('');
-    const[flag,setFlag]=useState(false)
+    const [bizPageBodyUrl, setBizPageBodyUrl] = useState('');
+    const [flag, setFlag] = useState(false)
+
+    // get created page response using redux
+    const { bizPage } = useSelector(state => state.createBizPageData)
 
 
     // Snackbar Code
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
+
+    // MUI State
+    const [popup, setPopup] = useState(false);
 
     // Temp Images Variable
     const [tempCoverImage, setTempCoverImage] = useState('');
@@ -130,17 +143,15 @@ export default function GroupDetail() {
     const dispatch = useDispatch();
     // memoize sub-category by category
     const subCategory = useMemo(() => {
-        dispatch(loadBizSubCategory({ categoryId: bizPage.bpCategoryId }))
-    }, [bizPage.bpCategoryId])
+        dispatch(loadBizSubCategory({ categoryId: bizPageBody.bpCategoryId }))
+    }, [bizPageBody.bpCategoryId])
 
 
     // all inputs value handler
     const inputsHandler = (ev) => {
         const { name, value } = ev.target;
-        setBizPage({ ...bizPage, [name]: value })
-        console.log(bizPage)
-        if(bizPage.name && bizPage.bpCategoryId && bizPage.bpSubCategoryId && bizPage.summary)
-        {
+        setBizPageBody({ ...bizPageBody, [name]: value })
+        if (bizPageBody.name && bizPageBody.bpCategoryId && bizPageBody.bpSubCategoryId && bizPageBody.summary) {
             setFlag(true)
         }
     }
@@ -148,17 +159,67 @@ export default function GroupDetail() {
     // submit biz page's functions
     const createBizPages = (e) => {
         e.preventDefault();
-        if (!bizPage.name) { setOpen(true); setAlert({ sev: "error", content: "Please Enter The BizPage Name !", }); }
-        else if (!bizPage.bpCategoryId) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Category !", }); }
-        else if (!bizPage.bpSubCategoryId) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Sub-Category !", }); }
+        if (!bizPageBody.name) { setOpen(true); setAlert({ sev: "error", content: "Please Enter The BizPage Name !", }); }
+        else if (!bizPageBody.bpCategoryId) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Category !", }); }
+        else if (!bizPageBody.bpSubCategoryId) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Sub-Category !", }); }
         else if (!logo) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Logo !", }); }
         else if (!coverImage) { setOpen(true); setAlert({ sev: "error", content: "Please Select BizPage Cover Image !", }); }
-        else if (!bizPage.summary) { setOpen(true); setAlert({ sev: "error", content: "Please Enter BizPage Summary !", }); }
+        else if (!bizPageBody.summary) { setOpen(true); setAlert({ sev: "error", content: "Please Enter BizPage Summary !", }); }
         else {
-
-            console.log(bizPage)
-            console.log(logo)
-            console.log(coverImage)
+            const formData = new FormData();
+            formData.append('files', logo);
+            formData.append('files', coverImage);
+            formData.append('uploadFor', 'postMedia');
+            axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
+                .then(res => {
+                    bizPageBody.logo = res.data.data.successResult[0]
+                    bizPageBody.coverImages = [{ coverUrl: res.data.data.successResult[1] }]
+                    dispatch(createBizPage(bizPageBody))
+                    setBizPageBody({
+                        "bpCategoryId": "",
+                        "bpSubCategoryId": "",
+                        "name": "",
+                        "summary": "",
+                        "bpaddress": "",
+                        "role": "admin",
+                        "logo": "",
+                        "status": 1,
+                        "visitorCount": 5,
+                        "operatingStatus": "",
+                        "isPrivate": "",
+                        "blockedByAdmin": "",
+                        "blockCode": 0,
+                        "blockMessage": "",
+                        "visibility": 1,
+                        "allowCall": 0,
+                        "allowMessage": 1,
+                        "allowSharing": 1,
+                        "allowPageSuggestion": 1,
+                        "allowQuestion": 1,
+                        "allowNotificationOnEmail": 1,
+                        "allowNotificationOnSms": 0,
+                        "allowNotification": 1,
+                        "coverImages": '',
+                        "address": [
+                            {
+                                "address": "STREET 456, Los Angeles",
+                                "country": "US",
+                                "city": "Los Angeles",
+                                "zipCode": "6891",
+                                "locationLAT": "33.4",
+                                "locationLONG": "12.34",
+                                "isDefault": 1
+                            }
+                        ]
+                    })
+                    setBizPageBodyUrl('')
+                    setLogo('')
+                    setCoverImage('')
+                    setPopup(true)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
         }
 
     }
@@ -191,12 +252,12 @@ export default function GroupDetail() {
                                     <div className="row">
                                         <div className="form-group col-md-4">
                                             <label>BizPage Name</label>
-                                            <input type="text" className="form-control" required name="name" value={bizPage.name} onChange={inputsHandler} />
+                                            <input type="text" className="form-control" required name="name" value={bizPageBody.name} onChange={inputsHandler} />
                                             <p className="input-hints">Max 60 charectors</p>
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label>Biz Catagory</label>
-                                            <select id="inputState" className="form-control" name="bpCategoryId" value={bizPage.bpCategoryId} onChange={inputsHandler}>
+                                            <select id="inputState" className="form-control" name="bpCategoryId" value={bizPageBody.bpCategoryId} onChange={inputsHandler}>
                                                 <option value={''}>Select...</option>
                                                 {
                                                     bizCategory && bizCategory.map((category) => {
@@ -207,7 +268,7 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label>Sub Catagory</label>
-                                            <select id="inputState" className="form-control" name="bpSubCategoryId" value={bizPage.bpSubCategoryId} onChange={inputsHandler}>
+                                            <select id="inputState" className="form-control" name="bpSubCategoryId" value={bizPageBody.bpSubCategoryId} onChange={inputsHandler}>
                                                 <option>Select...</option>
                                                 {
                                                     bizSubCategory && bizSubCategory.map((subcat) => {
@@ -218,14 +279,14 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="form-group col-md-3">
                                             <label>Biz Page Privacy</label>
-                                            <select id="inputState" className="form-control" name="isPrivate" value={bizPage.isPrivate} onChange={inputsHandler}>
-                                                <option value={false}>Public</option>
-                                                <option value={true}>Private</option>
+                                            <select id="inputState" className="form-control" name="isPrivate" value={bizPageBody.isPrivate} onChange={inputsHandler}>
+                                                <option value='0'>Public</option>
+                                                <option value='1'>Private</option>
                                             </select>
                                         </div>
                                         <div className="form-group col-md-3">
                                             <label>Biz Page URL</label>
-                                            <input type="text" className="form-control" required value={bizPageUrl} onChange={(e)=>setBizPageUrl(e.target.value)}/>
+                                            <input type="text" className="form-control" required value={bizPageBodyUrl} onChange={(e) => setBizPageBodyUrl(e.target.value)} />
                                         </div>
                                         <div className="form-group col-md-3">
                                             <label>Add your biz logo</label>
@@ -237,7 +298,7 @@ export default function GroupDetail() {
                                         </div>
                                         <div className="form-group col-md-12">
                                             <label>Summary</label>
-                                            <textarea rows="5" className="form-control" name='summary' value={bizPage.summary} onChange={inputsHandler}></textarea>
+                                            <textarea rows="5" className="form-control" name='summary' value={bizPageBody.summary} onChange={inputsHandler}></textarea>
                                             <p className="input-hints">Max 180 Characters</p>
                                         </div>
                                     </div>
@@ -254,7 +315,7 @@ export default function GroupDetail() {
                                 </div>
                             </div> */}
                                     <div className="bizcreate-btns">
-                                        <button data-bs-toggle="modal" data-bs-target="#createbizmodel" className="btn btn-success mr-3" onClick={createBizPages} disabled={!flag}>Creat BizPage</button>
+                                        <button className="btn btn-success mr-3" onClick={createBizPages} disabled={!flag}>Creat BizPage</button>
                                         <a href="#" className="btn btn-default">Cancel</a>
                                     </div>
                                 </form>
@@ -269,7 +330,7 @@ export default function GroupDetail() {
                                         <div className="col-xl-4 col-lg-4 col-12 order-lg-2">
                                             <div className="biz-user-pro-blk">
                                                 <img src={tempLogo || "assets/images/demo-1.jpg"} />
-                                                <h5>{bizPage.name || 'Page Name'}</h5>
+                                                <h5>{bizPageBody.name || 'Page Name'}</h5>
                                                 <p>
                                                     <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-10 ih-10"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Addess</p>
                                             </div>
@@ -555,13 +616,35 @@ export default function GroupDetail() {
                 </div>
                 <RightSidebar></RightSidebar>
             </div>
-            <div className="modal fade" id="createbizmodel" tabIndex="-1" role="dialog" aria-labelledby="createbizmodelTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered createbizpageModel" role="document">
+
+            {/* Snackbar */}
+            <Stack spacing={2} sx={{ width: '100%' }} id="stack">
+                <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
+                        {alert.content}
+                    </Alert>
+                </Snackbar>
+            </Stack>
+
+            {/* MUI Dialog Box  */}
+            <Dialog
+                open={popup}
+                onClose={() => setPopup(false)}
+                scroll={'body'}
+                fullWidth={true}
+                maxWidth={'sm'}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <div className="createbizpageModel" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
                             <img src="assets/images/Star1.png" />
                             <h5 className="modal-title" id="exampleModalLongTitle">BizPage Created Successfully!</h5>
-                            {/* <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a> */}
+                            {/* <a onClick={() => setPopup(false)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </a> */}
                         </div>
                         <div className="modal-body">
                             <div className="searchfilter-blk">
@@ -610,20 +693,11 @@ export default function GroupDetail() {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-solid" data-bs-dismiss="modal" aria-label="Close">OK</button>
+                            <button type="button" className="btn btn-solid" onClick={() => setPopup(false)}>OK</button>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Snackbar */}
-            <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                        {alert.content}
-                    </Alert>
-                </Snackbar>
-            </Stack>
+            </Dialog>
 
         </>
     );

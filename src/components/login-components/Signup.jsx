@@ -18,6 +18,7 @@ const Signup = () => {
     const [phoneCode, setPhoneCode] = useState([])
     const [error, setError] = useState('');
     const [language, setLanguage] = useState([])
+    const[defaultCountryCode,setDefaultCountryCode]=useState('');
 
     let navigate = useNavigate();
 
@@ -25,6 +26,7 @@ const Signup = () => {
         e.preventDefault();
         const phoneFormat = /^[6-9]\d{9}$/;
         if (!userData.code) { errorRef.current.classList.remove('d-none'); setError('Please Select Phone Code') }
+        else if (defaultCountryCode !== user.countryId ) { errorRef.current.classList.remove('d-none'); setError('Please select right country code') }
         else if (!userData.mobile) { errorRef.current.classList.remove('d-none'); setError('Please Enter Phone Number !') }
         else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
         else {
@@ -42,6 +44,15 @@ const Signup = () => {
                 .catch((err) => {
                     console.log(err)
                 })
+        }
+    }
+    // number filter in input field function
+    const numberFilter = (e) => {
+        var ASCIICode = (e.which) ? e.which : e.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            e.preventDefault();
+        if (e.target.value.length === 10) {
+            e.preventDefault();
         }
     }
 
@@ -69,6 +80,7 @@ const Signup = () => {
             // filter country by phone code
             const filterCode = phoneCode.filter((curr) => { return `+${curr.teleCode}` === userData.code })
             user.countryId = filterCode[0].id;
+            
         }
     }
     useEffect(() => {
@@ -78,6 +90,7 @@ const Signup = () => {
                 // filter country by phone code
                 const filterCode = phoneCode.find((curr) => { return `+${curr.teleCode}` === res.data.calling_code })
                 user.countryId = filterCode?.id;
+                setDefaultCountryCode(filterCode?.id)
             })
             .catch(err => {
                 console.log(err)
@@ -103,7 +116,7 @@ const Signup = () => {
                                     </div>
                                     <div className="form-sec">
                                         <div>
-                                            <form className="theme-form" onSubmit={handleSubmit}>
+                                            <form className="theme-form">
                                                 <div className="form-group">
                                                     <label>Enter your Mobile Number</label>
                                                     <div className={`input-block ${userData.mobile.length === 10 && 'border border-success rounded-3'}`}>
@@ -116,7 +129,7 @@ const Signup = () => {
                                                                     })
                                                                 }
                                                             </select>
-                                                            <input type="number" className="form-control" placeholder="Enter Mobile Number" name="mobile" onChange={(e) => { setUserData({ ...userData, mobile: e.target.value }); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 10 && e.preventDefault(); }} />
+                                                            <input type="text" className="form-control" placeholder="Enter Mobile Number" name="mobile" value={userData.mobile} onChange={(e) => { setUserData({ ...userData, mobile: e.target.value }); errorRef.current.classList.add('d-none') }} onKeyPress={numberFilter} />
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         </div>
                                                     </div>
@@ -124,7 +137,7 @@ const Signup = () => {
                                                 </div>
                                                 <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                                                 <div className="btn-section">
-                                                    <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length !== 10 ? true : false}>CONTINUE</button>
+                                                    <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length !== 10 ? true : false} onClick={handleSubmit}>CONTINUE</button>
                                                 </div>
                                                 <div className="connect-with">
                                                     <div className="no-account-blk">

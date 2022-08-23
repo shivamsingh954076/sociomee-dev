@@ -36897,6 +36897,7 @@ button:focus {
   color: #647589;
   border-radius: 5px;
   height: auto;
+  padding-right: 2.1rem;
 }
 
 .theme-form .form-group {

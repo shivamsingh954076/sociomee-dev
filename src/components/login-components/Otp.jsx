@@ -12,7 +12,7 @@ const Otp = () => {
     const errorRef = useRef(null);
     const [error, setError] = useState('');
     const [resendOtpLimit, setResendOtpLimit] = useState({ times: 0 })
-    const[flag,setFlag]=useState(false)
+    const [flag, setFlag] = useState(false)
     let navigate = useNavigate();
 
     // This function is used to handle six digit code 
@@ -153,7 +153,8 @@ const Otp = () => {
                                         <h2>Enter OTP</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>An OTP has been sent to your phone number ending with <b>XXX XXX {lastFour}</b></h4>
+                                        <h4>An OTP has been sent to your phone number ending with
+                                            <br />XXX XXX {lastFour}</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>
@@ -164,7 +165,7 @@ const Otp = () => {
 
                                                             return (<input
                                                                 name="otp"
-                                                                type="number"
+                                                                type="text"
                                                                 placeholder="-"
                                                                 autoComplete="off"
                                                                 className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'}`}
