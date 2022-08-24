@@ -53,7 +53,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -85,7 +85,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -117,7 +117,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -149,7 +149,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -181,7 +181,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -213,7 +213,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -245,7 +245,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -277,7 +277,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -309,7 +309,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -341,7 +341,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -373,7 +373,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -405,7 +405,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>
@@ -437,7 +437,7 @@ const AdCompleted = () => {
                                     </label>
                                 </td>
                                 <td className='img-con'>
-                                    <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                                    <img src="/assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
                                     <div>
                                         <p>New Traffic Ad - Kickstarter</p>
                                         <div className='table-link'>

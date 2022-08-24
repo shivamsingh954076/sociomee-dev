@@ -1,12 +1,12 @@
-import * as types from '../Constants/index';
+import * as types from '../../Constants/BizPage/index';
 import axios from 'axios';
 
-const getBizSubCategory = (bizSubCategory) => ({
-    type: types.GET_BIZ_SUBCATEGORY,
-    payload: bizSubCategory,
+const getAllBizCategory = (bizCategory) => ({
+    type: types.GET_BIZ_CATEGORY,
+    payload: bizCategory,
 });
 // get all biz category
-export const loadBizSubCategory = (categoryId) => {
+export const loadAllBizCategory = () => {
     
     let user = JSON.parse(localStorage.getItem('user'));
     const config = {
@@ -14,9 +14,9 @@ export const loadBizSubCategory = (categoryId) => {
     };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/bp/getAllSubCategory`,categoryId,config)
+            axios.post(`https://apiserver.msgmee.com/bp/getAllCategory`,{},config)
                 .then((res) => {
-                    dispatch(getBizSubCategory(res.data.data.successResult.rows))
+                    dispatch(getAllBizCategory(res.data.data.successResult.rows))
                 })
                 .catch((error) => {
                     console.log(error);

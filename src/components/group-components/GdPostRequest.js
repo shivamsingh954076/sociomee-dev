@@ -17,8 +17,8 @@ export default function GdPostRequest() {
             <div className="group-details-top">
                 <div className="gd-top-block" style={{background:"url(assets/images/gd-banner.jpg)"}}>
                     <div className="gd-top-btns">
-                        <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
-                        <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
+                        <a href="/" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
+                        <a href="/" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
                     </div>
                 </div>
                 <div className="heading-title-blk">
@@ -44,23 +44,23 @@ export default function GdPostRequest() {
                         <ul className="matual-friend-blk">
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                         </ul>
                         <h6>+75 members</h6>
@@ -83,7 +83,7 @@ export default function GdPostRequest() {
                                                     <div className="media">
                                                         <a className="popover-cls user-img" data-bs-toggle="popover" data-placement="right"
                                                             data-name="sufiya eliza" data-img="assets/images/my-profile.jpg">
-                                                            <img src="assets/images/my-profile.jpg"
+                                                            <img src="/assets/images/my-profile.jpg"
                                                                 className="img-fluid bg-img" alt="user"/>
                                                         </a>
                                                         <div className="media-body">
@@ -122,9 +122,9 @@ export default function GdPostRequest() {
                                                                     <div className="col-8 pt-cls">
                                                                         <div className="overlay">
                                                                             <div className="portfolio-image">
-                                                                                <a href="#" data-bs-toggle="modal"
+                                                                                <a href="/" data-bs-toggle="modal"
                                                                                     data-bs-target="#imageModel">
-                                                                                    <img src="assets/images/post-3.jpg" alt="" className="img-fluid bg-img"/>
+                                                                                    <img src="/assets/images/post-3.jpg" alt="" className="img-fluid bg-img"/>
                                                                                 </a>
                                                                             </div>
                                                                         </div>
@@ -133,9 +133,9 @@ export default function GdPostRequest() {
                                                                         <div className="col-12 pt-cls p-0">
                                                                             <div className="overlay">
                                                                                 <div className="portfolio-image">
-                                                                                    <a href="#" data-bs-toggle="modal"
+                                                                                    <a href="/" data-bs-toggle="modal"
                                                                                         data-bs-target="#imageModel">
-                                                                                        <img src="assets/images/post-4.jpg" alt="" className="img-fluid bg-img"/>
+                                                                                        <img src="/assets/images/post-4.jpg" alt="" className="img-fluid bg-img"/>
                                                                                     </a>
                                                                                 </div>
                                                                             </div>
@@ -143,9 +143,9 @@ export default function GdPostRequest() {
                                                                         <div className="col-12 pt-cls p-0">
                                                                             <div className="overlay image-plus">
                                                                                 <div className="portfolio-image">
-                                                                                    <a href="#" data-bs-toggle="modal"
+                                                                                    <a href="/" data-bs-toggle="modal"
                                                                                         data-bs-target="#imageModel">
-                                                                                        <img src="assets/images/post-5.jpg" alt="" className="img-fluid bg-img"/>
+                                                                                        <img src="/assets/images/post-5.jpg" alt="" className="img-fluid bg-img"/>
                                                                                         <span>+20</span>
                                                                                     </a>
                                                                                 </div>
@@ -170,8 +170,8 @@ export default function GdPostRequest() {
                                                 </div>
                                                 <div className="gd-post-act-re-btn">
                                                     <div className="row">
-                                                        <div className="col-6"><a href="#" className="d-block btn btn-primary">Accept</a></div>
-                                                        <div className="col-6"><a href="#" className="d-block btn btn-default">Decline</a></div>
+                                                        <div className="col-6"><a href="/" className="d-block btn btn-primary">Accept</a></div>
+                                                        <div className="col-6"><a href="/" className="d-block btn btn-default">Decline</a></div>
                                                     </div>
                                                 </div>
                                             </div>

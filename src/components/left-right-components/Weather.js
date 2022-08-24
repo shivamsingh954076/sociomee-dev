@@ -29,13 +29,13 @@ const Weather = () => {
                     <h3>weather</h3>
                     <div className="settings">
                         <div className="setting-btn light-btn">
-                            <a href="#" className="d-flex">
+                            <a href="/" className="d-flex">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-light strokeWidth-3 iw-11 ih-11"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
                             </a>
                         </div>
                         <div className="setting-btn light-btn ms-2 setting-dropdown">
                             <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                <a className="d-flex" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a className="d-flex" href="/" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-12 ih-12"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                                 </a>
                                 <div className="dropdown-menu dropdown-menu-right custom-dropdown">
@@ -61,7 +61,7 @@ const Weather = () => {
                     <h6><span>{new Date().getDate()}-{new Date().getMonth()}-{new Date().getYear()} </span><span>{weather?.name}</span></h6>
                 </div>
                 <div className="flaks-img">
-                    <img src="assets/images/snow-flaks.png" className="img-fluid"
+                    <img src="/assets/images/snow-flaks.png" className="img-fluid"
                         alt="snow" />
                 </div>
                 <div className="snowflakes" aria-hidden="true">

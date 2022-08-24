@@ -36446,8 +36446,8 @@ button:focus {
   background-color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  -webkit-box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22);
-  box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22);
+  /* -webkit-box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22); */
+  /* box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22); */
 }
 
 .btn-outline {
@@ -36897,6 +36897,7 @@ button:focus {
   color: #647589;
   border-radius: 5px;
   height: auto;
+  padding-right: 2.1rem;
 }
 
 .theme-form .form-group {
@@ -51840,7 +51841,7 @@ section {
     border-radius: 5px;
   }
 
-  button.btn.btn-solid:disabled {
+  .btn-solid:disabled {
     background: #ACDAD6;
     border-color: #ACDAD6;
     color:#fff;

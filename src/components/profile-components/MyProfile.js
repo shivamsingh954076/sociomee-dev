@@ -182,7 +182,7 @@ export default function MyProfile() {
     let dispatch = useDispatch();
 
     const interestsHandler = (interest) => {
-        const exists = userInterests.find(inter => inter.id === interest.id);
+        const exists = userInterests?.find(inter => inter.id === interest.id);
         if (exists) {
             setUserInterests(userInterests?.filter(int => int.id !== interest.id))
         }
@@ -229,7 +229,7 @@ export default function MyProfile() {
                                             <h3>Profession</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#professionModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#professionModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -253,7 +253,7 @@ export default function MyProfile() {
                                             <h3>Education</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#educationModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#educationModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -278,7 +278,7 @@ export default function MyProfile() {
                                             <h3>Basic info</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#basicModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#basicModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -348,7 +348,7 @@ export default function MyProfile() {
                                             <h3>Bio</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#bioModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#bioModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -373,7 +373,7 @@ export default function MyProfile() {
                                             <h3>Contact Detail</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#contactInfoModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#contactInfoModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -411,7 +411,7 @@ export default function MyProfile() {
                                             <h3>Hobbies</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#hobbiesModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#hobbiesModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -437,7 +437,7 @@ export default function MyProfile() {
                                             <h3>My Interestes</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#interestesModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#interestesModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -446,7 +446,7 @@ export default function MyProfile() {
                                         <div className="card-block-box">
                                             <ul className="aboutlist-blk interest-list-blk">
                                                 {
-                                                    userProfileByUserId.interests && userProfileByUserId.interests.map((inter) => {
+                                                    userProfileByUserId.interests && userProfileByUserId.interests?.map((inter) => {
                                                         return <li key={inter.id}>
                                                             <img src={`https://sociomee-dev.s3.ap-south-1.amazonaws.com/${inter.iconUrl}`} className='icon' height='20' width='20' />&nbsp;{inter.name}</li>
                                                     })
@@ -460,7 +460,7 @@ export default function MyProfile() {
                                             <h3>Sports</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#sportsModel">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#sportsModel">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -472,7 +472,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/sport-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/sport-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Footboll</h6>
@@ -483,7 +483,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/sport-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/sport-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Footboll</h6>
@@ -494,7 +494,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/sport-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/sport-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Footboll</h6>
@@ -505,7 +505,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/sport-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/sport-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Footboll</h6>
@@ -516,7 +516,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/sport-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/sport-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Footboll</h6>
@@ -527,7 +527,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/sport-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/sport-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Footboll</h6>
@@ -542,7 +542,7 @@ export default function MyProfile() {
                                             <h3>Movies</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#editProfile">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -554,7 +554,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/movie-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/movie-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Singham</h6>
@@ -565,7 +565,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/movie-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/movie-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Singham</h6>
@@ -576,7 +576,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/movie-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/movie-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Singham</h6>
@@ -587,7 +587,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/movie-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/movie-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Singham</h6>
@@ -598,7 +598,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/movie-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/movie-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Singham</h6>
@@ -609,7 +609,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/movie-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/movie-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Singham</h6>
@@ -624,7 +624,7 @@ export default function MyProfile() {
                                             <h3>Music</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#editProfile">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -636,7 +636,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/music-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/music-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>A. R. Rahman</h6>
@@ -647,7 +647,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/music-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/music-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>A. R. Rahman</h6>
@@ -658,7 +658,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/music-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/music-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>A. R. Rahman</h6>
@@ -669,7 +669,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/music-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/music-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>A. R. Rahman</h6>
@@ -680,7 +680,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/music-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/music-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>A. R. Rahman</h6>
@@ -691,7 +691,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/music-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/music-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>A. R. Rahman</h6>
@@ -706,7 +706,7 @@ export default function MyProfile() {
                                             <h3>Book</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#editProfile">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -718,7 +718,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/book-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/book-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Wings of Fire</h6>
@@ -729,7 +729,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/book-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/book-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Wings of Fire</h6>
@@ -740,7 +740,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/book-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/book-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Wings of Fire</h6>
@@ -751,7 +751,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/book-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/book-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Wings of Fire</h6>
@@ -762,7 +762,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/book-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/book-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Wings of Fire</h6>
@@ -773,7 +773,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/book-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/book-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Wings of Fire</h6>
@@ -788,7 +788,7 @@ export default function MyProfile() {
                                             <h3>Group</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#editProfile">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -800,7 +800,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/group-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/group-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>College Group</h6>
@@ -812,7 +812,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/group-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/group-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>College Group</h6>
@@ -824,7 +824,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/group-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/group-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>College Group</h6>
@@ -836,7 +836,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/group-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/group-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>College Group</h6>
@@ -848,7 +848,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/group-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/group-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>College Group</h6>
@@ -860,7 +860,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/group-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/group-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>College Group</h6>
@@ -876,7 +876,7 @@ export default function MyProfile() {
                                             <h3>Biz Page</h3>
                                             <div className="settings">
                                                 <div className="setting-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                                    <a href="/" data-bs-toggle="modal" data-bs-target="#editProfile">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-dark strokeWidth-3 iw-11 ih-11"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                                     </a>
                                                 </div>
@@ -888,7 +888,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Havells</h6>
@@ -900,7 +900,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Havells</h6>
@@ -912,7 +912,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Havells</h6>
@@ -924,7 +924,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Havells</h6>
@@ -936,7 +936,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Havells</h6>
@@ -948,7 +948,7 @@ export default function MyProfile() {
                                                     <div className="profile-slide-box">
                                                         <div className="adaptive-overlay"></div>
                                                         <div className="story-bg">
-                                                            <img src="assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
+                                                            <img src="/assets/images/bizpage-1.jpg" className="img-fluid bg-img" />
                                                         </div>
                                                         <div className="story-content">
                                                             <h6>Havells</h6>
@@ -974,7 +974,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Add Profession</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="searchfilter-blk">
@@ -985,7 +985,7 @@ export default function MyProfile() {
                                 <ul className="searchfiler-list">
                                     {names
                                         ?.filter(name => name.match(new RegExp(searchValue, "i")))
-                                        .map(name => {
+                                        ?.map(name => {
                                             return <li key={name}><div><input class="radio_animated" type="radio" name="gender" id={name}
                                                 value={name} /><label htmlFor={name}>{name}</label></div></li>
                                         })}
@@ -1004,7 +1004,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Add Education</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="ed-model-block">
@@ -1040,7 +1040,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Basic Info</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="ed-model-block">
@@ -1097,7 +1097,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Bio</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <form className="theme-form">
@@ -1119,7 +1119,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Contact Info</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="ed-model-block">
@@ -1155,7 +1155,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Hobbies</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="searchfilter-blk">
@@ -1166,7 +1166,7 @@ export default function MyProfile() {
                                 <ul className="searchfiler-list">
                                     {hobbies
                                         ?.filter(hobbies => hobbies.match(new RegExp(searchValue, "i")))
-                                        .map(hobbies => {
+                                        ?.map(hobbies => {
                                             return <li key={hobbies}><div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" id={hobbies} /><label className="form-check-label" htmlFor={hobbies}>{hobbies}</label></div></li>
                                         })}
                                 </ul>
@@ -1184,7 +1184,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Interestes</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="searchfilter-blk">
@@ -1195,7 +1195,7 @@ export default function MyProfile() {
                                 <ul className="searchfiler-list">
                                     {allInterests?.rows
                                         ?.filter(interestes => interestes.name.match(new RegExp(searchValue, "i")))
-                                        .map(interestes => {
+                                        ?.map(interestes => {
                                             return <li key={interestes.id} >
                                                 <div className="form-check checkbox_animated"
                                                 >
@@ -1222,7 +1222,7 @@ export default function MyProfile() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Sports</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="searchfilter-blk">
@@ -1235,7 +1235,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="Mughal-e-Aazam" />
                                             <label className="form-check-label" htmlFor="Mughal-e-Aazam">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> Mughal-e-Aazam</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> Mughal-e-Aazam</div>
                                             </label>
                                         </div>
                                     </li>
@@ -1243,7 +1243,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="Shole" />
                                             <label className="form-check-label" htmlFor="Shole">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> Shole</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> Shole</div>
                                             </label>
                                         </div>
                                     </li>
@@ -1251,7 +1251,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="PK" />
                                             <label className="form-check-label" htmlFor="PK">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> PK</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> PK</div>
                                             </label>
                                         </div>
                                     </li>
@@ -1259,7 +1259,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="Shaun of the Dead" />
                                             <label className="form-check-label" htmlFor="Shaun of the Dead">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> Shaun of the Dead</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> Shaun of the Dead</div>
                                             </label>
                                         </div>
                                     </li>
@@ -1267,7 +1267,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="Raees" />
                                             <label className="form-check-label" htmlFor="Raees">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> Raees</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> Raees</div>
                                             </label>
                                         </div>
                                     </li>
@@ -1275,7 +1275,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="Dil Wale Dulhaniya le jaye ge" />
                                             <label className="form-check-label" htmlFor="Dil Wale Dulhaniya le jaye ge">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> Dil Wale Dulhaniya le jaye ge</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> Dil Wale Dulhaniya le jaye ge</div>
                                             </label>
                                         </div>
                                     </li>
@@ -1283,7 +1283,7 @@ export default function MyProfile() {
                                         <div className="form-check checkbox_animated">
                                             <input type="checkbox" className="form-check-input" id="Don" />
                                             <label className="form-check-label" htmlFor="Don">
-                                                <div className="sport-blk"><img src="assets/images/sport-1.jpg" /> Don</div>
+                                                <div className="sport-blk"><img src="/assets/images/sport-1.jpg" /> Don</div>
                                             </label>
                                         </div>
                                     </li>

@@ -12,7 +12,7 @@ const Otp = () => {
     const errorRef = useRef(null);
     const [error, setError] = useState('');
     const [resendOtpLimit, setResendOtpLimit] = useState({ times: 0 })
-    const[flag,setFlag]=useState(false)
+    const [flag, setFlag] = useState(false)
     let navigate = useNavigate();
 
     // This function is used to handle six digit code 
@@ -94,7 +94,7 @@ const Otp = () => {
                     resendOtpLimit.times += 1;
                     if (resendOtpLimit.times === 2) {
                         document.getElementById('resendotp').style.display = 'none';
-                        document.getElementById('timer-div').style.display = 'none';
+                        timerFunc();
                     }
                 }
                 else {
@@ -106,8 +106,7 @@ const Otp = () => {
             })
     }
 
-
-    useEffect(() => {
+    const timerFunc = () => {
         let startTimer = 20;
         document.getElementById('resendotp').style.display = 'none';
         let resendTimer = setInterval(function () {
@@ -116,6 +115,11 @@ const Otp = () => {
                 document.getElementById('timer').innerHTML = '00:00';
                 document.getElementById('resendotp').style.display = 'block';
                 document.getElementById('timer-div').style.display = 'none';
+                console.log(resendOtpLimit.times)
+                if (resendOtpLimit.times === 2) {
+                    document.getElementById('resendotp').style.display = 'none';
+                    document.getElementById('timer-div').style.display = 'none';
+                }
 
             }
             else {
@@ -123,11 +127,17 @@ const Otp = () => {
             }
             startTimer -= 1;
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, 1000);
 
-        if (flag) {
-            clearInterval(resendTimer);
-        }
+            if (flag) {
+                clearInterval(resendTimer);
+            }
+        }, 1000);
+    }
+
+
+
+    useEffect(() => {
+        timerFunc();
     }, [location.state])
 
 
@@ -153,7 +163,8 @@ const Otp = () => {
                                         <h2>Enter OTP</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>An OTP has been sent to your phone number ending with <b>XXX XXX {lastFour}</b></h4>
+                                        <h4>An OTP has been sent to your phone number ending with
+                                            <br />XXX XXX {lastFour}</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>
@@ -164,7 +175,7 @@ const Otp = () => {
 
                                                             return (<input
                                                                 name="otp"
-                                                                type="number"
+                                                                type="text"
                                                                 placeholder="-"
                                                                 autoComplete="off"
                                                                 className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'}`}

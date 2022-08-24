@@ -130,7 +130,7 @@ const Login = () => {
                                                                     })
                                                                 }
                                                             </select> */}
-                                                        <input type="text" className="form-control" placeholder="Enter Mobile Number" name="phone" value={user.phone} onChange={onChangeHandler} />
+                                                        <input type="text" className="form-control pr-5" placeholder="Enter Mobile Number/Email" name="phone" value={user.phone} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 40 && e.preventDefault() }}/>
 
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         {/* </div> */}
@@ -165,13 +165,13 @@ const Login = () => {
                                             <div className="connect-with">
                                                 {/* <h6><span>OR Connect With</span></h6>
                                                 <ul className="social-login-blk">
-                                                    <li><Link to="/"><img src="assets/images/google-icon.png" alt="Google Store" /> Continue with Google</Link></li>
-                                                    <li><Link to="/"><img src="assets/images/apple-icon.png" alt="App Store" /> Continue with Google</Link></li>
+                                                    <li><Link to="/"><img src="/assets/images/google-icon.png" alt="Google Store" /> Continue with Google</Link></li>
+                                                    <li><Link to="/"><img src="/assets/images/apple-icon.png" alt="App Store" /> Continue with Google</Link></li>
                                                 </ul> */}
                                                 <div className="no-account-blk">
                                                     <p>Don't have an account? <Link className="" to="/Signup">Get Started</Link></p>
                                                 </div>
-                                                <div className="privacy-usernoti-blk"><a href="#">Privacy Policy</a> • <a href="#">User Notice</a></div>
+                                                <div className="privacy-usernoti-blk"><a href="/">Privacy Policy</a> • <a href="/">User Notice</a></div>
                                             </div>
                                         </div>
                                     </div>

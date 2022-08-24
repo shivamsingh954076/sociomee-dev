@@ -84,7 +84,7 @@ export default function Header() {
                         <div className="header-left">
                             <div className="brand-logo">
                                 <NavLink to="/Home">
-                                    <img src="assets/images/logo.png" alt="logo" className="img-fluid" />
+                                    <img src="/assets/images/logo.png" alt="logo" className="img-fluid" />
                                 </NavLink>
                             </div>
                             <div className="search-box">
@@ -98,7 +98,7 @@ export default function Header() {
                                     <ul className="friend-list">
                                         <li>
                                             <div className="media">
-                                                <img src="assets/images/user-sm-9.jpg" alt="user" />
+                                                <img src="/assets/images/user-sm-9.jpg" alt="user" />
                                                 <div className="media-body">
                                                     <div>
                                                         <h5 className="mt-0">Paige Turner</h5>
@@ -109,7 +109,7 @@ export default function Header() {
                                         </li>
                                         <li>
                                             <div className="media">
-                                                <img src="assets/images/user-sm-12.jpg" alt="user" />
+                                                <img src="/assets/images/user-sm-12.jpg" alt="user" />
                                                 <div className="media-body">
                                                     <div>
                                                         <h5 className="mt-0">Paige Turner</h5>
@@ -120,7 +120,7 @@ export default function Header() {
                                         </li>
                                         <li>
                                             <div className="media">
-                                                <img src="assets/images/user-sm-15.jpg" alt="user" />
+                                                <img src="/assets/images/user-sm-15.jpg" alt="user" />
                                                 <div className="media-body">
                                                     <div>
                                                         <h5 className="mt-0">Paige Turner</h5>
@@ -135,22 +135,22 @@ export default function Header() {
                             <ul className="btn-group menu-btn-group">
                                 <li className="header-btn home-btn cust-home-btn">
                                     <NavLink to="/Home" className="main-link">
-                                        <img src="assets/images/home-menu.svg" />
+                                        <img src="/assets/images/home-menu.svg" />
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-video-btn">
-                                    <a className="main-link" href="#">
-                                        <img src="assets/images/video.svg" />
+                                    <a className="main-link" href="/">
+                                        <img src="/assets/images/video.svg" />
                                     </a>
                                 </li>
                                 <li className="header-btn home-btn cust-group-btn">
-                                    <a className="main-link" href="#">
-                                        <img src="assets/images/group.svg" />
+                                    <a className="main-link" href="/">
+                                        <img src="/assets/images/group.svg" />
                                     </a>
                                 </li>
                                 <li className="header-btn custom-dropdown dropdown-lg add-friend">
-                                    <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="assets/images/users.svg" />
+                                    <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/assets/images/users.svg" />
                                     </a>
                                     <div className="dropdown-menu">
                                         <div className="dropdown-header">
@@ -163,7 +163,7 @@ export default function Header() {
                                             <ul className="friend-list">
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-5.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-5.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -178,7 +178,7 @@ export default function Header() {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-6.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-6.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -193,7 +193,7 @@ export default function Header() {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-7.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-7.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -208,7 +208,7 @@ export default function Header() {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-2.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-2.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -226,18 +226,18 @@ export default function Header() {
                                     </div>
                                 </li>
                                 <li className="header-btn home-btn cust-pen-btn">
-                                    <a className="main-link" href="#">
-                                        <img src="assets/images/pen.svg" />
+                                    <a className="main-link" href="/">
+                                        <img src="/assets/images/pen.svg" />
                                     </a>
                                 </li>
                                 <li className="header-btn home-btn cust-union-btn">
                                     <NavLink className="main-link" to="/Tops">
-                                        <img src="assets/images/Union1.svg" />
+                                        <img src="/assets/images/Union1.svg" />
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-union-btn">
                                     <NavLink className="main-link" to="/Trending">
-                                        <img src="assets/images/Union.svg" />
+                                        <img src="/assets/images/Union.svg" />
                                     </NavLink>
                                 </li>
                             </ul>
@@ -245,7 +245,7 @@ export default function Header() {
                         <div className="header-right">
                             <ul className="option-list">
                                 <li className="header-btn custom-dropdown dropdown-lg btn-group message-btn">
-                                    <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                    <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                         <span className="count success">2</span>
@@ -258,17 +258,17 @@ export default function Header() {
                                             <div className="right-option">
                                                 <ul>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-16 ih-16"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-16 ih-16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-16 ih-16"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                                                         </a>
                                                     </li>
@@ -285,9 +285,9 @@ export default function Header() {
                                         <div className="dropdown-content">
                                             <ul className="friend-list">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-1.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-1.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0">Paige Turner</h5>
@@ -301,9 +301,9 @@ export default function Header() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-2.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0">Paige Turner</h5>
@@ -314,9 +314,9 @@ export default function Header() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-3.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-3.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0">Bob Frapples</h5>
@@ -334,7 +334,7 @@ export default function Header() {
                                     </div>
                                 </li>
                                 <li className="header-btn custom-dropdown d-md-none d-block app-btn">
-                                    <a className="main-link" href="#" onClick={menuBtnClick}>
+                                    <a className="main-link" href="/" onClick={menuBtnClick}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                                     </a>
                                     <div className="overlay-bg app-overlay" ref={olRef} onClick={closeMenuBtnClick}></div>
@@ -342,67 +342,67 @@ export default function Header() {
                                         <ul className="sidebar-icon">
                                             <li className="active">
                                                 <NavLink to="/">
-                                                    <img src="assets/images/home.png" className="bar-icon-img" alt="Home" />
+                                                    <img src="/assets/images/home.png" className="bar-icon-img" alt="Home" />
                                                     <h4>Home</h4>
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/star.png" className="bar-icon-img" alt="favourite" />
+                                                <a href="/">
+                                                    <img src="/assets/images/star.png" className="bar-icon-img" alt="favourite" />
                                                     <h4>favourite</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <NavLink to="/Group">
-                                                    <img src="assets/images/users.png" className="bar-icon-img" alt="Groups" />
+                                                    <img src="/assets/images/users.png" className="bar-icon-img" alt="Groups" />
                                                     <h4>Groups</h4>
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/user-check.png" className="bar-icon-img" alt="Connections " />
+                                                <a href="/">
+                                                    <img src="/assets/images/user-check.png" className="bar-icon-img" alt="Connections " />
                                                     <h4>Connections </h4>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/headphones.png" className="bar-icon-img" alt="Podcast" />
+                                                <a href="/">
+                                                    <img src="/assets/images/headphones.png" className="bar-icon-img" alt="Podcast" />
                                                     <h4>Podcast</h4>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/calendar.png" className="bar-icon-img" alt="Shotz" />
+                                                <a href="/">
+                                                    <img src="/assets/images/calendar.png" className="bar-icon-img" alt="Shotz" />
                                                     <h4>Shotz</h4>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/briefcase.png" className="bar-icon-img" alt="Business Page" />
+                                                <a href="/">
+                                                    <img src="/assets/images/briefcase.png" className="bar-icon-img" alt="Business Page" />
                                                     <h4>Business Page</h4>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/zap.png" className="bar-icon-img" alt="Events" />
+                                                <a href="/">
+                                                    <img src="/assets/images/zap.png" className="bar-icon-img" alt="Events" />
                                                     <h4>Events</h4>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <img src="assets/images/shopping-cart.png" className="bar-icon-img" alt="MarkrtPlace" />
+                                                <a href="/">
+                                                    <img src="/assets/images/shopping-cart.png" className="bar-icon-img" alt="MarkrtPlace" />
                                                     <h4>MarkrtPlace</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <NavLink to="/AdManager">
-                                                    <img src="assets/images/box.png" className="bar-icon-img" alt="Ad Manager" />
+                                                    <img src="/assets/images/box.png" className="bar-icon-img" alt="Ad Manager" />
                                                     <h4>Ad Manager</h4>
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <a onClick={() => setOpen(true)}>
-                                                    <img src="assets/images/power.png" className="bar-icon-img" alt="logout" />
+                                                    <img src="/assets/images/power.png" className="bar-icon-img" alt="logout" />
                                                     <h4>logout</h4>
                                                 </a>
                                             </li>
@@ -410,7 +410,7 @@ export default function Header() {
                                     </div>
                                 </li>
                                 <li className="header-btn custom-dropdown dropdown-lg btn-group notification-btn">
-                                    <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                    <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                                         <span className="count warning">2</span>
@@ -427,7 +427,7 @@ export default function Header() {
                                                 <li className="d-block">
                                                     <div>
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-5.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-5.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Paige Turner</span> send you a friend
@@ -448,9 +448,9 @@ export default function Header() {
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-6.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-6.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Bob Frapples</span> add their stories
@@ -462,9 +462,9 @@ export default function Header() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-7.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-7.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Josephin water</span> have birthday
@@ -477,9 +477,9 @@ export default function Header() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-2.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Petey Cruiser</span> added a new
@@ -496,7 +496,7 @@ export default function Header() {
                                     </div>
                                 </li>
                                 <li className="header-btn custom-dropdown profile-btn btn-group">
-                                    <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 d-sm-none d-block iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <div className="media d-none d-sm-flex">
                                             <div className="user-img">
@@ -533,7 +533,7 @@ export default function Header() {
                                                     </NavLink>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className=""><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                                                             <div className="media-body">
@@ -546,7 +546,7 @@ export default function Header() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <div className="media">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                                                             <div className="media-body">

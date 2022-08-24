@@ -17,8 +17,8 @@ export default function GroupMember() {
             <div className="group-details-top">
                 <div className="gd-top-block" style={{background:"url(assets/images/gd-banner.jpg)"}}>
                     <div className="gd-top-btns">
-                        <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
-                        <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
+                        <a href="/" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
+                        <a href="/" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
                     </div>
                 </div>
                 <div className="heading-title-blk">
@@ -44,23 +44,23 @@ export default function GroupMember() {
                         <ul className="matual-friend-blk">
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
-                                <img src="assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
-                                <img src="assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                             <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                 data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
-                                <img src="assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
+                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                             </li>
                         </ul>
                         <h6>+75 members</h6>
@@ -87,8 +87,8 @@ export default function GroupMember() {
                                                     <input type="text" className="form-control" name="search" placeholder="Search..."  data-bs-toggle="modal" data-bs-target="#peopleSearch"/>
                                                 </div>
                                             </div>
-                                            <a href="#" className="assign-group-btn">Assign Group Role</a>
-                                            <a href="#" className="group-filter-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg> Filter</a>
+                                            <a href="/" className="assign-group-btn">Assign Group Role</a>
+                                            <a href="/" className="group-filter-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" class="iw-13 ih-13"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg> Filter</a>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@ export default function GroupMember() {
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -107,15 +107,15 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn green">Modify</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -123,8 +123,8 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn green">Modify</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@ export default function GroupMember() {
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-4.jpg"/>
+                                                <img src="/assets/images/story-4.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -144,15 +144,15 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn green">Modify</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -160,15 +160,15 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn green">Modify</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -176,7 +176,7 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@ export default function GroupMember() {
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -196,15 +196,15 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn green">Modify</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -212,8 +212,8 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn green">Modify</a>
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn green">Modify</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +225,7 @@ export default function GroupMember() {
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -233,14 +233,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -248,14 +248,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-4.jpg"/>
+                                                <img src="/assets/images/story-4.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -263,14 +263,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -278,14 +278,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -293,14 +293,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-4.jpg"/>
+                                                <img src="/assets/images/story-4.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -308,14 +308,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -323,14 +323,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -338,14 +338,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-4.jpg"/>
+                                                <img src="/assets/images/story-4.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -353,14 +353,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-2.jpg"/>
+                                                <img src="/assets/images/story-2.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -368,14 +368,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-3.jpg"/>
+                                                <img src="/assets/images/story-3.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -383,14 +383,14 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src="assets/images/story-4.jpg"/>
+                                                <img src="/assets/images/story-4.jpg"/>
                                                 <div className="member-cont-blk">
                                                     <h4>Kenjomen Norke</h4>
                                                     <p>Joined on 23 Mar 2021</p>
@@ -398,7 +398,7 @@ export default function GroupMember() {
                                                 </div>
                                             </div>
                                             <div className="members-btns-blk">
-                                                <a href="#" className="member-btn">Remove</a>
+                                                <a href="/" className="member-btn">Remove</a>
                                             </div>
                                         </div>
                                     </div>

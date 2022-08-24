@@ -1594,7 +1594,7 @@
       super(element);
       this._isTransitioning = false;
       this._config = this._getConfig(config);
-      this._triggerArray = SelectorEngine.find(`${SELECTOR_DATA_TOGGLE$4}[href="#${this._element.id}"],` + `${SELECTOR_DATA_TOGGLE$4}[data-bs-target="#${this._element.id}"]`);
+      this._triggerArray = SelectorEngine.find(`${SELECTOR_DATA_TOGGLE$4}[href="/${this._element.id}"],` + `${SELECTOR_DATA_TOGGLE$4}[data-bs-target="#${this._element.id}"]`);
       const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE$4);
 
       for (let i = 0, len = toggleList.length; i < len; i++) {

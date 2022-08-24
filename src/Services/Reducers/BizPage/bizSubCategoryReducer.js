@@ -1,4 +1,4 @@
-import * as types from "../Constants/index";
+import * as types from "../../Constants/BizPage/index";
 
 const initialState = {
   bizSubCategory: [],
