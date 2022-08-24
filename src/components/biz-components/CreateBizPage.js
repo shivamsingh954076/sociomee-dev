@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useMemo, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Header from '../Header';
 import LeftSidebar from '../LeftSidebar';
 import RightSidebar from '../RightSidebar';
@@ -17,7 +17,7 @@ import Snackbar from '@mui/material/Snackbar';
 // MUI Dialog box
 import Dialog from '@mui/material/Dialog';
 import axios from 'axios';
-import { createBizPage } from '../../Services/Actions/BizPage/CreateBizPageAction';
+import { createBizPage } from '../../Services/Actions/BizPage/bizPageAction';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -84,7 +84,7 @@ export default function GroupDetail() {
         "role": "admin",
         "logo": "",
         "status": 1,
-        "visitorCount": 5,
+        "visitorCount": '',
         "operatingStatus": "",
         "isPrivate": "",
         "blockedByAdmin": "",
@@ -92,13 +92,13 @@ export default function GroupDetail() {
         "blockMessage": "",
         "visibility": 1,
         "allowCall": 0,
-        "allowMessage": 1,
-        "allowSharing": 1,
-        "allowPageSuggestion": 1,
-        "allowQuestion": 1,
-        "allowNotificationOnEmail": 1,
+        "allowMessage": 0,
+        "allowSharing": 0,
+        "allowPageSuggestion": 0,
+        "allowQuestion": 0,
+        "allowNotificationOnEmail": 0,
         "allowNotificationOnSms": 0,
-        "allowNotification": 1,
+        "allowNotification": 0,
         "coverImages": '',
         "address": [
             {
@@ -120,8 +120,7 @@ export default function GroupDetail() {
     const [flag, setFlag] = useState(false)
 
     // get created page response using redux
-    const { bizPage } = useSelector(state => state.createBizPageData)
-
+    const { bizPage } = useSelector(state => state.bizPageData)
 
     // Snackbar Code
     const [open, setOpen] = useState(false);
@@ -141,6 +140,7 @@ export default function GroupDetail() {
     const { bizSubCategory } = useSelector(state => state.bizSubCategoryData)
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     // memoize sub-category by category
     const subCategory = useMemo(() => {
         dispatch(loadBizSubCategory({ categoryId: bizPageBody.bpCategoryId }))
@@ -169,7 +169,7 @@ export default function GroupDetail() {
             const formData = new FormData();
             formData.append('files', logo);
             formData.append('files', coverImage);
-            formData.append('uploadFor', 'postMedia');
+            formData.append('uploadFor', 'userProfile');
             axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                 .then(res => {
                     bizPageBody.logo = res.data.data.successResult[0]
@@ -184,7 +184,7 @@ export default function GroupDetail() {
                         "role": "admin",
                         "logo": "",
                         "status": 1,
-                        "visitorCount": 5,
+                        "visitorCount": '',
                         "operatingStatus": "",
                         "isPrivate": "",
                         "blockedByAdmin": "",
@@ -192,13 +192,13 @@ export default function GroupDetail() {
                         "blockMessage": "",
                         "visibility": 1,
                         "allowCall": 0,
-                        "allowMessage": 1,
-                        "allowSharing": 1,
-                        "allowPageSuggestion": 1,
-                        "allowQuestion": 1,
-                        "allowNotificationOnEmail": 1,
+                        "allowMessage": 0,
+                        "allowSharing": 0,
+                        "allowPageSuggestion": 0,
+                        "allowQuestion": 0,
+                        "allowNotificationOnEmail": 0,
                         "allowNotificationOnSms": 0,
-                        "allowNotification": 1,
+                        "allowNotification": 0,
                         "coverImages": '',
                         "address": [
                             {
@@ -316,7 +316,7 @@ export default function GroupDetail() {
                             </div> */}
                                     <div className="bizcreate-btns">
                                         <button className="btn btn-success mr-3" onClick={createBizPages} disabled={!flag}>Creat BizPage</button>
-                                        <a href="#" className="btn btn-default">Cancel</a>
+                                        <a href="/" className="btn btn-default">Cancel</a>
                                     </div>
                                 </form>
                             </div>
@@ -344,23 +344,23 @@ export default function GroupDetail() {
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>Visited Person</h6>
@@ -369,23 +369,23 @@ export default function GroupDetail() {
                                                     <ul className="matual-friend-blk">
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                         </li>
                                                     </ul>
                                                     <h6>Members</h6>
@@ -410,39 +410,39 @@ export default function GroupDetail() {
                             <div className="profile-menu section-t-space biz-cration-menu-preview">
                                 <ul>
                                     <li>
-                                        <a href="#" className="active-disable">
+                                        <a href="/" className="active-disable">
                                             <h6>Overview</h6>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <h6>Post</h6>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <h6>Review</h6>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <h6>Photos</h6>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <h6>About</h6>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul className="right-menu d-xl-flex d-none biz-cration-menu-preview">
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <h6>Post an offer</h6>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                                             <h6>Setting</h6>
                                         </a>
@@ -461,7 +461,7 @@ export default function GroupDetail() {
                                                     <div>
                                                         <div className="friend-sugges-box">
                                                             <div className="fdimg-blk">
-                                                                <img src="assets/images/demo-2.jpg" className="img-fluid bg-img" alt="" />
+                                                                <img src="/assets/images/demo-2.jpg" className="img-fluid bg-img" alt="" />
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                             </div>
                                                             <div className="fdcont-blk">
@@ -470,27 +470,27 @@ export default function GroupDetail() {
                                                                     <ul className="matual-friend-blk">
                                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                                         </li>
                                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                                         </li>
                                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                                         </li>
                                                                     </ul>
                                                                     <h6>mutual</h6>
                                                                 </div>
-                                                                <a href="#" className="d-block btn btn-primary">Send Request</a>
+                                                                <a href="/" className="d-block btn btn-primary">Send Request</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <div className="friend-sugges-box">
                                                             <div className="fdimg-blk">
-                                                                <img src="assets/images/demo-2.jpg" className="img-fluid bg-img" alt="" />
+                                                                <img src="/assets/images/demo-2.jpg" className="img-fluid bg-img" alt="" />
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                                                             </div>
                                                             <div className="fdcont-blk">
@@ -499,20 +499,20 @@ export default function GroupDetail() {
                                                                     <ul className="matual-friend-blk">
                                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                                         </li>
                                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                                         </li>
                                                                         <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                                             data-name="User Name" data-img="assets/images/user-sm-1.jpg">
-                                                                            <img src="assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
+                                                                            <img src="/assets/images/user-sm-1.jpg" className="img-fluid bg-img" alt="" />
                                                                         </li>
                                                                     </ul>
                                                                     <h6>mutual</h6>
                                                                 </div>
-                                                                <a href="#" className="d-block btn btn-primary">Send Request</a>
+                                                                <a href="/" className="d-block btn btn-primary">Send Request</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -522,7 +522,7 @@ export default function GroupDetail() {
                                     </div>
                                     <div className="content-center">
                                         <div className="create-post-demo">
-                                            <img src="assets/images/demo-3.png" />
+                                            <img src="/assets/images/demo-3.png" />
                                         </div>
                                     </div>
                                     <div className="content-right">
@@ -538,9 +538,9 @@ export default function GroupDetail() {
                                                         <div className="col-4">
                                                             <div className="overlay">
                                                                 <div className="portfolio-image">
-                                                                    <a href="#" data-bs-toggle="modal"
+                                                                    <a href="/" data-bs-toggle="modal"
                                                                         data-bs-target="#imageModel">
-                                                                        <img src="assets/images/event-bg.jpg" alt=""
+                                                                        <img src="/assets/images/event-bg.jpg" alt=""
                                                                             className="img-fluid bg-img" />
                                                                     </a>
                                                                 </div>
@@ -549,9 +549,9 @@ export default function GroupDetail() {
                                                         <div className="col-4">
                                                             <div className="overlay">
                                                                 <div className="portfolio-image">
-                                                                    <a href="#" data-bs-toggle="modal"
+                                                                    <a href="/" data-bs-toggle="modal"
                                                                         data-bs-target="#imageModel">
-                                                                        <img src="assets/images/event-bg.jpg" alt=""
+                                                                        <img src="/assets/images/event-bg.jpg" alt=""
                                                                             className="img-fluid bg-img" />
                                                                     </a>
                                                                 </div>
@@ -560,9 +560,9 @@ export default function GroupDetail() {
                                                         <div className="col-4">
                                                             <div className="overlay">
                                                                 <div className="portfolio-image">
-                                                                    <a href="#" data-bs-toggle="modal"
+                                                                    <a href="/" data-bs-toggle="modal"
                                                                         data-bs-target="#imageModel">
-                                                                        <img src="assets/images/event-bg.jpg" alt=""
+                                                                        <img src="/assets/images/event-bg.jpg" alt=""
                                                                             className="img-fluid bg-img" />
                                                                     </a>
                                                                 </div>
@@ -572,9 +572,9 @@ export default function GroupDetail() {
                                                             <div className="col-12 pt-cls p-0">
                                                                 <div className="overlay">
                                                                     <div className="portfolio-image">
-                                                                        <a href="#" data-bs-toggle="modal"
+                                                                        <a href="/" data-bs-toggle="modal"
                                                                             data-bs-target="#imageModel">
-                                                                            <img src="assets/images/event-bg.jpg" alt=""
+                                                                            <img src="/assets/images/event-bg.jpg" alt=""
                                                                                 className="img-fluid bg-img" />
                                                                         </a>
                                                                     </div>
@@ -583,9 +583,9 @@ export default function GroupDetail() {
                                                             <div className="col-12 pt-cls p-0">
                                                                 <div className="overlay">
                                                                     <div className="portfolio-image">
-                                                                        <a href="#" data-bs-toggle="modal"
+                                                                        <a href="/" data-bs-toggle="modal"
                                                                             data-bs-target="#imageModel">
-                                                                            <img src="assets/images/event-bg.jpg" alt=""
+                                                                            <img src="/assets/images/event-bg.jpg" alt=""
                                                                                 className="img-fluid bg-img" />
                                                                         </a>
                                                                     </div>
@@ -595,9 +595,9 @@ export default function GroupDetail() {
                                                         <div className="col-8 pt-cls">
                                                             <div className="overlay">
                                                                 <div className="portfolio-image">
-                                                                    <a href="#" data-bs-toggle="modal"
+                                                                    <a href="/" data-bs-toggle="modal"
                                                                         data-bs-target="#imageModel">
-                                                                        <img src="assets/images/event-bg.jpg" alt=""
+                                                                        <img src="/assets/images/event-bg.jpg" alt=""
                                                                             className="img-fluid bg-img" />
                                                                     </a>
                                                                 </div>
@@ -639,7 +639,7 @@ export default function GroupDetail() {
                 <div className="createbizpageModel" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <img src="assets/images/Star1.png" />
+                            <img src="/assets/images/Star1.png" />
                             <h5 className="modal-title" id="exampleModalLongTitle">BizPage Created Successfully!</h5>
                             {/* <a onClick={() => setPopup(false)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn">
@@ -656,44 +656,44 @@ export default function GroupDetail() {
                                 <ul className="connection-list">
                                     <li>
                                         <div className="connection-member">
-                                            <img src="assets/images/story-3.jpg" />
+                                            <img src="/assets/images/story-3.jpg" />
                                             <h5>Emilly Watsonr<br /><small>amaze_amilly</small></h5>
                                         </div>
-                                        <a href="#" className="btn btn-primary">Send invite</a>
+                                        <a href="/" className="btn btn-primary">Send invite</a>
                                     </li>
                                     <li>
                                         <div className="connection-member">
-                                            <img src="assets/images/story-3.jpg" />
+                                            <img src="/assets/images/story-3.jpg" />
                                             <h5>Emilly Watsonr<br /><small>amaze_amilly</small></h5>
                                         </div>
-                                        <a href="#" className="btn btn-primary">invited</a>
+                                        <a href="/" className="btn btn-primary">invited</a>
                                     </li>
                                     <li>
                                         <div className="connection-member">
-                                            <img src="assets/images/story-3.jpg" />
+                                            <img src="/assets/images/story-3.jpg" />
                                             <h5>Emilly Watsonr<br /><small>amaze_amilly</small></h5>
                                         </div>
-                                        <a href="#" className="btn btn-primary">Send invite</a>
+                                        <a href="/" className="btn btn-primary">Send invite</a>
                                     </li>
                                     <li>
                                         <div className="connection-member">
-                                            <img src="assets/images/story-3.jpg" />
+                                            <img src="/assets/images/story-3.jpg" />
                                             <h5>Emilly Watsonr<br /><small>amaze_amilly</small></h5>
                                         </div>
-                                        <a href="#" className="btn btn-primary">invited</a>
+                                        <a href="/" className="btn btn-primary">invited</a>
                                     </li>
                                     <li>
                                         <div className="connection-member">
-                                            <img src="assets/images/story-3.jpg" />
+                                            <img src="/assets/images/story-3.jpg" />
                                             <h5>Emilly Watsonr<br /><small>amaze_amilly</small></h5>
                                         </div>
-                                        <a href="#" className="btn btn-primary">Send invite</a>
+                                        <a href="/" className="btn btn-primary">Send invite</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-solid" onClick={() => setPopup(false)}>OK</button>
+                            <button type="button" className="btn btn-solid" onClick={() => {setPopup(false);navigate('/biz')}}>OK</button>
                         </div>
                     </div>
                 </div>

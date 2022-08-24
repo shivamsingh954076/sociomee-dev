@@ -26,7 +26,7 @@ export default function Models() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Create Group</h5>
-                            <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                            <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
                             <div className="ed-model-block">
@@ -86,7 +86,7 @@ export default function Models() {
                             <div className="search-people-block">
                                 <div className="sp-top-head-blk">
                                     <h5 className="modal-title" id="exampleModalLongTitle">Create Group</h5>
-                                    <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+                                    <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                                 </div>
                                 <div className="sp-body-block">
                                     <div className="input-search-blk">
@@ -99,7 +99,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-1" />
                                                 <label className="form-check-label" htmlFor="check-1">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -113,7 +113,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-2" />
                                                 <label className="form-check-label" htmlFor="check-2">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -127,7 +127,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-3" />
                                                 <label className="form-check-label" htmlFor="check-3">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -141,7 +141,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-4" />
                                                 <label className="form-check-label" htmlFor="check-4">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>
@@ -155,7 +155,7 @@ export default function Models() {
                                                 <input type="checkbox" className="form-check-input" id="check-5" />
                                                 <label className="form-check-label" htmlFor="check-5">
                                                     <div className="member-new-lt">
-                                                        <img src="assets/images/story-2.jpg" />
+                                                        <img src="/assets/images/story-2.jpg" />
                                                         <div className="member-new-cont">
                                                             <h4>Kenjomen Norke</h4>
                                                             <p>Joined on 23 Mar 2021</p>

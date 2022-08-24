@@ -505,7 +505,7 @@ export default function CreatePost() {
                         <div className="golive-more-blk">
                             <div className="create-btn-livetrad">
                                 <a className="btntrad">
-                                    <img src="assets/images/hotspot_pulse-1.svg" />Go Live
+                                    <img src="/assets/images/hotspot_pulse-1.svg" />Go Live
                                 </a>
                             </div>
                             <div className="settings more-settings-blk">
@@ -518,34 +518,34 @@ export default function CreatePost() {
                                         <div className="dropdown-menu dropdown-menu-right custom-dropdown more-post-type-dropdown">
                                             <ul>
                                                 <li>
-                                                    <a onClick={clickMedia}><img src="assets/images/Media.png" /> Media</a>
+                                                    <a onClick={clickMedia}><img src="/assets/images/Media.png" /> Media</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickGradient}><img src="assets/images/Thought.png" /> Thought</a>
+                                                    <a onClick={clickGradient}><img src="/assets/images/Thought.png" /> Thought</a>
                                                 </li>
                                                 <li>
-                                                    <a ><img src="assets/images/Go_live.png" /> Go Live</a>
+                                                    <a ><img src="/assets/images/Go_live.png" /> Go Live</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickEvent}><img src="assets/images/Event.png" /> Event</a>
+                                                    <a onClick={clickEvent}><img src="/assets/images/Event.png" /> Event</a>
                                                 </li>
                                                 <li>
-                                                    <a ><img src="assets/images/Audio.png" /> Podcsat</a>
+                                                    <a ><img src="/assets/images/Audio.png" /> Podcsat</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickArticle}><img src="assets/images/Blog.png" /> Articles</a>
+                                                    <a onClick={clickArticle}><img src="/assets/images/Blog.png" /> Articles</a>
                                                 </li>
                                                 <li>
-                                                    <a ><img src="assets/images/Recommendation.png" /> Recommendation</a>
+                                                    <a ><img src="/assets/images/Recommendation.png" /> Recommendation</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickPoll}><img src="assets/images/Poll.png" /> Poll</a>
+                                                    <a onClick={clickPoll}><img src="/assets/images/Poll.png" /> Poll</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickAlert}><img src="assets/images/Threat.png" /> Alert</a>
+                                                    <a onClick={clickAlert}><img src="/assets/images/Threat.png" /> Alert</a>
                                                 </li>
                                                 <li>
-                                                    <a ><img src="assets/images/Sell.png" /> Sell</a>
+                                                    <a ><img src="/assets/images/Sell.png" /> Sell</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -560,7 +560,7 @@ export default function CreatePost() {
                         </div>
                         <textarea name="message" className="form-control enable" cols="30" rows="10" placeholder="What’s  going on? #Hashtag... @Mention." spellCheck="false" value={postData.caption} onChange={(e) => { setPostData({ ...postData, caption: e.target.value }) }}></textarea>
                         {/* <input type="text" className="form-control enable" placeholder="write something here.."/> */}
-                        <a href="#" className="pen-icon-creatpost">
+                        <a href="/" className="pen-icon-creatpost">
                             <img src={userProfileByUserId.profileImage || 'assets/images/my-profile.jpg'} className="img-fluid icon" alt="pen" />
                         </a>
                     </div>
@@ -570,8 +570,8 @@ export default function CreatePost() {
                                 <img src={userProfileByUserId.profileImage || 'assets/images/my-profile.jpg'} className="img-fluid" alt="profile" />
                             </div>
                             <textarea name="message" className="form-control enable" cols="30" rows="10" placeholder="What’s  going on? #Hashtag... @Mention." spellCheck="false" value={postData.caption} onChange={(e) => { setPostData({ ...postData, caption: e.target.value }) }}></textarea>
-                            <a href="#" className="pen-icon-creatpost">
-                                <img src="assets/images/pen-solid-2.png" className="img-fluid icon" alt="pen" />
+                            <a href="/" className="pen-icon-creatpost">
+                                <img src="/assets/images/pen-solid-2.png" className="img-fluid icon" alt="pen" />
                             </a>
                         </div>
                         <div className="images-videos-block">
@@ -767,7 +767,7 @@ export default function CreatePost() {
                                 <input type="text" className="form-control enable"
                                     placeholder="What's going on" />
                                 <div className="close-icon" onClick={closeBgClick}>
-                                    <a href="#">
+                                    <a href="/">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                     </a>
                                 </div>
@@ -791,24 +791,24 @@ export default function CreatePost() {
                                 <li onClick={clickGradient} className="gr-14"></li>
                                 <li onClick={clickGradient} className="gr-15"></li>
                             </ul>
-                            <a href="#" className="bg-color-btn" data-bs-toggle="modal" data-bs-target="#bgColorModel"><img src="assets/images/bg-color.png" /></a>
+                            <a href="/" className="bg-color-btn" data-bs-toggle="modal" data-bs-target="#bgColorModel"><img src="/assets/images/bg-color.png" /></a>
                         </div>
                     </div>
                 </div>
 
                 <div className="options-input" ref={navRef} id="additional-input">
-                    <a id="icon-close" href="#" onClick={oncloseClick}>
+                    <a id="icon-close" href="/" onClick={oncloseClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-font-light icon-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </a>
                     <div className="search-input hashtag-input" >
                         <input type="text" className="form-control" placeholder="Hashtag..." onChange={(e) => { setPostData({ ...postData, hashTags: [e.target.value] }) }} />
-                        <a href="#">
+                        <a href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" className="iw-15 icon-left" width="16" height="16" viewBox="0 0 16 16" fill="#afb8c2" ><path d="M15.8754 8.77081C15.6635 8.1214 14.956 7.77619 14.3032 7.9881L12.7514 8.50421L11.7158 5.42804L13.2675 4.91193C13.9204 4.70001 14.2622 3.99591 14.0537 3.34308C13.8417 2.69367 13.1342 2.34845 12.4814 2.56036L10.9296 3.07648L10.393 1.47003C10.1811 0.820618 9.47358 0.475403 8.82075 0.687317C8.16792 0.899231 7.82612 1.60333 8.03461 2.25617L8.57124 3.86261L5.37885 4.92902L4.84223 3.32257C4.63032 2.67316 3.9228 2.32794 3.26997 2.53986C2.61714 2.75177 2.27534 3.45587 2.48383 4.1087L3.02046 5.71515L1.47212 6.22785C0.819284 6.43976 0.477487 7.14386 0.685983 7.79669C0.856881 8.2923 1.33881 8.61701 1.83442 8.63751C2.06684 8.67169 2.24458 8.58283 3.80659 8.06329L4.84223 11.1395L3.29047 11.6556C2.64106 11.8675 2.29585 12.575 2.50434 13.2244C2.67524 13.72 3.15717 14.0447 3.65278 14.0652C3.8852 14.0994 4.06294 14.0106 5.62495 13.491L6.16157 15.0975C6.36323 15.6751 7.00581 16.0887 7.73383 15.8802C8.38667 15.6683 8.72846 14.9642 8.51997 14.3113L7.98335 12.7049L11.1826 11.6351L11.7192 13.2415C11.9208 13.8192 12.5634 14.2327 13.2915 14.0242C13.9443 13.8123 14.2861 13.1082 14.0776 12.4554L13.541 10.8489L15.0927 10.3328C15.7421 10.1277 16.0873 9.42023 15.8754 8.77081ZM7.19038 10.3841L6.15473 7.30109L9.35053 6.23126L10.3862 9.31427L7.19038 10.3841Z" /></svg>
                         </a>
                     </div>
                     <div className="search-input place-input">
                         <input type="text" className="form-control" placeholder="search for places..." />
-                        <a href="#">
+                        <a href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         </a>
                     </div>
@@ -824,14 +824,14 @@ export default function CreatePost() {
                             <option value="Paul Molive" />
                             <option value="Anna Mull" />
                         </datalist>
-                        <a href="#">
+                        <a href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                         </a>
                     </div>
                     <div className="search-input schedule-input" >
                         {/* <input type="text" className="form-control" placeholder="Schedule your post..."/> */}
                         <DateTimePicker onChange={onChange} value={value} className="form-control" />
-                        <a href="#">
+                        <a href="/">
                             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </a>
                     </div>
@@ -848,7 +848,7 @@ export default function CreatePost() {
                                 </div>
                             </div>
                         </div>
-                        {/* <a href="#">
+                        {/* <a href="/">
                 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                 </a> */}
                     </div>
@@ -865,7 +865,7 @@ export default function CreatePost() {
                     <option value="Silly"/>
                     <option value="Embarrassed"/>
                 </datalist>
-                <a href="#">
+                <a href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-smile iw-15 icon-left icon-font-light"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                 </a>
             </div> */}

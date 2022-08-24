@@ -54,6 +54,9 @@ const Signup = () => {
         if (e.target.value.length === 10) {
             e.preventDefault();
         }
+        if(e.key==='Enter'){
+            handleSubmit(e);
+        }
     }
 
     // Get all phone code
@@ -143,7 +146,7 @@ const Signup = () => {
                                                     <div className="no-account-blk">
                                                         <p>Already have an account? <Link className="" to="/">Login</Link></p>
                                                     </div>
-                                                    <div className="privacy-usernoti-blk"><a href="#">Privacy Policy</a> • <a href="#">User Notice</a></div>
+                                                    <div className="privacy-usernoti-blk"><a href="/">Privacy Policy</a> • <a href="/">User Notice</a></div>
                                                 </div>
                                             </form>
                                         </div>

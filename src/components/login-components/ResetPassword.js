@@ -83,7 +83,7 @@ export default function Login() {
               <div className="login-header-section">
                 <div className="logo-sec">
                   <NavLink to="/">
-                    <img src="assets/images/logo.png" alt="logo" className="img-fluid" />
+                    <img src="/assets/images/logo.png" alt="logo" className="img-fluid" />
                   </NavLink>
                 </div>
               </div>

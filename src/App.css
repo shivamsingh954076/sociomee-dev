@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.theme-form .form-control {
+  padding-right: 2.1rem;
+}
+
+.btn-solid:disabled {
+  background: #ACDAD6;
+  border-color: #ACDAD6;
+  color:#fff;
+}

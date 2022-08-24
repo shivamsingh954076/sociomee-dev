@@ -20,6 +20,9 @@ export default function Signup() {
     if (e.target.value.length === 10) {
         e.preventDefault();
     }
+    if(e.key==='Enter'){
+      handleSubmit(e);
+  }
 }
 
   const handleSubmit = (e) => {
@@ -64,7 +67,7 @@ export default function Signup() {
               <div className="login-header-section">
                 <div className="logo-sec">
                   <NavLink to="/">
-                    <img src="assets/images/logo.png" alt="logo" className="img-fluid" />
+                    <img src="/assets/images/logo.png" alt="logo" className="img-fluid" />
                   </NavLink>
                 </div>
               </div>

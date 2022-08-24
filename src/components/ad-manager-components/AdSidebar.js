@@ -8,7 +8,7 @@ const AdSidebar = () => {
                 <ul className="sidebar-icon sidebar-bg">
                     <li className="active sidebar-padding">
                         <NavLink to="/">
-                            <img src="assets/images/home.png" className="bar-icon-img" alt="Home" />
+                            <img src="/assets/images/home.png" className="bar-icon-img" alt="Home" />
                             <h4>Home</h4>
                         </NavLink>
                     </li>

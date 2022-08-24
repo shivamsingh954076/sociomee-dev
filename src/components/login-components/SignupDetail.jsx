@@ -10,8 +10,7 @@ import axios from 'axios';
 const SignupDetail = () => {
 
     const user = JSON.parse(localStorage.getItem('user'))
-    console.log(user)
-    const [detail, setDetail] = useState({ dob: "", gender: "" });
+    const [detail, setDetail] = useState({ dob: "", gender: "", "addressBy": "" });
 
     // Snackbar Code
     const [open, setOpen] = useState(false);
@@ -29,13 +28,13 @@ const SignupDetail = () => {
     const detailHandler = (ev) => {
         let { name, value } = ev.target;
         setDetail({ ...detail, [name]: value })
-
     }
+    console.log(detail.gender)
     //Detail Submit Function
     const detailSubmit = (e) => {
         e.preventDefault();
         if (!detail.dob) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Date of birth" }); }
-        else if (!detail.gender) { setOpen(true); setAlert({ sev: "error", content: "Please Select Gender" }); }
+        else if (!detail.gender || detail.gender==='special') { setOpen(true); setAlert({ sev: "error", content: "Please Select Gender" }); }
         else {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
@@ -90,7 +89,7 @@ const SignupDetail = () => {
                                 </div>
                                 <div>
                                     <div className="login-title">
-                                        <h2>Enter DOB & Gender</h2>
+                                        <h2>Enter DOB</h2>
                                     </div>
                                     <div className="login-discription">
                                         <h4>Please enter your details below.</h4>
@@ -107,40 +106,64 @@ const SignupDetail = () => {
                                                 <div class="form-group">
                                                     <h3 class="choose-gender-blk">Choose Gender</h3>
                                                     <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" for="male">
+                                                        <label class="form-check-label font-weight-normal" htmlFor="male">
                                                             <p>Male</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="male" value="male" onChange={detailHandler} />
+                                                            <input class="form-check-input radio_animated"
+                                                                type="radio"
+                                                                name="gender"
+                                                                id="male"
+                                                                value="male"
+                                                                onChange={detailHandler} />
                                                         </label>
                                                     </div>
                                                     <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" for="female">
+                                                        <label class="form-check-label font-weight-normal" htmlFor="female">
                                                             <p>Female</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="female" value="female" onChange={detailHandler} />
+                                                            <input class="form-check-input radio_animated"
+                                                                type="radio"
+                                                                name="gender"
+                                                                id="female"
+                                                                value="female"
+                                                                onChange={detailHandler} />
                                                         </label>
                                                     </div>
                                                     <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" for="special">
+                                                        <label class="form-check-label font-weight-normal" htmlFor="special">
                                                             <p>I am Special</p>
-                                                            <input class="form-check-input radio_animated" type="radio" name="gender" id="special" value="special" onChange={detailHandler} />
+                                                            <input class="form-check-input radio_animated"
+                                                                type="radio"
+                                                                name="gender"
+                                                                id="special"
+                                                                value="other"
+                                                                onChange={detailHandler} />
                                                         </label>
                                                     </div>
-                                                    <div class="specialgender" aria-hidden="true">
-                                                        <h3>How should we address you</h3><div class="form-check custom-form-check-login">
-                                                            <label class="form-check-label font-weight-normal" for="he">
-                                                                <p>He</p>
-                                                                <input class="form-check-input radio_animated" type="radio" name="gender-special" id="he" value="he" /></label></div><div class="form-check custom-form-check-login">
-                                                            <label class="form-check-label font-weight-normal" for="she">
-                                                                <p>Se</p>
-                                                                <input class="form-check-input radio_animated" type="radio" name="gender-special" id="she" value="she" />
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check custom-form-check-login">
-                                                            <label class="form-check-label font-weight-normal" for="notspecify">
-                                                                <p>Rather not specify</p>
-                                                                <input class="form-check-input radio_animated" type="radio" name="gender-special" id="notspecify" value="notspecify" />
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                                    {
+                                                        detail.gender === 'other' && (
+                                                            <div class="specialgender">
+                                                                <h3>How should we address you</h3>
+                                                                <div class="form-check custom-form-check-login">
+                                                                    <label class="form-check-label font-weight-normal" htmlFor="he">
+                                                                        <p>He</p>
+                                                                        <input class="form-check-input radio_animated" type="radio" name="addressBy" id="he" value="he" onChange={detailHandler}/>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check custom-form-check-login">
+                                                                    <label class="form-check-label font-weight-normal" htmlFor="she">
+                                                                        <p>She</p>
+                                                                        <input class="form-check-input radio_animated" type="radio" name="addressBy" id="she" value="she" onChange={detailHandler}/>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check custom-form-check-login">
+                                                                    <label class="form-check-label font-weight-normal" htmlFor="notspecify">
+                                                                        <p>Rather not specify</p>
+                                                                        <input class="form-check-input radio_animated" type="radio" name="addressBy" id="notspecify" value="none" onChange={detailHandler}/>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    }
+
                                                 </div>
                                                 <div className="btn-section">
                                                     <Stack spacing={2} sx={{ width: '100%' }} id="stack">

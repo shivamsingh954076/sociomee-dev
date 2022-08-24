@@ -73,7 +73,7 @@ export default function AdManagerHeader() {
                             <div className="header-left">
                                 <div className="brand-logo ads-logo">
                                     <NavLink to="/Home">
-                                        <img src="assets/images/logo.png" alt="logo" className="img-fluid" />
+                                        <img src="/assets/images/logo.png" alt="logo" className="img-fluid" />
                                     </NavLink>
                                     <Link to='/AdManager'><h3 className="ad-title" style={{color:"black"}}>Ads Manager</h3></Link>
                                 </div>
@@ -83,11 +83,11 @@ export default function AdManagerHeader() {
 
 
                                     <li className="header-btn custom-dropdown profile-btn btn-group">
-                                        <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 d-sm-none d-block iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                             <div className="media d-none d-sm-flex">
                                                 <div className="user-img">
-                                                    <img src="assets/images/my-profile.jpg"
+                                                    <img src="/assets/images/my-profile.jpg"
                                                         className="img-fluid bg-img" alt="user" />
                                                     <span className="available-stats online"></span>
                                                 </div>
@@ -120,7 +120,7 @@ export default function AdManagerHeader() {
                                                         </NavLink>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <div className="media">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className=""><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                                                                 <div className="media-body">
@@ -133,7 +133,7 @@ export default function AdManagerHeader() {
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <div className="media">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                                                                 <div className="media-body">
@@ -162,7 +162,7 @@ export default function AdManagerHeader() {
                                         </div>
                                     </li>
                                     <li className="header-btn custom-dropdown d-md-none d-block app-btn">
-                                        <a className="main-link" href="#" onClick={menuBtnClick}>
+                                        <a className="main-link" href="/" onClick={menuBtnClick}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                                         </a>
                                         <div className="overlay-bg app-overlay" ref={olRef} onClick={closeMenuBtnClick}></div>
@@ -170,7 +170,7 @@ export default function AdManagerHeader() {
                                             <ul className="sidebar-icon">
                                                 <li className="active">
                                                     <NavLink to="/">
-                                                        <img src="assets/images/home.png" className="bar-icon-img" alt="Home" />
+                                                        <img src="/assets/images/home.png" className="bar-icon-img" alt="Home" />
                                                         <h4>Home</h4>
                                                     </NavLink>
                                                 </li>
@@ -178,14 +178,14 @@ export default function AdManagerHeader() {
                                         </div>
                                     </li>
                                     <li className="header-btn custom-dropdown dropdown-lg btn-group message-btn">
-                                        <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                             <span className="count success">2</span>
                                         </a>
                                     </li>
                                     <li className="header-btn custom-dropdown dropdown-lg btn-group notification-btn">
-                                        <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                                             <span className="count warning">2</span>

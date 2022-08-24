@@ -165,13 +165,13 @@ const Login = () => {
                                             <div className="connect-with">
                                                 {/* <h6><span>OR Connect With</span></h6>
                                                 <ul className="social-login-blk">
-                                                    <li><Link to="/"><img src="assets/images/google-icon.png" alt="Google Store" /> Continue with Google</Link></li>
-                                                    <li><Link to="/"><img src="assets/images/apple-icon.png" alt="App Store" /> Continue with Google</Link></li>
+                                                    <li><Link to="/"><img src="/assets/images/google-icon.png" alt="Google Store" /> Continue with Google</Link></li>
+                                                    <li><Link to="/"><img src="/assets/images/apple-icon.png" alt="App Store" /> Continue with Google</Link></li>
                                                 </ul> */}
                                                 <div className="no-account-blk">
                                                     <p>Don't have an account? <Link className="" to="/Signup">Get Started</Link></p>
                                                 </div>
-                                                <div className="privacy-usernoti-blk"><a href="#">Privacy Policy</a> • <a href="#">User Notice</a></div>
+                                                <div className="privacy-usernoti-blk"><a href="/">Privacy Policy</a> • <a href="/">User Notice</a></div>
                                             </div>
                                         </div>
                                     </div>

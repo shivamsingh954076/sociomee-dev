@@ -36446,8 +36446,8 @@ button:focus {
   background-color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  -webkit-box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22);
-  box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22);
+  /* -webkit-box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22); */
+  /* box-shadow: 0px 9px 30px 0px rgba(3, 137, 201, 0.22); */
 }
 
 .btn-outline {

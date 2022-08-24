@@ -13,6 +13,7 @@ const Otp = () => {
     const [error, setError] = useState('');
     const [resendOtpLimit, setResendOtpLimit] = useState({ times: 0 })
     let navigate = useNavigate();
+    const [flag, setFlag] = useState(false)
 
     // This function is used to handle six digit code 
     const handleOtpChange = (element, index) => {
@@ -48,6 +49,7 @@ const Otp = () => {
                 .then((res) => {
                     if (res.data.data?.successResult) {
                         navigate("/ResetPassword", { state: user })
+                        setFlag(true)
                     }
                     else {
                         errorRef.current.classList.remove('d-none')
@@ -92,7 +94,7 @@ const Otp = () => {
                     resendOtpLimit.times += 1;
                     if (resendOtpLimit.times === 2) {
                         document.getElementById('resendotp').style.display = 'none';
-                        document.getElementById('timer-div').style.display = 'none';
+                        timerFunc();
                     }
                 }
                 else {
@@ -104,8 +106,7 @@ const Otp = () => {
             })
     }
 
-
-    useEffect(() => {
+    const timerFunc = () => {
         let startTimer = 20;
         document.getElementById('resendotp').style.display = 'none';
         let resendTimer = setInterval(function () {
@@ -114,6 +115,11 @@ const Otp = () => {
                 document.getElementById('timer').innerHTML = '00:00';
                 document.getElementById('resendotp').style.display = 'block';
                 document.getElementById('timer-div').style.display = 'none';
+                console.log(resendOtpLimit.times)
+                if (resendOtpLimit.times === 2) {
+                    document.getElementById('resendotp').style.display = 'none';
+                    document.getElementById('timer-div').style.display = 'none';
+                }
 
             }
             else {
@@ -121,11 +127,16 @@ const Otp = () => {
             }
             startTimer -= 1;
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, 1000);
 
-        if (alert.sev === 'success') {
-            clearInterval(resendTimer);
-        }
+            if (alert.sev === 'success') {
+                clearInterval(resendTimer);
+            }
+        }, 1000);
+    }
+
+    useEffect(() => {
+        timerFunc();
+
     }, [location.state])
 
 
@@ -139,18 +150,18 @@ const Otp = () => {
                                 <div className="logo-sec"><Link className="" to="/"><img src="/assets/images/logo.png" alt="logo" className="img-fluid" /></Link></div>
                             </div>
                             <div className="login-form">
-                            <div className="signup-progress-bar">
-                      <div className="su-progress active"></div>
-                      <div className="su-progress active"></div>
-                      <div className="su-progress"></div>
-                    </div>
+                                <div className="signup-progress-bar">
+                                    <div className="su-progress active"></div>
+                                    <div className="su-progress active"></div>
+                                    <div className="su-progress"></div>
+                                </div>
                                 <div>
                                     <div className="login-title">
                                         <h2>Enter OTP</h2>
                                     </div>
                                     <div className="login-discription">
-                                        <h4>An OTP has been sent to your phone number ending with 
-                                        <br/>XXX XXX {lastFour}</h4>
+                                        <h4>An OTP has been sent to your phone number ending with
+                                            <br />XXX XXX {lastFour}</h4>
                                     </div>
                                     <div className="form-sec">
                                         <div>

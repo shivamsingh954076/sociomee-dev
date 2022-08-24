@@ -14,7 +14,7 @@ import getAllInterestsReducer from '../UserProfile/getAllInterestsReducer'
 // Biz Page
 import bizCategoryReducer from '../BizPage/bizCategoryReducer'
 import bizSubCategoryReducer from '../BizPage/bizSubCategoryReducer'
-import createBizPageReducer from '../BizPage/createBizPageReducer'
+import createBizPageReducer from '../BizPage/bizPageReducer'
 
 const rootReducer = combineReducers({
     getAllGroupCategoryData: getAllGroupCategory,
@@ -32,7 +32,7 @@ const rootReducer = combineReducers({
     // Biz Page
     bizCategoryData: bizCategoryReducer,
     bizSubCategoryData: bizSubCategoryReducer,
-    createBizPageData: createBizPageReducer,
+    bizPageData: createBizPageReducer,
 
 });
 
