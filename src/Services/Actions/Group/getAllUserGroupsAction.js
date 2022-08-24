@@ -10,7 +10,7 @@ const getAllUserGroups = (allUserGroups) => ({
 const groupAdded = () => ({
     type: types.CREATE_GROUP,
 });
-
+ 
 const groupDeleted = () => ({
     type: types.DELETE_GROUP,
 });

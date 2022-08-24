@@ -84,7 +84,7 @@ export default function Header() {
                         <div className="header-left">
                             <div className="brand-logo">
                                 <NavLink to="/Home">
-                                    <img src="assets/images/logo.png" alt="logo" className="img-fluid" />
+                                    <img src="/assets/images/logo.png" alt="logo" className="img-fluid" />
                                 </NavLink>
                             </div>
                             <div className="search-box">
@@ -98,7 +98,7 @@ export default function Header() {
                                     <ul className="friend-list">
                                         <li>
                                             <div className="media">
-                                                <img src="assets/images/user-sm-9.jpg" alt="user" />
+                                                <img src="/assets/images/user-sm-9.jpg" alt="user" />
                                                 <div className="media-body">
                                                     <div>
                                                         <h5 className="mt-0">Paige Turner</h5>
@@ -109,7 +109,7 @@ export default function Header() {
                                         </li>
                                         <li>
                                             <div className="media">
-                                                <img src="assets/images/user-sm-12.jpg" alt="user" />
+                                                <img src="/assets/images/user-sm-12.jpg" alt="user" />
                                                 <div className="media-body">
                                                     <div>
                                                         <h5 className="mt-0">Paige Turner</h5>
@@ -120,7 +120,7 @@ export default function Header() {
                                         </li>
                                         <li>
                                             <div className="media">
-                                                <img src="assets/images/user-sm-15.jpg" alt="user" />
+                                                <img src="/assets/images/user-sm-15.jpg" alt="user" />
                                                 <div className="media-body">
                                                     <div>
                                                         <h5 className="mt-0">Paige Turner</h5>
@@ -135,22 +135,22 @@ export default function Header() {
                             <ul className="btn-group menu-btn-group">
                                 <li className="header-btn home-btn cust-home-btn">
                                     <NavLink to="/Home" className="main-link">
-                                        <img src="assets/images/home-menu.svg" />
+                                        <img src="/assets/images/home-menu.svg" />
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-video-btn">
                                     <a className="main-link" href="#">
-                                        <img src="assets/images/video.svg" />
+                                        <img src="/assets/images/video.svg" />
                                     </a>
                                 </li>
                                 <li className="header-btn home-btn cust-group-btn">
                                     <a className="main-link" href="#">
-                                        <img src="assets/images/group.svg" />
+                                        <img src="/assets/images/group.svg" />
                                     </a>
                                 </li>
                                 <li className="header-btn custom-dropdown dropdown-lg add-friend">
                                     <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="assets/images/users.svg" />
+                                        <img src="/assets/images/users.svg" />
                                     </a>
                                     <div className="dropdown-menu">
                                         <div className="dropdown-header">
@@ -163,7 +163,7 @@ export default function Header() {
                                             <ul className="friend-list">
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-5.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-5.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -178,7 +178,7 @@ export default function Header() {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-6.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-6.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -193,7 +193,7 @@ export default function Header() {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-7.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-7.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -208,7 +208,7 @@ export default function Header() {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img src="assets/images/user-sm-2.jpg" alt="user" />
+                                                        <img src="/assets/images/user-sm-2.jpg" alt="user" />
                                                         <div className="media-body">
                                                             <div>
                                                                 <h5 className="mt-0">Paige Turner</h5>
@@ -227,17 +227,17 @@ export default function Header() {
                                 </li>
                                 <li className="header-btn home-btn cust-pen-btn">
                                     <a className="main-link" href="#">
-                                        <img src="assets/images/pen.svg" />
+                                        <img src="/assets/images/pen.svg" />
                                     </a>
                                 </li>
                                 <li className="header-btn home-btn cust-union-btn">
                                     <NavLink className="main-link" to="/Tops">
-                                        <img src="assets/images/Union1.svg" />
+                                        <img src="/assets/images/Union1.svg" />
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-union-btn">
                                     <NavLink className="main-link" to="/Trending">
-                                        <img src="assets/images/Union.svg" />
+                                        <img src="/assets/images/Union.svg" />
                                     </NavLink>
                                 </li>
                             </ul>
@@ -287,7 +287,7 @@ export default function Header() {
                                                 <li>
                                                     <a href="#">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-1.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-1.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0">Paige Turner</h5>
@@ -303,7 +303,7 @@ export default function Header() {
                                                 <li>
                                                     <a href="#">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-2.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0">Paige Turner</h5>
@@ -316,7 +316,7 @@ export default function Header() {
                                                 <li>
                                                     <a href="#">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-3.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-3.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0">Bob Frapples</h5>
@@ -342,67 +342,67 @@ export default function Header() {
                                         <ul className="sidebar-icon">
                                             <li className="active">
                                                 <NavLink to="/">
-                                                    <img src="assets/images/home.png" className="bar-icon-img" alt="Home" />
+                                                    <img src="/assets/images/home.png" className="bar-icon-img" alt="Home" />
                                                     <h4>Home</h4>
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/star.png" className="bar-icon-img" alt="favourite" />
+                                                    <img src="/assets/images/star.png" className="bar-icon-img" alt="favourite" />
                                                     <h4>favourite</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <NavLink to="/Group">
-                                                    <img src="assets/images/users.png" className="bar-icon-img" alt="Groups" />
+                                                    <img src="/assets/images/users.png" className="bar-icon-img" alt="Groups" />
                                                     <h4>Groups</h4>
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/user-check.png" className="bar-icon-img" alt="Connections " />
+                                                    <img src="/assets/images/user-check.png" className="bar-icon-img" alt="Connections " />
                                                     <h4>Connections </h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/headphones.png" className="bar-icon-img" alt="Podcast" />
+                                                    <img src="/assets/images/headphones.png" className="bar-icon-img" alt="Podcast" />
                                                     <h4>Podcast</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/calendar.png" className="bar-icon-img" alt="Shotz" />
+                                                    <img src="/assets/images/calendar.png" className="bar-icon-img" alt="Shotz" />
                                                     <h4>Shotz</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/briefcase.png" className="bar-icon-img" alt="Business Page" />
+                                                    <img src="/assets/images/briefcase.png" className="bar-icon-img" alt="Business Page" />
                                                     <h4>Business Page</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/zap.png" className="bar-icon-img" alt="Events" />
+                                                    <img src="/assets/images/zap.png" className="bar-icon-img" alt="Events" />
                                                     <h4>Events</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="assets/images/shopping-cart.png" className="bar-icon-img" alt="MarkrtPlace" />
+                                                    <img src="/assets/images/shopping-cart.png" className="bar-icon-img" alt="MarkrtPlace" />
                                                     <h4>MarkrtPlace</h4>
                                                 </a>
                                             </li>
                                             <li>
                                                 <NavLink to="/AdManager">
-                                                    <img src="assets/images/box.png" className="bar-icon-img" alt="Ad Manager" />
+                                                    <img src="/assets/images/box.png" className="bar-icon-img" alt="Ad Manager" />
                                                     <h4>Ad Manager</h4>
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <a onClick={() => setOpen(true)}>
-                                                    <img src="assets/images/power.png" className="bar-icon-img" alt="logout" />
+                                                    <img src="/assets/images/power.png" className="bar-icon-img" alt="logout" />
                                                     <h4>logout</h4>
                                                 </a>
                                             </li>
@@ -427,7 +427,7 @@ export default function Header() {
                                                 <li className="d-block">
                                                     <div>
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-5.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-5.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Paige Turner</span> send you a friend
@@ -450,7 +450,7 @@ export default function Header() {
                                                 <li>
                                                     <a href="#">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-6.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-6.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Bob Frapples</span> add their stories
@@ -464,7 +464,7 @@ export default function Header() {
                                                 <li>
                                                     <a href="#">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-7.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-7.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Josephin water</span> have birthday
@@ -479,7 +479,7 @@ export default function Header() {
                                                 <li>
                                                     <a href="#">
                                                         <div className="media">
-                                                            <img src="assets/images/user-sm-2.jpg" alt="user" />
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
                                                             <div className="media-body">
                                                                 <div>
                                                                     <h5 className="mt-0"><span>Petey Cruiser</span> added a new
@@ -500,7 +500,7 @@ export default function Header() {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 d-sm-none d-block iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <div className="media d-none d-sm-flex">
                                             <div className="user-img">
-                                                <img src={userProfileByUserId.profileImage || "assets/images/my-profile.jpg"}
+                                                <img src={userProfileByUserId.profileImage || "/assets/images/my-profile.jpg"}
                                                     className="img-fluid bg-img" alt="user" />
                                                 <span className="available-stats online"></span>
                                             </div>

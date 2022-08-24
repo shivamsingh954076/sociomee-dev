@@ -8,7 +8,7 @@ export class Event extends Component {
       <>
         <div className="event-box section-b-space ratio2_3">
           <div className="image-section">
-              <img src="assets/images/event-1.jpg" className="img-fluid bg-img"
+              <img src="/assets/images/event-1.jpg" className="img-fluid bg-img"
                   alt="event"/>
               <div className="card-title">
                   <h3>event</h3>
@@ -39,7 +39,7 @@ export class Event extends Component {
                   </div>
               </div>
               <div className="play-btn" data-bs-toggle="modal" data-bs-target="#videoPlayer">
-                  <img src="assets/images/play.png" className="img-fluid"
+                  <img src="/assets/images/play.png" className="img-fluid"
                       alt="play"/>
               </div>
           </div>
