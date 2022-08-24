@@ -9,9 +9,12 @@ const getAllPostsByUserId = (allPostsByUserId) => ({
 // get all post by user id
 export const loadAllPostsByUserId = () => {
     return function (dispatch) {
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = JSON.parse(localStorage.getItem('user')); 
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getAllPosts`,{},{ headers: { Authorization: `Bearer ${user.token}` }})
+            axios.post(`https://apiserver.msgmee.com/post/getAllPosts`, {},
+                {
+                    headers: { Authorization: `Bearer ${user.token}` }
+                })
                 .then((res) => {
                     // console.log("all posts:", res.data.data.successResult);
                     dispatch(getAllPostsByUserId(res.data.data.successResult.rows))

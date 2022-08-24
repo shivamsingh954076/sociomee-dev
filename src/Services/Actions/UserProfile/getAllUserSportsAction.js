@@ -2,20 +2,22 @@ import * as types from '../../Constants/UserProfile/index';
 import axios from 'axios';
 import { loadProfileByUserId } from './getUserProfileByUserIdAction';
 
-const getAllInterests = (allInterests) => ({
-    type: types.GET_ALL_INTERESTS,
-    payload: allInterests,
+const getAllSports = (allSports) => ({
+    type: types.LOAD_ALL_SPORTS,
+    payload: allSports,
 });
 
 
 // get all interest 
-export const loadAllInterests = () => {
+export const loadAllSports = () => {
     return function (dispatch) {
         let user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/admin/getAllInterests`, {}, { headers: { Authorization: `Bearer ${user.token}` } })
+            axios.post(`https://apiserver.msgmee.com/user/getAllSports`, {}, {
+                headers: { Authorization: `Bearer ${user.token}` }
+            })
                 .then((res) => {
-                    dispatch(getAllInterests(res.data.data.successResult))
+                    dispatch(getAllSports(res.data.data.successResult))
                 })
                 .catch((error) => {
                     console.log(error);
@@ -25,10 +27,10 @@ export const loadAllInterests = () => {
 };
 
 // add interests
-export const addInterests = (interest) => {
+export const addSports = (sport) => {
     let user = JSON.parse(localStorage.getItem('user'));
     return function (dispatch) {
-        user && axios.post(`https://apiserver.msgmee.com/user/addInterests/`, { interestIds: interest }, { headers: { Authorization: `Bearer ${user.token}` } })
+        user && axios.post(`https://apiserver.msgmee.com/user/addInterests/`, { sportIds: sport }, { headers: { Authorization: `Bearer ${user.token}` } })
             .then((res) => {
                 console.log(res)
                 dispatch(loadProfileByUserId())

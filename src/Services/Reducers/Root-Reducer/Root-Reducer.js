@@ -11,12 +11,16 @@ import getEventCategoryReducer from '../getEventCategoryReducer'
 import getAlertDataReducer from '../getAlertDataReducer'
 import bizCategoryReducer from '../bizCategoryReducer'
 import bizSubCategoryReducer from '../bizSubCategoryReducer'
+
+// USER PROFILE
 import getAllInterestsReducer from '../UserProfile/getAllInterestsReducer'
+import getAllSportsReducer from '../UserProfile/getAllSportsReducer'
 
 // GROUP 
 import getAllGroupCategory from '../getAllGroupCategory';
 import getAllUserGroups from '../getAllUserGroups'
 import getAllGroupsByUserId from '../getAllGroupsByUserId'
+import getGroupAdministraterReducer from '../getGroupAdministraterReducer'
 
 
 
@@ -34,12 +38,16 @@ const rootReducer = combineReducers({
     getAlertData : getAlertDataReducer,
     bizCategoryData : bizCategoryReducer,
     bizSubCategoryData : bizSubCategoryReducer,
+
+    // USER PROFILE
     getAllInterestsData : getAllInterestsReducer,
+    getAllSportsData : getAllSportsReducer,
 
      // GROUP
      getAllUserGroupsData : getAllUserGroups,
      getAllGroupsByUserData : getAllGroupsByUserId,
      getAllGroupCategoryData : getAllGroupCategory,
+     getGroupAdministraterData : getGroupAdministraterReducer,
 
 });
 

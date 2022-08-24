@@ -61,7 +61,7 @@ const Weather = () => {
                     <h6><span>{new Date().getDate()}-{new Date().getMonth()}-{new Date().getYear()} </span><span>{weather?.name}</span></h6>
                 </div>
                 <div className="flaks-img">
-                    <img src="assets/images/snow-flaks.png" className="img-fluid"
+                    <img src="/assets/images/snow-flaks.png" className="img-fluid"
                         alt="snow" />
                 </div>
                 <div className="snowflakes" aria-hidden="true">

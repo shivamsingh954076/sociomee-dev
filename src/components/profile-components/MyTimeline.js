@@ -52,17 +52,14 @@ export default function MyTimeline() {
         postId: '', comment: ''
     })
 
-
     // MUI State
     const [pop, setPop] = useState(false);
 
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
 
-
     // get user profile by user id 
     const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
-
 
     // Snackbar Code
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -93,7 +90,6 @@ export default function MyTimeline() {
             setTimeout(() => {
                 dispatch(loadAllPostsByUserId())
             }, 500)
-
         }
         else {
             setOpen(true);

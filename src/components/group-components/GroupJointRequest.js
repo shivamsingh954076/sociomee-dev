@@ -46,7 +46,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-3.jpg"/>
+                                            <img src="/assets/images/story-3.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -100,7 +100,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-4.jpg"/>
+                                            <img src="/assets/images/story-4.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -154,7 +154,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-2.jpg"/>
+                                            <img src="/assets/images/story-2.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -208,7 +208,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-4.jpg"/>
+                                            <img src="/assets/images/story-4.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -262,7 +262,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-3.jpg"/>
+                                            <img src="/assets/images/story-3.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -316,7 +316,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-2.jpg"/>
+                                            <img src="/assets/images/story-2.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -370,7 +370,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-3.jpg"/>
+                                            <img src="/assets/images/story-3.jpg"/>
                                         </div>
                                     </div>
                                 </a>
@@ -424,7 +424,7 @@ export default function GroupJointRequest() {
                                 <a href="#" className="gj-request-blk">
                                     <div className="gj-request-image-blk">
                                         <div>
-                                            <img src="assets/images/story-4.jpg"/>
+                                            <img src="/assets/images/story-4.jpg"/>
                                         </div>
                                     </div>
                                 </a>
