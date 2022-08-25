@@ -83,16 +83,18 @@ const Root = () => {
             <Route exact path="/JoinedGroup" element={<JoinedGroup />} />
             <Route exact path="/InviteGroup" element={<InviteGroup />} />
             <Route exact path="/GroupJointRequest" element={<GroupJointRequest />} />
-            <Route exact path="/GroupDetail" element={<GroupDetail />} />
-            <Route exact path="/GroupMember" element={<GroupMember />} />
+            
+            <Route exact path="/GroupDetail/group/:id" element={<GroupDetail />} />
+            <Route exact path="/GdAbout/group/:id" element={<GdAbout />} />
+            <Route exact path="/GroupMember/group/:id" element={<GroupMember />} />
+            
             <Route exact path="/GdBlockedPeople" element={<GdBlockedPeople />} />
             <Route exact path="/GdPostRequest" element={<GdPostRequest />} />
             <Route exact path="/GdSetting" element={<GdSetting />} />
-            <Route exact path="/GdAbout" element={<GdAbout />} />
             <Route exact path="/Biz" element={<Biz />} />
             <Route exact path="/OwnedBiz" element={<OwnedBiz />} />
             <Route exact path="/JoinedBiz" element={<JoinedBiz />} />
-            <Route exact path="/BizDetail/:id" element={<BizDetail />} />
+            <Route exact path="/BizDetail" element={<BizDetail />} />
             <Route exact path="/ForgotPassword" element={<ForgotPassword />} />
             <Route exact path="/ForgotPasswordOtp" element={<ForgotPasswordOtp />} />
             <Route exact path="/ResetPassword" element={<ResetPassword />} />

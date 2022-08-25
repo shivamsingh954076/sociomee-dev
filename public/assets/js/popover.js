@@ -18,8 +18,8 @@ $(document).ready(function() {
                   '</div>' +
                   '</div>' +
                   '<div class="button-popover">' +
-                  '<a href="/" class="btn btn-solid"><img src="../assets/svg/message-square.svg" class="img-fluid">message</a>' +
-                  '<a href="/" class="btn btn-solid"><img src="../assets/svg/user-check.svg" class="img-fluid mr-0"></a>' +
+                  '<a href="#" class="btn btn-solid"><img src="../assets/svg/message-square.svg" class="img-fluid">message</a>' +
+                  '<a href="#" class="btn btn-solid"><img src="../assets/svg/user-check.svg" class="img-fluid mr-0"></a>' +
                   '</div>';
           }
       })
