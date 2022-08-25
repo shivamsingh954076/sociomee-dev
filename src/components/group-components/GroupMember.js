@@ -88,9 +88,9 @@ export default function GroupMember() {
                                     <div className="col-md-6 col-sm-6 col-12">
                                         <div className="group-members-block">
                                             <div className="group-member-img-cont-blk">
-                                                <img src={getGroupAdministrater[0].profileImage}/>
+                                                <img src={getGroupAdministrater[0]?.profileImage}/>
                                                 <div className="member-cont-blk">
-                                                    <h4>{getGroupAdministrater[0].fullName}</h4>
+                                                    <h4>{getGroupAdministrater[0]?.fullName}</h4>
                                                     <p>Joined on 23 Mar 2021</p>
                                                     <p>+3 Mutual Group</p>
                                                 </div>
