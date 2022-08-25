@@ -94,7 +94,7 @@ const Root = () => {
             <Route exact path="/Biz" element={<Biz />} />
             <Route exact path="/OwnedBiz" element={<OwnedBiz />} />
             <Route exact path="/JoinedBiz" element={<JoinedBiz />} />
-            <Route exact path="/BizDetail" element={<BizDetail />} />
+            <Route exact path="/BizDetail/:id" element={<BizDetail />} />
             <Route exact path="/ForgotPassword" element={<ForgotPassword />} />
             <Route exact path="/ForgotPasswordOtp" element={<ForgotPasswordOtp />} />
             <Route exact path="/ResetPassword" element={<ResetPassword />} />

@@ -9,8 +9,11 @@ import postSavedReducer from '../postSavedReducer'
 import getUserSubModulesReducer from '../UserProfile/getUsersSubModulesReducer'
 import getEventCategoryReducer from '../getEventCategoryReducer'
 import getAlertDataReducer from '../getAlertDataReducer'
-import bizCategoryReducer from '../bizCategoryReducer'
-import bizSubCategoryReducer from '../bizSubCategoryReducer'
+
+// bizPage
+import bizCategoryReducer from '../BizPage/bizCategoryReducer'
+import bizSubCategoryReducer from '../BizPage/bizSubCategoryReducer'
+import bizPageReducer from '../BizPage/bizPageReducer'
 
 // USER PROFILE
 import getAllInterestsReducer from '../UserProfile/getAllInterestsReducer'
@@ -25,7 +28,6 @@ import getGroupAdministraterReducer from '../getGroupAdministraterReducer'
 
 
 const rootReducer = combineReducers({
-    getAllGroupCategoryData : getAllGroupCategory,
     getAllUserPostsData : getAllUserPosts,
     getAllPostsByUserIdData : getAllPostsByUserId,
     uploadFileData : uploadFileReducer,
@@ -36,8 +38,11 @@ const rootReducer = combineReducers({
     getUserSubModulesData : getUserSubModulesReducer,
     getEventCategoryData : getEventCategoryReducer,
     getAlertData : getAlertDataReducer,
+
+    // Biz Page
     bizCategoryData : bizCategoryReducer,
     bizSubCategoryData : bizSubCategoryReducer,
+    bizPageData : bizPageReducer,
 
     // USER PROFILE
     getAllInterestsData : getAllInterestsReducer,

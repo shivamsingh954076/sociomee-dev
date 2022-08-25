@@ -81,12 +81,12 @@ export default function Group() {
                         <div className="group-main-block">
                             <div className="group-custom-block">
                                 <div className="heading-podcast-blk">
-                                    <h3>Owned Group (27)</h3>
+                                    <h3>Owned Group ({allGroupsByUserId?.length})</h3>
                                     <NavLink to="/OwnedGroup" className="single-ancor-blk">See All →</NavLink>
                                 </div>
                                 <Slider {...ownedGroupSettings} className="default-space">
                                     {
-                                        allGroupsByUserId.length !== 0 ? allGroupsByUserId.map((allGroups) => {
+                                        allGroupsByUserId?.length !== 0 ? allGroupsByUserId.map((allGroups) => {
                                             return (
                                                 <div>
                                                     <div className="group-slide-box" key={allGroups.id}>
@@ -153,7 +153,7 @@ export default function Group() {
                                             )
                                         })
                                             : <div id="load-more" className="text-center mb-3">
-                                                <div className="no-more-text">
+                                                <div className="no-more-text text-center">
                                                     <h2>No Group Found</h2>
                                                 </div>
                                             </div>
