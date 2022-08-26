@@ -9,13 +9,13 @@ export default function AdManagerSearch() {
             <div className="profile-menu section-t-space adserch-menu">
                 <ul>
                     <li>
-                        <button className='btn btn-solid adserch-btn'>
+                        <NavLink to="/CreateAd" className='btn btn-solid adserch-btn'>
                              +  Create new Ad
-                        </button>
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/">
-                            <h6>History</h6>
+                            <h6>History</h6> 
                         </NavLink>
                     </li>
                     <li>

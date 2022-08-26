@@ -55,6 +55,19 @@ import Trending from "./components/top-trending-components/Trending";
 import CreateBiz from "./components/biz-components/CreateBiz";
 import CreateBizPage from "./components/biz-components/CreateBizPage";
 
+import Display from "./components/AdmanagerD/BrandAwareness/Display/Display";
+import Display2 from "./components/AdmanagerD/Display2/Display2";
+import ConfigureAd from "./components/AdmanagerD/ConfigureAd/ConfigureAd";
+import ConfigureAd1 from "./components/AdmanagerD/ConfigureAd/ConfigureAd1";
+import ConfigureAd2 from "./components/AdmanagerD/ConfigureAd/ConfigureAd2";
+import ConfigureAd3 from "./components/AdmanagerD/ConfigureAd/ConfigureAd3";
+import VideoAd from "./components/AdmanagerD/VideoAd/VideoAd";
+import VideoAd1 from "./components/AdmanagerD/VideoAd/VideoAd1";
+import FullScrVideoAd from "./components/AdmanagerD/VideoAd/FullScrVideoAd";
+import FullScrVideoAd1 from "./components/AdmanagerD/VideoAd/FullScrVideoAd1";
+import CreateAd from "./components/AdmanagerD/BrandAwareness/CreateAd"; 
+
+
 
 const Root = () => {
     const [userProfile, setUserProfile] = useState('');
@@ -115,6 +128,19 @@ const Root = () => {
             <Route exact path="/Trending" element={<Trending />} />
             <Route exact path="/CreateBiz" element={<CreateBiz />} />
             <Route exact path="/CreateBizPage" element={<CreateBizPage />} />
+
+            <Route exact path="/CreateAd" element={<CreateAd />}/>
+            <Route exact path="/Display" element={<Display/>}/>
+             <Route exact path="/Display2" element={<Display2/>}/>
+             <Route exact path="/ConfigureAd" element={<ConfigureAd/>}/>
+            <Route exact path="/ConfigureAd1" element={<ConfigureAd1/>}/>
+            <Route exact path="/ConfigureAd2" element={<ConfigureAd2/>}/>
+            <Route exact path="/ConfigureAd3" element={<ConfigureAd3/>}/>
+           <Route exact path="/VideoAd" element={<VideoAd/>}/>
+            <Route exact path="/VideoAd1" element={<VideoAd1/>}/>
+             <Route exact path="/FullScrVideoAd" element={<FullScrVideoAd/>}/>
+            <Route exact path="/FullScrVideoAd1" element={<FullScrVideoAd1/>}/>
+
 
             {/* <Route path="*" element={<NotFound/>}/> */}
         </Routes>

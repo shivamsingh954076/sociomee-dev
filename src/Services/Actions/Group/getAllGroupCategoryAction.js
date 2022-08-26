@@ -5,7 +5,7 @@ const getAllGroupCategory = (allGroupCategory) => ({
     type: types.GET_ALL_GROUP_CATEGORY,
     payload: allGroupCategory,
 });
-
+ 
 // get all group categoryes
 export const loadAllGroupCategorys = () => { 
     return function (dispatch) {
