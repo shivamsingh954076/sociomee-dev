@@ -72,10 +72,10 @@ class GdSetting extends Component {
             <LeftSidebar></LeftSidebar>
             <div className="page-center">
                 <div className="group-details-top">
-                    <div className="gd-top-block" style={{background:"url(assets/images/gd-banner.jpg)"}}>
+                    <div className="gd-top-block" style={{background:"url(/assets/images/gd-banner.jpg)"}}>
                         <div className="gd-top-btns">
-                            <a href="/" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
-                            <a href="/" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
+                            <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-13 ih-13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Invite People</a>
+                            <a href="#" className="grey-btn"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-13 ih-13"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg> Edit </a>
                         </div>
                     </div>
                     <div className="heading-title-blk">
@@ -100,23 +100,23 @@ class GdSetting extends Component {
                         <div className="people-likes matual-friend-sec">
                             <ul className="matual-friend-blk">
                                 <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                    data-name="sufiya eliza" data-img="assets/images/story-2.jpg">
+                                    data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
                                     <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt=""/>
                                 </li>
                                 <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                    data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
+                                    data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
                                     <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                 </li>
                                 <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                    data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
+                                    data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
                                     <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                 </li>
                                 <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                    data-name="sufiya eliza" data-img="assets/images/story-3.jpg">
+                                    data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
                                     <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt=""/>
                                 </li>
                                 <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                    data-name="sufiya eliza" data-img="assets/images/story-4.jpg">
+                                    data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
                                     <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt=""/>
                                 </li>
                             </ul>
@@ -139,7 +139,7 @@ class GdSetting extends Component {
                                         <div className="gd-setting-toggle-cont">
                                             <h4>Pin Group</h4>
                                             <p>Your pinned Group will appear on top of your Group list. Your currently pinned group is "Gong Advertisement."</p>
-                                            <p><a href="/">Unpin Gong Advertisment</a></p>
+                                            <p><a href="#">Unpin Gong Advertisment</a></p>
                                         </div>
                                         <div className="gd-setting-toggle toggle-sec">
                                             <div className="button toggle-btn">
@@ -255,7 +255,7 @@ class GdSetting extends Component {
                                             <div className="gd-setting-toggle-cont">
                                                 <h4>Notification on Sociomee</h4>
                                                 <p>This will enable notifications for activities on your Group.</p>
-                                                <p><a href="/">testman@mail.com</a></p>
+                                                <p><a href="#">testman@mail.com</a></p>
                                             </div>
                                             <div className="gd-setting-toggle toggle-sec">
                                                 <div className="button toggle-btn">

@@ -1,4 +1,4 @@
-import * as types from '../../Constants/index';
+import * as types from '../../Constants/UserProfile/index';
 import axios from 'axios';
 
 const getAllUserSports = (userSports) => ({
@@ -19,6 +19,11 @@ const getAllUserMusics = (userMusics) => ({
 const getAllUserEducations = (userEducations) => ({
     type: types.GET_USERS_EDUCATIONS,
     payload: userEducations,
+});
+
+const getAllHobies = (userHobbies) => ({
+    type: types.GET_ALL_HOBBIES,
+    payload: userHobbies,
 });
 
 
@@ -90,6 +95,25 @@ export const loadAllUserEducations = () => {
             axios.post(`https://apiserver.msgmee.com/user/getUserEducation`, {}, config)
                 .then((res) => {
                     dispatch(getAllUserEducations(res.data.data.successResult))
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+    };
+};
+
+// get all user's Music
+export const loadAllHobbies = () => {
+    return function (dispatch) {
+        let user = JSON.parse(localStorage.getItem('user'));
+        const config = {
+            headers: { Authorization: `Bearer ${user.token}` }
+        };
+        if (user) {
+            axios.post(`https://apiserver.msgmee.com/admin/getAllHobbies`, {}, config)
+                .then((res) => {
+                    dispatch(getAllHobies(res.data.data.successResult))
                 })
                 .catch((error) => {
                     console.log(error);

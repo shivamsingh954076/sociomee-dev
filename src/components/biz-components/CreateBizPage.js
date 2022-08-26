@@ -169,9 +169,10 @@ export default function GroupDetail() {
             const formData = new FormData();
             formData.append('files', logo);
             formData.append('files', coverImage);
-            formData.append('uploadFor', 'userProfile');
+            formData.append('uploadFor', 'userProfileCover');
             axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                 .then(res => {
+                    console.log(res)
                     bizPageBody.logo = res.data.data.successResult[0]
                     bizPageBody.coverImages = [{ coverUrl: res.data.data.successResult[1] }]
                     dispatch(createBizPage(bizPageBody))

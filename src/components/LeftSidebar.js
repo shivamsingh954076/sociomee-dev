@@ -26,19 +26,19 @@ export default function LeftSidebar() {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="#">
                             <img src="/assets/images/left-side-menu-icon/user-check.svg" className="bar-icon-img" alt="Connections " />
                             <h4>Connections </h4>
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="#">
                             <img src="/assets/images/left-side-menu-icon/headphones.svg" className="bar-icon-img" alt="Podcast" />
                             <h4>Podcast</h4>
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="#">
                             <img src="/assets/images/left-side-menu-icon/calendar.svg" className="bar-icon-img" alt="Shotz" />
                             <h4>Shotz</h4>
                         </a>
@@ -50,7 +50,7 @@ export default function LeftSidebar() {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="#">
                             <img src="/assets/images/left-side-menu-icon/zap.svg" className="bar-icon-img" alt="Events" />
                             <h4>Events</h4>
                         </a>
@@ -68,7 +68,7 @@ export default function LeftSidebar() {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="#">
                             <img src="/assets/images/left-side-menu-icon/power.svg" className="bar-icon-img" alt="logout" />
                             <h4>logout</h4>
                         </a>
