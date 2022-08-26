@@ -37,6 +37,7 @@ import { setPostSaved } from '../Services/Actions/postSavedAction';
 import InfiniteScroll from "react-infinite-scroll-component";
 import PollPost from './post-components/PollPost';
 import MediaPost from './post-components/MediaPost';
+import AlertPost from './post-components/AlertPost';
 
 
 
@@ -398,18 +399,22 @@ export default function Home({ user }) {
                                                             <div className="img-wrapper">
                                                                 {
                                                                     userPosts.mediaList && (
-                                                                        <MediaPost userPosts={userPosts} pageSize={pageSize} setOpen={setOpen} setAlert={setAlert}/>
+                                                                        <MediaPost userPosts={userPosts} pageSize={pageSize} setOpen={setOpen} setAlert={setAlert} />
                                                                     )
                                                                 }
 
                                                             </div>
                                                             <div className="detail-box">
-                                                                <h3>{userPosts.caption}</h3>
+                                                                <h3>{userPosts.postType !== 'alert' && userPosts.caption}</h3>
                                                                 {
                                                                     userPosts.postType === 'poll' ? (
                                                                         <PollPost userPosts={userPosts} />
                                                                     ) : (
-                                                                        <p></p>
+                                                                        userPosts.postType === 'alert' ? (
+                                                                            <AlertPost userPosts={userPosts}/>
+                                                                        ) : (
+                                                                            <p></p>
+                                                                        )
                                                                     )
                                                                 }
                                                                 <h5 className="tag">
@@ -420,9 +425,7 @@ export default function Home({ user }) {
 
                                                                     }
                                                                 </h5>
-                                                                <div className="bookmark favourite-btn">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                                                </div>
+                                                               
                                                                 <div className="people-likes">
                                                                     <ul>
                                                                         {
@@ -435,6 +438,9 @@ export default function Home({ user }) {
                                                                         }
                                                                     </ul>
                                                                     <h6>{userPosts.likesCount} people react this post</h6>
+                                                                    <div className="bookmark favourite-btn">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                                                </div>
                                                                 </div>
                                                             </div>
                                                             <div className="like-panel">
@@ -559,7 +565,7 @@ export default function Home({ user }) {
                     </div>
                 </div>
                 <RightSidebar></RightSidebar>
-            </div>
+            </div >
             <Models></Models>
             <Stack spacing={2} sx={{ width: '100%' }} id="stack">
                 <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
