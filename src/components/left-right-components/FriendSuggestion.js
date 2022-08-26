@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
+import { getSuggestedUsers } from '../../Services/Actions/UserProfile/suggestedUsersAction';
 
 export default function FriendSuggestion() {
     var FriendSuggestsettings = {
@@ -54,6 +56,14 @@ export default function FriendSuggestion() {
         }
         ]
     };
+
+    const { suggestedUsers } = useSelector(state => state.suggestedUsersData)
+    console.log(suggestedUsers)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getSuggestedUsers())
+    }, [])
     return (
         <>
             <div className="suggestion-box section-b-space">
@@ -67,122 +77,41 @@ export default function FriendSuggestion() {
                 </div>
                 <div className="suggestion-content ratio_115 no-arrow frz-sug-slider-sec">
                     <Slider {...FriendSuggestsettings} className="default-space">
-                        <div>
-                            <div className="friend-sugges-box">
-                                <div className="fdimg-blk">
-                                    <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                </div>
-                                <div className="fdcont-blk">
-                                    <h4>Lina Jimmy</h4>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
-                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
-                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
-                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                        </ul>
-                                        <h6>+5 mutual</h6>
+                        {
+                            suggestedUsers?.rows && suggestedUsers?.rows?.map((user) => {
+                                return <div key={user.id}>
+                                    <div className="friend-sugges-box">
+                                        <div className="fdimg-blk">
+                                            <img src={user.profileImage} className="img-fluid bg-img" alt={user.fullName} />
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                                        </div>
+                                        <div className="fdcont-blk">
+                                            <h4>{user.fullName}</h4>
+                                            <div className="people-likes matual-friend-sec">
+                                                <ul className="matual-friend-blk">
+                                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
+                                                        data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
+                                                        <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
+                                                    </li>
+                                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
+                                                        data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
+                                                        <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
+                                                    </li>
+                                                    <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
+                                                        data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
+                                                        <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
+                                                    </li>
+                                                </ul>
+                                                <h6>+5 mutual</h6>
+                                            </div>
+                                            <a href="#" className="d-block btn btn-primary">Send Request</a>
+                                        </div>
                                     </div>
-                                    <a href="#" className="d-block btn btn-primary">Send Request</a>
                                 </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="friend-sugges-box">
-                                <div className="fdimg-blk">
-                                    <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                </div>
-                                <div className="fdcont-blk">
-                                    <h4>Lina Jimmy</h4>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
-                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
-                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
-                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                        </ul>
-                                        <h6>+5 mutual</h6>
-                                    </div>
-                                    <a href="#" className="d-block btn btn-primary">Send Request</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="friend-sugges-box">
-                                <div className="fdimg-blk">
-                                    <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                </div>
-                                <div className="fdcont-blk">
-                                    <h4>Lina Jimmy</h4>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
-                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
-                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
-                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                        </ul>
-                                        <h6>+5 mutual</h6>
-                                    </div>
-                                    <a href="#" className="d-block btn btn-primary">Send Request</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="friend-sugges-box">
-                                <div className="fdimg-blk">
-                                    <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-24 ih-24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                </div>
-                                <div className="fdcont-blk">
-                                    <h4>Lina Jimmy</h4>
-                                    <div className="people-likes matual-friend-sec">
-                                        <ul className="matual-friend-blk">
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
-                                                <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
-                                                <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                            <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
-                                                <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                            </li>
-                                        </ul>
-                                        <h6>+5 mutual</h6>
-                                    </div>
-                                    <a href="#" className="d-block btn btn-primary">Send Request</a>
-                                </div>
-                            </div>
-                        </div>
+                            })
+                        }
+
+
                     </Slider>
                 </div>
             </div>
