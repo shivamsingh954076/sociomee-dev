@@ -356,3 +356,9 @@ font-size: 14px;
 .create-add-main-second-sp{
     margin-top: 70px;
 }
+
+
+/* ICON DISPLAY PAGE */
+.container { position: relative; }
+.container img { display: block; }
+.container .fa-download { position: absolute; bottom:0; left:0; }
