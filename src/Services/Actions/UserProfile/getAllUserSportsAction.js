@@ -30,7 +30,7 @@ export const loadAllSports = () => {
 export const addSports = (sport) => {
     let user = JSON.parse(localStorage.getItem('user'));
     return function (dispatch) {
-        user && axios.post(`${process.env.REACT_APP_IPURL}/user/addInterests/`, { sportIds: sport }, { headers: { Authorization: `Bearer ${user.token}` } })
+        user && axios.post(`${process.env.REACT_APP_IPURL}/user/addSports`, sport, { headers: { Authorization: `Bearer ${user.token}` } })
             .then((res) => {
                 console.log(res)
                 dispatch(loadProfileByUserId())

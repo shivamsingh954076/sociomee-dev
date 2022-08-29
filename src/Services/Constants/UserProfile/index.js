@@ -12,6 +12,8 @@ export const GET_USERS_EDUCATIONS = "GET_USERS_EDUCATIONS";
 
 export const GET_ALL_HOBBIES = "GET_ALL_HOBBIES";
 
+export const GET_ALL_PROFESSION = "GET_ALL_PROFESSION";
+
 // get all interest
 export const GET_ALL_INTERESTS = "GET_ALL_INTERESTS";
 

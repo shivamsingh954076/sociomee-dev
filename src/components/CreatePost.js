@@ -60,7 +60,7 @@ export default function CreatePost() {
         isScheduled: "",
         feelingId: "",
         feelingCategoryId: "",
-        allowComments: 0,
+        allowComments: 1,
 
         mentionIds: null,
         hashTags: [],

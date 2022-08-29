@@ -26,6 +26,11 @@ const getAllHobies = (userHobbies) => ({
     payload: userHobbies,
 });
 
+const getAllProfession = (allProfession) => ({
+    type: types.GET_ALL_PROFESSION,
+    payload: allProfession,
+});
+
 
 // get all user's sports
 export const loadAllUserSports = () => {
@@ -114,6 +119,38 @@ export const loadAllHobbies = () => {
             axios.post(`${process.env.REACT_APP_IPURL}/admin/getAllHobbies`, {}, config)
                 .then((res) => {
                     dispatch(getAllHobies(res.data.data.successResult))
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+    };
+};
+
+// get all professions
+export const loadAllProfessions = () => {
+    return function (dispatch) {
+        let user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            axios.post(`${process.env.REACT_APP_IPURL}/admin/getAllProfessions`, {}, { headers: { Authorization: `Bearer ${user.token}` } })
+                .then((res) => {
+                    dispatch(getAllProfession(res.data.data.successResult))
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+    };
+};
+
+// add user's hobbies
+export const addUserHobbies = (hobbies) => {
+    return function (dispatch) {
+        let user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            axios.post(`${process.env.REACT_APP_IPURL}/user/addHobbies`, hobbies, { headers: { Authorization: `Bearer ${user.token}` } })
+                .then((res) => {
+                    console.log(res.data)
                 })
                 .catch((error) => {
                     console.log(error);

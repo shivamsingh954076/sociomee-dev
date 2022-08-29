@@ -99,7 +99,7 @@ export default function AddInYourPost({createPostHandler,postData,setPostData,cl
                         <h4>Allow Comments</h4>
                         <div className="toggle-sec">
                             <div className="button toggle-btn">
-                                <input type="checkbox" className="checkbox" value={postData?.allowComments} onChange={() => { postData.allowComments === 0 ? setPostData({ ...postData, allowComments: 1 }) : setPostData({ ...postData, allowComments: 0 }) }} />
+                                <input type="checkbox" className="checkbox" value={postData?.allowComments} onChange={() => { postData.allowComments === 1 ? setPostData({ ...postData, allowComments: 0 }) : setPostData({ ...postData, allowComments: 1 }) }} />
                                 <div className="knobs">
                                     <span></span>
                                 </div>

@@ -1,24 +1,50 @@
 import React, { Component, useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { loadAllHobbies } from '../../../Services/Actions/UserProfile/getUsersSubModulesAction';
+import { addUserHobbies, loadAllHobbies } from '../../../Services/Actions/UserProfile/getUsersSubModulesAction';
 import { loadHobbiesByUserId } from '../../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
-const MyProfileHobbies = () => {
+const MyProfileHobbies = ({ userProfileByUserId }) => {
     let dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState("")
+    const [hobbies, setHobbies] = useState([]);
 
     //  ALL HOBBIES
     const { userHobbies } = useSelector(state => state.getUserSubModulesData);
+
+    // HOBBIES VIA USER ID
+    const { userHobbiesByUserId } = useSelector(state => state.getUserProfileByUserIdData);
+
+    const hobbiesHandler = (hob) => {
+        const exists = hobbies.find(inter => inter.id === hob.id);
+        if (exists) {
+            setHobbies(hobbies?.filter(int => int.id !== hob.id))
+        }
+        else {
+            setHobbies([...hobbies, hob])
+        }
+    }
+
+    const submitHobbies = () => {
+        const hob = {hobbyIds:hobbies.map((val) => val.id)}
+        dispatch(addUserHobbies(hob))
+        dispatch(loadHobbiesByUserId());
+
+    }
+
     useEffect(() => {
         dispatch(loadAllHobbies());
     }, [])
 
-    // HOBBIES VIA USER ID
-    const { userHobbiesByUserId } = useSelector(state => state.getUserProfileByUserIdData);
     useEffect(() => {
         dispatch(loadHobbiesByUserId());
     }, [])
+
+    useEffect(() => {
+        let tempInt = (userProfileByUserId.hobbies?.map(inter => userHobbies.rows?.filter(intFil => intFil.id === inter.id)))
+        setHobbies(tempInt?.map(tem => tem && tem[0]))
+    }, [userHobbies])
+
     return (
         <>
             <div className="about-profile-box-blk">
@@ -66,7 +92,7 @@ const MyProfileHobbies = () => {
                             <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
-                            <div className="searchfilter-blk">
+                            <div className="searchfilter-blk p-2">
                                 <div className="input-search-blk">
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                     <input type="text" className="form-control" name="search" placeholder="Find Hobbies..." value={searchValue} onChange={e => setSearchValue(e.target.value)} />
@@ -74,14 +100,25 @@ const MyProfileHobbies = () => {
                                 <ul className="searchfiler-list">
                                     {userHobbies?.rows
                                         ?.filter(hobbies => hobbies.name.match(new RegExp(searchValue, "i")))
-                                        .map(hobbies => {
-                                            return <li key={hobbies.id}><div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" id={hobbies.id} /><label className="form-check-label" htmlFor={hobbies.name}>{hobbies.name}</label></div></li>
+                                        .map(hobbi => {
+                                            return <li key={hobbi.id} onClick={() => hobbiesHandler(hobbi)}>
+                                                <div className="form-check checkbox_animated">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="form-check-input"
+                                                        id={hobbi.id}
+                                                        
+                                                        checked={hobbies?.some((int) => int?.id === hobbi?.id)}
+                                                    />
+                                                    <label className="form-check-label" htmlFor={hobbi.name}>{hobbi.name}</label>
+                                                </div>
+                                            </li>
                                         })}
                                 </ul>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-solid">Save</button>
+                            <button type="button" className="btn btn-solid" onClick={submitHobbies} data-bs-dismiss="modal">Save</button>
                         </div>
                     </div>
                 </div>
