@@ -229,7 +229,7 @@ export default function CreatePost() {
                         const formData = new FormData();
                         formData.append('files', postMedia);
                         formData.append('uploadFor', 'postMedia');
-                        axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
+                        axios.post(`${process.env.REACT_APP_IPURL}/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                             .then((res) => {
                                 postData.mediaList = [
                                     {
@@ -326,7 +326,7 @@ export default function CreatePost() {
                             const formData = new FormData();
                             formData.append('files', postMedia2);
                             formData.append('uploadFor', 'postMedia');
-                            axios.post(`https://apiserver.msgmee.com/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
+                            axios.post(`${process.env.REACT_APP_IPURL}/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                                 .then(res => {
                                     postData.eventCoverImageURL = res.data.data.successResult[0];
                                     dispatch(addPost(postData));

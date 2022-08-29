@@ -35,7 +35,7 @@ export const loadAllUserSports = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/user/getSports`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/user/getSports`, {}, config)
                 .then((res) => {
                     dispatch(getAllUserSports(res.data.data.successResult))
                 })
@@ -54,7 +54,7 @@ export const loadAllUserMusics = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/user/getMusic`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/user/getMusic`, {}, config)
                 .then((res) => {
                     dispatch(getAllUserMusics(res.data.data.successResult))
                 })
@@ -73,7 +73,7 @@ export const loadAllUserMovies = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/user/getMovies`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/user/getMovies`, {}, config)
                 .then((res) => {
                     dispatch(getAllUserMovies(res.data.data.successResult))
                 })
@@ -92,7 +92,7 @@ export const loadAllUserEducations = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/user/getUserEducation`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/user/getUserEducation`, {}, config)
                 .then((res) => {
                     dispatch(getAllUserEducations(res.data.data.successResult))
                 })
@@ -111,7 +111,7 @@ export const loadAllHobbies = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/admin/getAllHobbies`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/admin/getAllHobbies`, {}, config)
                 .then((res) => {
                     dispatch(getAllHobies(res.data.data.successResult))
                 })

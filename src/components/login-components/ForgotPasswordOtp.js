@@ -45,7 +45,7 @@ const Otp = () => {
         else {
             verifyOtp.sentTo = user.mobile; verifyOtp.type = user.type; verifyOtp.otp = complete;
             setUser({ ...user, sentTo: user.mobile, type: user.type, otp: complete })
-            axios.post('https://apiserver.msgmee.com/public/verifyOtp/', verifyOtp)
+            axios.post(`${process.env.REACT_APP_IPURL}/public/verifyOtp/`, verifyOtp)
                 .then((res) => {
                     if (res.data.data?.successResult) {
                         navigate("/ResetPassword", { state: user })
@@ -86,7 +86,7 @@ const Otp = () => {
     const resendOtp = () => {
         setOtp([...otp.map(v => "")])
         errorRef.current.classList.add('d-none')
-        user && axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
+        user && axios.post(`${process.env.REACT_APP_IPURL}/public/sendOtp`, user)
             .then((res) => {
                 if (res.data.data?.successResult) {
                     document.getElementById('timer-div').style.display = 'block';

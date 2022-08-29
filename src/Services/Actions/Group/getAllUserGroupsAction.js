@@ -27,7 +27,7 @@ let user = JSON.parse(localStorage.getItem('user'));
 export const loadAllUserGroups = () => {
     return function (dispatch) {
         if (user) {
-            axios.get(`https://apiserver.msgmee.com/group/getAllGroups`,{}, {
+            axios.get(`${process.env.REACT_APP_IPURL}/group/getAllGroups`,{}, {
                 headers: {
                     Authorization: 'Bearer ' + user.token
                 }
@@ -46,7 +46,7 @@ export const loadAllUserGroups = () => {
 // add post
 export const addGroup = (group) => {
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/group/create`, group, {
+        axios.post(`${process.env.REACT_APP_IPURL}/group/create`, group, {
             headers: {
                 Authorization: 'Bearer ' + user.token
             }
@@ -66,7 +66,7 @@ export const addGroup = (group) => {
 // add post
 export const deletePost = (id) => {
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/group/delete/`, id, {
+        axios.post(`${process.env.REACT_APP_IPURL}/group/delete/`, id, {
             headers: {
                 Authorization: 'Bearer ' + user.token
             }

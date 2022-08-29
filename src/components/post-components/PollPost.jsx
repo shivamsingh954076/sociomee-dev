@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addAnswerOnPollPost } from '../../Services/Actions/addAnswerOnPollPostAction'
 import { loadAllUserPosts } from '../../Services/Actions/getAllUserPostsAction'
 
-const PollPost = ({ userPosts, pageSize, setOpen, setAlert }) => {
+const PollPost = ({ poll, pageSize, setOpen, setAlert }) => {
 
     const dispatch = useDispatch();
 
@@ -25,13 +25,13 @@ const PollPost = ({ userPosts, pageSize, setOpen, setAlert }) => {
                 {/* <p>Total Participant: 234y</p> */}
                 <div className="poll-homeoption-blk">
                     {
-                        userPosts.pollOptions && userPosts.pollOptions.sort((a, b) => a.sequence - b.sequence).map((pollOpt) => {
+                        poll.pollOptions && poll.pollOptions.sort((a, b) => a.sequence - b.sequence).map((pollOpt) => {
                             return <div className="poll-radio-blk" key={pollOpt.pollOptionId}>
                                 <input className="radio_animated"
                                     type="radio"
-                                    name={userPosts.postType}
+                                    name={poll.postType}
                                     id="radio1"
-                                    onChange={() => selectPollOption(userPosts.postId, pollOpt.pollOptionId)} />
+                                    onChange={() => selectPollOption(poll.postId, pollOpt.pollOptionId)} />
                                 <label htmlFor="option1">{pollOpt.optionText}</label>
                             </div>
                         })

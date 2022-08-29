@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { getSuggestedUsers } from '../../Services/Actions/UserProfile/suggestedUsersAction';
+import { sendUserFollowingRequests } from '../../Services/Actions/UserProfile/userFollowingRequestsAction';
 
 export default function FriendSuggestion() {
     var FriendSuggestsettings = {
@@ -58,8 +59,13 @@ export default function FriendSuggestion() {
     };
 
     const { suggestedUsers } = useSelector(state => state.suggestedUsersData)
-    console.log(suggestedUsers)
+    
     const dispatch = useDispatch();
+
+    // send friend request
+    const requestSender=(id)=>{
+        dispatch(sendUserFollowingRequests(id))
+    }
 
     useEffect(() => {
         dispatch(getSuggestedUsers())
@@ -88,7 +94,7 @@ export default function FriendSuggestion() {
                                         <div className="fdcont-blk">
                                             <h4>{user.fullName}</h4>
                                             <div className="people-likes matual-friend-sec">
-                                                <ul className="matual-friend-blk">
+                                                {/* <ul className="matual-friend-blk">
                                                     <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
                                                         data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
                                                         <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
@@ -101,10 +107,10 @@ export default function FriendSuggestion() {
                                                         data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
                                                         <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
                                                     </li>
-                                                </ul>
-                                                <h6>+5 mutual</h6>
+                                                </ul> */}
+                                                {/* <h6>+5 mutual</h6> */}
                                             </div>
-                                            <a href="#" className="d-block btn btn-primary">Send Request</a>
+                                            <a className="d-block btn btn-primary text-white" onClick={()=>requestSender(user.id)}>Send Request</a>
                                         </div>
                                     </div>
                                 </div>

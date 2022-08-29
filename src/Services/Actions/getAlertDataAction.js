@@ -20,7 +20,7 @@ export const loadAlertRange = () => {
     };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getAlertDistance`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getAlertDistance`, {}, config)
                 .then((res) => {
                     dispatch(getAlertRange(res.data.data.successResult.rows))
                 })
@@ -39,7 +39,7 @@ export const loadAlertLevel = () => {
     };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getAlertLevels`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getAlertLevels`, {}, config)
                 .then((res) => {
                     dispatch(getAlertLevel(res.data.data.successResult.rows))
                 })

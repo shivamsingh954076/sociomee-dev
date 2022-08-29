@@ -69,7 +69,8 @@ const Display = () => {
             <p>Brand Awareness- CPV</p>
           </div>
           <div className="single-image-main-sp">
-            <p>Single Image Ad</p>
+            {/* <img src="/assets/images/Icons/singleimage.jpg"/> */}
+            <p>Single Image Ad</p>   
             <p>Create ad using an image, that <br/>    will be displayed in news feed.</p>
           </div>
 

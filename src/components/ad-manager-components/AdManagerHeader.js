@@ -41,7 +41,7 @@ export default function AdManagerHeader() {
         const logoutBody = { userId: userProfile.id }
         console.log(logoutBody)
 
-        axios.post('https://apiserver.msgmee.com/user/logOut/', logoutBody, config)
+        axios.post(`${process.env.REACT_APP_IPURL}/user/logOut/`, logoutBody, config)
             .then((respo) => {
                 if (respo.data.data?.successResult) {
                     localStorage.removeItem('user');

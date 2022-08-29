@@ -14,7 +14,7 @@ export const loadEventCategory = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getEventCategory`,{},config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getEventCategory`,{},config)
                 .then((res) => {
                     dispatch(getEventCategory(res.data.data.successResult.rows))
                 })

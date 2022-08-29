@@ -23,7 +23,7 @@ const config = {
 };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getFeedPosts`,data,config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getFeedPosts`,data,config)
                 .then((res) => {
                     // console.log("all posts:", res.data.data.successResult);
                     dispatch(getAllUserPosts(res.data.data.successResult))
@@ -42,7 +42,7 @@ const config = {
     headers: { Authorization: `Bearer ${user.token!==undefined ? user?.token:''}` }
 };
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/post/createPost/`, post,config)
+        axios.post(`${process.env.REACT_APP_IPURL}/post/createPost/`, post,config)
         .then((res) => {
             console.log("add post response :", res);
             dispatch(postAdded(res.data));
@@ -63,7 +63,7 @@ const config = {
     headers: { Authorization: `Bearer ${user.token!==undefined ? user?.token:''}` }
 };
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/post/deletePost/`, id,config)
+        axios.post(`${process.env.REACT_APP_IPURL}/post/deletePost/`, id,config)
         .then((res) => {
             console.log("delete post response :", res);
             dispatch(postDeleted(res.data));

@@ -20,7 +20,7 @@ export const loadAllSavedPost = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getAllSavedPost`, {}, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getAllSavedPost`, {}, config)
                 .then((res) => {
                     dispatch(getAllSavedPost(res.data.data.successResult))
                 })
@@ -40,7 +40,7 @@ export const setPostSaved = (data) => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/setPostSaved`,data, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/setPostSaved`,data, config)
                 .then((res) => {
                     dispatch(postSaved(res.data.data.successResult))
                     dispatch(loadAllSavedPost())

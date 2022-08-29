@@ -14,7 +14,7 @@ export const getGroupAdministraterAction = (id) => {
             const grpBody = ({
                 "groupId": id
             })
-            axios.post(`https://apiserver.msgmee.com/group/administrater/get`, grpBody, {
+            axios.post(`${process.env.REACT_APP_IPURL}/group/administrater/get`, grpBody, {
                 headers: {
                     Authorization: 'Bearer ' + user.token
                 }

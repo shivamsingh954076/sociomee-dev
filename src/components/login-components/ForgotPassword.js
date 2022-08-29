@@ -32,7 +32,7 @@ export default function Signup() {
     else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
     else {
       otpBody.mobile = `${userData.code} ${userData.mobile}`;
-      axios.post('https://apiserver.msgmee.com/public/sendOtp', otpBody)
+      axios.post(`${process.env.REACT_APP_IPURL}/public/sendOtp`, otpBody)
         .then((res) => {
           if (res.data.data?.successResult) {
             navigate("/ForgotPasswordOtp", { state: otpBody })

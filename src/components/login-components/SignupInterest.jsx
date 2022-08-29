@@ -41,7 +41,7 @@ const SignupInterest = () => {
             const config = {
                 headers: { Authorization: `Bearer ${user?.token}` }
             };
-            axios.post('https://apiserver.msgmee.com/user/addInterests', body, config)
+            axios.post(`${process.env.REACT_APP_IPURL}/user/addInterests`, body, config)
                 .then((res) => {
                     if (res.data.data?.successResult) {
 
@@ -65,7 +65,7 @@ const SignupInterest = () => {
             headers: { Authorization: `Bearer ${user?.token}` }
         };
         const body = { searchKey: "" }
-        axios.post('https://apiserver.msgmee.com/admin/getAllInterests', body, config)
+        axios.post(`${process.env.REACT_APP_IPURL}/admin/getAllInterests`, body, config)
             .then((res) => {
                 setGetAllInterest(res.data.data?.successResult?.rows)
             })

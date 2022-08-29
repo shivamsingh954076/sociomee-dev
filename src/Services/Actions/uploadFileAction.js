@@ -15,7 +15,7 @@ const config = {
 export const loadUploadFile = (formData) => {
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/admin/UploadFile`,formData,config)
+            axios.post(`${process.env.REACT_APP_IPURL}/admin/UploadFile`,formData,config)
                 .then((res) => {
                     console.log(res.data.data.successResult)
                     dispatch(getUploadFiles(res.data.data.successResult))

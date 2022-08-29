@@ -14,7 +14,7 @@ export const loadAllBizCategory = () => {
     };
     return function (dispatch) {
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/bp/getAllCategory`,{},config)
+            axios.post(`${process.env.REACT_APP_IPURL}/bp/getAllCategory`,{},config)
                 .then((res) => {
                     dispatch(getAllBizCategory(res.data.data.successResult.rows))
                 })
