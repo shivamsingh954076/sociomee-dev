@@ -32,7 +32,7 @@ const SignupEmail = () => {
       if (!email) { errorRef.current.classList.remove('d-none'); setError('Please Enter Email Address') }
       else if (!email.match(mailFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Email Address') }
       else {
-         axios.post('${process.env.REACT_APP_IPURL}/public/userEmailAvailable/', { email: email })
+         axios.post(`${process.env.REACT_APP_IPURL}/public/userEmailAvailable/`, { email: email })
             .then(res => {
                console.log(res.data)
                if (res.data.data?.successResult) {

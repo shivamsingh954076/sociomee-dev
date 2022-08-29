@@ -36,7 +36,7 @@ export default function Login() {
       resetPassword.loginId = location.state.mobile.slice(4);
       resetPassword.password = password.new;
       console.log(resetPassword)
-      axios.post('${process.env.REACT_APP_IPURL}/public/resetPassword', resetPassword)
+      axios.post(`${process.env.REACT_APP_IPURL}/public/resetPassword`, resetPassword)
         .then(res => {
           if (res.data?.success) {
             navigate('/')
