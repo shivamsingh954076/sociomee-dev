@@ -40,3 +40,6 @@
 .react-datetime-picker__wrapper {
   border: none !important;
 }
+.fr-btn .confirm-btn:hover{
+  color:#fff !important;
+}

@@ -12,7 +12,7 @@ export const loadAllGroupsByUserId = () => {
 
         let user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/user/getGroupOfUser`,{userId: user.id }, {
+            axios.post(`${process.env.REACT_APP_IPURL}/user/getGroupOfUser`,{userId: user.id }, {
                 headers: {
                     Authorization: 'Bearer ' + user.token
                 }

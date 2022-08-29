@@ -55,7 +55,7 @@ const Login = () => {
             user.phone.length > 10 ? loginBody.type = 'email' : loginBody.type = 'mobile'
             loginBody.loginId = user.phone;
             loginBody.password = user.password;
-            axios.post('https://apiserver.msgmee.com/public/login/', loginBody)
+            axios.post('${process.env.REACT_APP_IPURL}/public/login/', loginBody)
                 .then((res) => {
                     console.log(res.data.data)
                     if (res.data.data.errorResult) {
@@ -89,7 +89,7 @@ const Login = () => {
 
     // Get all phone code
     useEffect(() => {
-        axios.post('https://apiserver.msgmee.com/public/getAllCountry/')
+        axios.post('${process.env.REACT_APP_IPURL}/public/getAllCountry/')
             .then((res) => { setPhoneCode(res.data.data.successResult.rows) })
             .catch((err) => {
                 setOpen(true);

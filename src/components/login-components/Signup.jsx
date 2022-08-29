@@ -32,7 +32,7 @@ const Signup = () => {
         else {
             setUser({ ...user, mobile: `${userData.code} ${userData.mobile}` })
             user.mobile = `${userData.code} ${userData.mobile}`;
-            axios.post('https://apiserver.msgmee.com/public/sendOtp', user)
+            axios.post('${process.env.REACT_APP_IPURL}/public/sendOtp', user)
                 .then((res) => {
                     if (res.data.data?.successResult) {
                         navigate("/Otp", { state: user })
@@ -61,7 +61,7 @@ const Signup = () => {
 
     // Get all phone code
     useEffect(() => {
-        axios.post('https://apiserver.msgmee.com/public/getAllCountry/')
+        axios.post('${process.env.REACT_APP_IPURL}/public/getAllCountry/')
             .then((res) => { setPhoneCode(res.data.data.successResult.rows) })
             .catch((err) => {
                 console.log(err)
@@ -69,7 +69,7 @@ const Signup = () => {
     }, [])
     // Get all language code
     useEffect(() => {
-        axios.post('https://apiserver.msgmee.com/public/getAllAppLanguages/')
+        axios.post('${process.env.REACT_APP_IPURL}/public/getAllAppLanguages/')
             .then((res) => { setLanguage(res.data.data.successResult.rows) })
             .catch((err) => {
                 console.log(err)

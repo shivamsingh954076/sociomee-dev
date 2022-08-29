@@ -14,7 +14,7 @@ const config = {
     headers: { Authorization: `Bearer ${user.token ? user?.token:''}` }
 };
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/post/addComment/`, comment,config)
+        axios.post(`${process.env.REACT_APP_IPURL}/post/addComment/`, comment,config)
         .then((res) => {
             console.log("add post response :", res);
             dispatch(commentAdded(res.data));

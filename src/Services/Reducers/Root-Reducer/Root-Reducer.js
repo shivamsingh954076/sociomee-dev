@@ -19,6 +19,7 @@ import bizPageReducer from '../BizPage/bizPageReducer'
 import getAllInterestsReducer from '../UserProfile/getAllInterestsReducer'
 import getAllSportsReducer from '../UserProfile/getAllSportsReducer'
 import suggestedUsersReducer from '../UserProfile/suggestedUsersReducer'
+import userFollowingRequestsReducer from '../UserProfile/userFollowingRequestsReducer'
 
 // GROUP 
 import getAllGroupCategory from '../getAllGroupCategory';
@@ -49,6 +50,7 @@ const rootReducer = combineReducers({
     getAllInterestsData : getAllInterestsReducer,
     getAllSportsData : getAllSportsReducer,
     suggestedUsersData : suggestedUsersReducer,
+    userFollowingRequestsData : userFollowingRequestsReducer,
 
      // GROUP
      getAllUserGroupsData : getAllUserGroups,

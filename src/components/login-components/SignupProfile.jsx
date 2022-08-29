@@ -74,7 +74,7 @@ const SignupProfile = () => {
       else if (!profile.tnc) { tncRef.current.classList.remove('d-none'); setError("Please Select Term & Condition"); }
       else {
          // username availibility checking
-         axios.post('https://apiserver.msgmee.com/public/userNameAvailable', profile)
+         axios.post('${process.env.REACT_APP_IPURL}/public/userNameAvailable', profile)
             .then((res) => {
                if (res.data.data.successResult === 'available') {
 
@@ -91,7 +91,7 @@ const SignupProfile = () => {
                         completeUserData.locationLONG = res.data.longitude;
                         completeUserData.locationLAT = res.data.latitude;
 
-                        axios.post('https://apiserver.msgmee.com/public/registerUser', completeUserData)
+                        axios.post('${process.env.REACT_APP_IPURL}/public/registerUser', completeUserData)
                            .then((res) => {
                               if (res.data.data?.successResult) {
                                  navigate("/SignupDetail")

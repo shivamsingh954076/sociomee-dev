@@ -14,7 +14,7 @@ export const addLikeOnPost = (like) => {
         headers: { Authorization: `Bearer ${user.token ? user?.token : ''}` }
     };
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/post/setLike/`, like, config)
+        axios.post(`${process.env.REACT_APP_IPURL}/post/setLike/`, like, config)
             .then((res) => {
                 console.log("add like response :", res);
                 dispatch(likeAdded(res.data));

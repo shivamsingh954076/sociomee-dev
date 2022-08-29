@@ -39,7 +39,7 @@ const SignupDetail = () => {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            axios.post('https://apiserver.msgmee.com/user/update', detail, config)
+            axios.post('${process.env.REACT_APP_IPURL}/user/update', detail, config)
                 .then((respo) => {
                     console.log(respo.data.data?.successResult)
                     if (respo.data.data?.successResult === "Updated User") {

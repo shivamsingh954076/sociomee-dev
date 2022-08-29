@@ -11,7 +11,7 @@ export const loadAllPostsByUserId = () => {
     return function (dispatch) {
         let user = JSON.parse(localStorage.getItem('user')); 
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getAllPosts`, {},
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getAllPosts`, {},
                 {
                     headers: { Authorization: `Bearer ${user.token}` }
                 })

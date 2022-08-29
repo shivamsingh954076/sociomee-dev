@@ -14,7 +14,7 @@ export const loadArticleCategory = () => {
             headers: { Authorization: `Bearer ${user.token}` }
         };
         if (user) {
-            axios.post(`https://apiserver.msgmee.com/post/getArticleCategory`,{},config)
+            axios.post(`${process.env.REACT_APP_IPURL}/post/getArticleCategory`,{},config)
                 .then((res) => {
                     // console.log("all posts:", res.data.data.successResult);
                     dispatch(getArticleCategory(res.data.data.successResult.rows))

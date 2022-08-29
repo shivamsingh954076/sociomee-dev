@@ -15,7 +15,7 @@ export const loadAllGroupCategorys = () => {
         };
         // console.log("config is there ",config)
         if (user) {
-            axios.get(`https://apiserver.msgmee.com/group/category/getAll`, config)
+            axios.get(`${process.env.REACT_APP_IPURL}/group/category/getAll`, config)
                 .then((res) => {
                     console.log("reponse categoryes:", res);
                     dispatch(getAllGroupCategory(res.data))

@@ -14,7 +14,7 @@ export const addAnswerOnPollPost = (answer) => {
         headers: { Authorization: `Bearer ${user.token ? user?.token : ''}` }
     };
     return function (dispatch) {
-        axios.post(`https://apiserver.msgmee.com/post/selectUserPollOption/`, answer, config)
+        axios.post(`${process.env.REACT_APP_IPURL}/post/selectUserPollOption/`, answer, config)
             .then((res) => {
                 console.log("add answer response :", res);
                 dispatch(answerAdded(res.data));
