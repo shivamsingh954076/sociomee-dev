@@ -28,7 +28,7 @@ const MyPorfileSports = () => {
         ]
     };
     let dispatch = useDispatch();
-    const [userSports, setUserSports] = useState();
+    const [userSports, setUserSports] = useState([]);
     const [searchValue, setSearchValue] = useState("")
 
     // get user profile by user id 
@@ -37,7 +37,7 @@ const MyPorfileSports = () => {
     const { allSports } = useSelector(state => state.getAllSportsData);
 
     const sportsHandler = (sport) => {
-        const exists = userSports.find(sport => sport.id === sport.id);
+        const exists = userSports.find(sp => sp.id === sport.id);
         if (exists) {
             setUserSports(userSports?.filter(int => int.id !== sport.id))
         }
@@ -47,8 +47,14 @@ const MyPorfileSports = () => {
     }
 
     const submitSports = () => {
-        const sport = userSports.map((val) => val.id)
+        const sport = {
+            addSport: true,
+            deleteSport: false,
+            sportsId: userSports.map((val) => val.id)
+        }
         dispatch(addSports(sport))
+        dispatch(loadSportsByUserId());
+
     }
 
     useEffect(() => {
@@ -57,7 +63,7 @@ const MyPorfileSports = () => {
     }, [])
 
     useEffect(() => {
-        let tempInt = (userProfileByUserId.sports?.map(sport => allSports.rows?.filter(intFil => intFil.id === sport.sportIds)))
+        let tempInt = (userProfileByUserId.sport?.map(sport => allSports.rows?.filter(intFil => intFil.id === sport.sports_id)))
         setUserSports(tempInt?.map(tem => tem && tem[0]))
     }, [allSports])
 
@@ -83,7 +89,7 @@ const MyPorfileSports = () => {
                     <Slider {...sportSettings} className="default-space">
                         {
                             userSportsByUserId.length !== 0 ? userSportsByUserId.map((sport) => {
-                                return ( <div>
+                                return (<div>
                                     <div className="profile-slide-box" key={sport.id}>
                                         <div className="adaptive-overlay"></div>
                                         <div className="story-bg">
@@ -115,7 +121,7 @@ const MyPorfileSports = () => {
                             <a href="#" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
                         </div>
                         <div className="modal-body">
-                            <div className="searchfilter-blk">
+                            <div className="searchfilter-blk p-2">
                                 <div className="input-search-blk">
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="search-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                     <input type="text" className="form-control" name="search" placeholder="Find Sport..." value={searchValue} onChange={e => setSearchValue(e.target.value)} />

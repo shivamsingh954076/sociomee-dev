@@ -67,3 +67,23 @@ export const loadHobbiesByUserId = (id) => {
         }
     };
 };
+
+// update user profile
+export const updateUserProfile = (data) => {
+    return function (dispatch) {
+        let user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            axios.post(`${process.env.REACT_APP_IPURL}/user/update`, data,
+                {
+                    headers: { Authorization: `Bearer ${user.token}` }
+                })
+                .then((res) => {
+                    // console.log("all posts:", res.data.data.successResult);
+                    dispatch(loadProfileByUserId(user.id))
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+    };
+};
