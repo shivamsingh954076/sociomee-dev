@@ -180,15 +180,15 @@ export default function AdManagerHeader() {
                                     <li className="header-btn custom-dropdown dropdown-lg btn-ads message-btn">
                                         <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                            <span className="count success">2</span>
+                                            <img src="/assets/images/adIcon/icon (4).png" alt="" />
+                                            {/* <span className="count success">2</span> */}
                                         </a>
                                     </li>
                                     <li className="header-btn custom-dropdown dropdown-lg btn-ads notification-btn">
                                         <a className="main-link" href="/" data-bs-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-light strokeWidth-3 iw-16 ih-16"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                                            <span className="count warning">2</span>
+                                           <img src="/assets/images/adIcon/icon (5).png" alt="" />
+                                            {/* <span className="count warning">2</span> */}
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-right">
                                             <div className="dropdown-header">
@@ -315,6 +315,14 @@ export default function AdManagerHeader() {
                                                 </ul>
                                             </div>
                                         </div>
+                                    </li>
+                                    <li className="header-btn custom-dropdown dropdown-lg btn-ads message-btn">
+                                        <a className="main-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                                Refresh
+                                            <img src="/assets/images/adIcon/refresh-cw.png" alt="" />
+                                            {/* <span className="count success">2</span> */}
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
