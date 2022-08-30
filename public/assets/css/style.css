@@ -44004,6 +44004,11 @@ header.home-landing .header-section .header-right {
   margin-bottom: 25px;
 }
 
+.post-panel .post-wrapper .post-details .img-wrapper>img{
+  max-height: 430px;
+  object-fit: contain;
+}
+
 .post-panel .post-wrapper .post-details .img-wrapper iframe {
   border: none;
   width: 100%;
