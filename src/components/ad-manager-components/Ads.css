@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.color-grey{
+  color: #c4c4c4;
+}
+
 .ad-title {
   margin-left: 1rem;
 }
@@ -225,4 +229,8 @@ input[type="checkbox"]:checked {}
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     cursor: pointer;
+}
+
+.model-height{
+  max-height: 500px !important;
 }
