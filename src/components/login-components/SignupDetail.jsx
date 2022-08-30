@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 // Use for snakebar
@@ -15,6 +15,7 @@ const SignupDetail = () => {
     // Snackbar Code
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
+    const [flag,setFlag]=useState(false);
 
     let navigate = useNavigate();
 
@@ -67,6 +68,18 @@ const SignupDetail = () => {
         setOpen(false);
         if (alert.sev === 'success') { navigate('/SignupInterest') }
     };
+
+    useEffect(()=>{
+        if(detail.dob && detail.gender){
+            if(detail.gender==='other' && !detail.addressBy)
+            {
+                setFlag(false)
+            }
+            else{
+                setFlag(true)
+            }
+        } 
+    },[detail])
 
 
 
@@ -167,7 +180,7 @@ const SignupDetail = () => {
                                                 </div>
                                                 <div className="btn-section">
                                                     <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className="btn btn-solid btn-lg" onClick={detailSubmit}>CONTINUE</button>
+                                                        <button className="btn btn-solid btn-lg" onClick={detailSubmit} disabled={!flag}>CONTINUE</button>
                                                         {/* Snackbar */}
                                                         <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
                                                             <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>

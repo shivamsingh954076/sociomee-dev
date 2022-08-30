@@ -34,6 +34,9 @@ const Otp = () => {
         if (e.target.value.length === 1) {
             e.preventDefault();
         }
+        if(e.key==='Enter'){
+            otpSubmit(e);
+        }
     }
 
     const otpSubmit = (e) => {
@@ -178,12 +181,12 @@ const Otp = () => {
                                                                 type="text"
                                                                 placeholder="-"
                                                                 autoComplete="off"
-                                                                className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'}`}
+                                                                className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'} ${error && 'border-danger'}`}
                                                                 tabIndex={index + 1}
                                                                 maxLength="1"
                                                                 key={index}
                                                                 value={data}
-                                                                onChange={e => handleOtpChange(e.target, index)}
+                                                                onChange={e => {handleOtpChange(e.target, index);setError('')}}
                                                                 // onFocus={e => e.target.select()}
                                                                 onKeyUp={e => inputfocus(e)}
                                                                 onKeyPress={numberFilter} />)

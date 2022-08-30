@@ -120,12 +120,14 @@ export default function CreatePost() {
         mediaRef.current.classList.add("d-block");
         bgNoneRef.current.classList.add("d-none");
         bgRef.current.classList.remove("d-block");
+        gradientMainBlockRef.current.classList.add("d-none");
         alertRef.current.classList.remove("d-block");
         RecommendationRef.current.classList.remove("d-block");
     };
     const closeMediaClick = (e) => {
         mediaRef.current.classList.remove("d-block");
         bgNoneRef.current.classList.remove("d-none");
+        gradientMainBlockRef.current.classList.remove("d-none");
         setFile("")
     };
 
@@ -433,7 +435,6 @@ export default function CreatePost() {
         }
     }
 
-
     // Cancel Snackbar
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -565,10 +566,10 @@ export default function CreatePost() {
                         <div className="creatpost-profile-blk">
                             <img src={userProfileByUserId.profileImage || 'assets/images/my-profile.jpg'} className="img-fluid" alt="profile" />
                         </div>
-                        <textarea name="message" className="form-control enable" cols="30" rows="10" placeholder="I am seeking recommendation for " spellCheck="false" onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
+                        <textarea name="message" className="form-control enable" maxLength={'150'} cols="30" rows="10" placeholder="I am seeking recommendation for " spellCheck="false" onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
                         {/* <input type="text" className="form-control enable" placeholder="write something here.."/> */}
                         <a className="pen-icon-creatpost">
-                            <img src="assets/images/pen-solid-2.png" className="img-fluid icon" alt="pen" />
+                            <img src="/assets/images/pen-solid-2.png" className="img-fluid icon" alt="pen" />
                         </a>
                     </div>
 
@@ -585,7 +586,7 @@ export default function CreatePost() {
                                         <h4 className="create-alert-head">#creatalert</h4>
                                         {/* <label>Description</label> */}
                                         <div className="create-alert-textarea">
-                                            <textarea rows="5" className="form-control" placeholder="Define the threat..." onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
+                                            <textarea rows="5" className="form-control" maxLength={'320'} placeholder="Define the threat..." onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
                                             <p className="input-hints">Max 320 Characters</p>
                                         </div>
                                     </div>
@@ -732,7 +733,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Event Title*</label>
-                                                    <input type="text" className="form-control" required onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
+                                                    <input type="text" className="form-control" maLength={'64'} required onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
                                                     <p className="input-hints">Max 64 Characters</p>
                                                 </div>
                                                 <div className="form-group col-md-12">
@@ -829,7 +830,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Article Title*</label>
-                                                    <input type="text" className="form-control" required />
+                                                    <input type="text" className="form-control" maxLength={'16'} required />
                                                     <p className="input-hints">Min 3 and Max 16 Characters</p>
                                                 </div>
                                                 <div className="form-group col-md-12">
@@ -845,7 +846,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Add tags</label>
-                                                    <input type="text" className="form-control" />
+                                                    <input type="text" className="form-control" maxLength={'16'}/>
                                                     <p className="input-hints">Min 3 and Max 16 Characters</p>
                                                 </div>
                                             </div>
@@ -1070,7 +1071,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>About Podcast</label>
-                                                    <textarea rows="3" className="form-control"></textarea>
+                                                    <textarea rows="3" className="form-control" maxLength={'1200'}></textarea>
                                                     <p className="input-hints">Max 1200 Characters</p>
                                                 </div>
                                             </div>

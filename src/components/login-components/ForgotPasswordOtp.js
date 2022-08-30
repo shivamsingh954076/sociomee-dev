@@ -34,6 +34,9 @@ const Otp = () => {
         if (e.target.value.length === 1) {
             e.preventDefault();
         }
+        if(e.key==='Enter'){
+            otpSubmit(e);
+        }
     }
 
     const otpSubmit = (e) => {
@@ -67,7 +70,6 @@ const Otp = () => {
     }
 
     const inputfocus = (elmnt) => {
-        console.log()
         if (elmnt.key === "Delete" || elmnt.key === "Backspace") {
             const next = elmnt.target.tabIndex - 2;
             if (next > -1) {
@@ -175,12 +177,12 @@ const Otp = () => {
                                                                 type="text"
                                                                 placeholder="-"
                                                                 autoComplete="off"
-                                                                className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'}`}
+                                                                className={`otpInput form-control ${otp.join("").length === 6 && 'border border-success'} ${error && 'border-danger'}`}
                                                                 tabIndex={index + 1}
                                                                 maxLength="1"
                                                                 key={index}
                                                                 value={data}
-                                                                onChange={e => handleOtpChange(e.target, index)}
+                                                                onChange={e => {handleOtpChange(e.target, index);setError('')}}
                                                                 // onFocus={e => e.target.select()}
                                                                 onKeyUp={e => inputfocus(e)}
                                                                 onKeyPress={numberFilter} />)
@@ -191,7 +193,7 @@ const Otp = () => {
                                                     {/* <div className="otp-time-count" id=''>00:20 sec</div> */}
                                                     <div className="otp-time-count" id='timer-div'><span id="timer"></span> sec</div>
                                                 </div>
-                                                <div className="resendotp-blk " id="resendotp">Didn't receive OTP yet? <Link to='#' onClick={resendOtp}>Resend</Link></div>
+                                                <div className="resendotp-blk " id="resendotp">Didn't receive OTP yet? <Link to='#' className={'color-blue'} onClick={resendOtp}>Resend</Link></div>
                                                 <div className="btn-section">
                                                     <button className="btn btn-solid btn-lg" onClick={otpSubmit} disabled={otp.join("").length === 6 ? false : true}>CONTINUE</button>
                                                 </div>
