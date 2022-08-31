@@ -175,7 +175,7 @@ const SignupProfile = () => {
                                        <input type="text" className="form-control" ref={nameFieldError} placeholder="Write your full name here" name="fullName" value={profile.fullName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 64 && e.preventDefault(); }} />
                                        <label className='d-flex justify-content-between'>
                                           <p className="error-input-msg invisible" ref={nameRef}>{error}</p>
-                                          <p className="instruction-msg">Max 64 Characters</p>
+                                          {/* <p className="instruction-msg">Max 64 Characters</p> */}
                                        </label>
 
                                     </div>
@@ -185,7 +185,7 @@ const SignupProfile = () => {
                                        <input type="text" className="form-control" ref={userNameFieldError} placeholder="Pick a username" name="userName" value={profile.userName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />
                                        <label className='d-flex justify-content-between'>
                                           <p className="error-input-msg invisible" ref={userNameRef}>{error}</p>
-                                          <p className="instruction-msg">Max 20 Characters</p>
+                                          {/* <p className="instruction-msg">Max 20 Characters</p> */}
                                        </label>
                                     </div>
                                     <div className="form-group">

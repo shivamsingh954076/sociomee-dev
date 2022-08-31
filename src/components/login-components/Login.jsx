@@ -185,7 +185,7 @@ const Login = () => {
                                                         {error}</p>
                                                 </div>
                                                 <div className="bottom-sec">
-                                                    <div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" id="exampleCheck1" /><label className="text-lowercase" htmlFor="exampleCheck1" >Remember me</label></div>
+                                                    <div className="form-check checkbox_animated"><input type="checkbox" className="form-check-input" id="exampleCheck1" /><label className="" htmlFor="exampleCheck1" >Remember me</label></div>
                                                     <NavLink to="/ForgotPassword" className="ms-auto forget-password">forgot password?</NavLink>
                                                 </div>
                                                 <div className="btn-section">
@@ -210,7 +210,7 @@ const Login = () => {
 
                         </div>
                     </div>
-                    {/* <LoginLanguage></LoginLanguage> */}
+                    <LoginLanguage></LoginLanguage>
                 </div>
             </section>
         </>
