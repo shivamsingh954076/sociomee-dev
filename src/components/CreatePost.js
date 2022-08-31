@@ -226,13 +226,16 @@ export default function CreatePost() {
                     postData.location1 = res.data.country_name;
                     postData.location2 = res.data.state_prov;
                     postData.location3 = res.data.city;
-                    if (file) {
+                    console.log(res.data)
+                    console.log(postMedia)
+                    if (postMedia) {
                         postData.postType = 'media';
                         const formData = new FormData();
                         formData.append('files', postMedia);
                         formData.append('uploadFor', 'postMedia');
                         axios.post(`${process.env.REACT_APP_IPURL}/admin/UploadFile`, formData, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` } })
                             .then((res) => {
+                                console.log(res.data)
                                 postData.mediaList = [
                                     {
                                         "fileType": "image",
@@ -287,7 +290,7 @@ export default function CreatePost() {
                             postData.pollEndTime = value3;
                             dispatch(addPost(postData));
                             // pollRef.current.classList.remove("d-block");
-                            bgNoneRef.current.classList.remove("d-none");
+                            // bgNoneRef.current.classList.remove("d-none");
 
                             setPostData({
                                 "postType": "text",
@@ -314,7 +317,6 @@ export default function CreatePost() {
                             document.getElementById('popupclose3').click();
                             setOpen(true);
                             setAlert({ sev: "success", content: "Post Add Successfully !", });
-                            console.log(document.getElementById('popupclose3'))
                         }
                     }
                     else if (postData.postType === 'event') {
@@ -324,7 +326,6 @@ export default function CreatePost() {
                             setOpen(true); setAlert({ sev: "error", content: "Please Fill All Data !", });
                         }
                         else {
-                            console.log(postData)
                             const formData = new FormData();
                             formData.append('files', postMedia2);
                             formData.append('uploadFor', 'postMedia');
@@ -333,7 +334,7 @@ export default function CreatePost() {
                                     postData.eventCoverImageURL = res.data.data.successResult[0];
                                     dispatch(addPost(postData));
                                     // eventRef.current.classList.remove("d-block");
-                                    bgNoneRef.current.classList.remove("d-none");
+                                    // bgNoneRef.current.classList.remove("d-none");
                                     document.getElementById('popupclose').click();
                                     setPostData({
                                         "postType": "text",
@@ -354,8 +355,16 @@ export default function CreatePost() {
                                         "locationLONG": "",
                                         "location1": "",
                                         "location2": "",
-                                        "location3": ""
+                                        "location3": "",
+                                        eventCategoryId: '',
+                                        eventDescription: '',
+                                        eventAddress: '',
+
                                     })
+
+                                    setPostMedia('')
+                                    setEventCoverImage('')
+
                                     setOpen(true);
                                     setAlert({ sev: "success", content: "Post Add Successfully !", });
 
@@ -394,7 +403,9 @@ export default function CreatePost() {
                                 "locationLONG": "",
                                 "location1": "",
                                 "location2": "",
-                                "location3": ""
+                                "location3": "",
+                                alertRangeMeter: '',
+                                alertLevelId: ''
                             })
                             setOpen(true);
                             setAlert({ sev: "success", content: "Post Add Successfully !", });
@@ -566,7 +577,7 @@ export default function CreatePost() {
                         <div className="creatpost-profile-blk">
                             <img src={userProfileByUserId.profileImage || 'assets/images/my-profile.jpg'} className="img-fluid" alt="profile" />
                         </div>
-                        <textarea name="message" className="form-control enable" maxLength={'150'} cols="30" rows="10" placeholder="I am seeking recommendation for " spellCheck="false" onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
+                        <textarea name="message" className="form-control enable" maxLength={'150'} cols="30" rows="10" placeholder="I am seeking recommendation for " spellCheck="false" value={postData?.caption} onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
                         {/* <input type="text" className="form-control enable" placeholder="write something here.."/> */}
                         <a className="pen-icon-creatpost">
                             <img src="/assets/images/pen-solid-2.png" className="img-fluid icon" alt="pen" />
@@ -586,13 +597,13 @@ export default function CreatePost() {
                                         <h4 className="create-alert-head">#creatalert</h4>
                                         {/* <label>Description</label> */}
                                         <div className="create-alert-textarea">
-                                            <textarea rows="5" className="form-control" maxLength={'320'} placeholder="Define the threat..." onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
+                                            <textarea rows="5" className="form-control" maxLength={'320'} value={postData?.caption} placeholder="Define the threat..." onChange={(e) => setPostData({ ...postData, caption: e.target.value })}></textarea>
                                             <p className="input-hints">Max 320 Characters</p>
                                         </div>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label><svg viewBox="0 0 24 24" width="12" height="12" stroke="#FF822E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Alert Level</label>
-                                        <select id="inputState" className="form-control" onChange={(e) => setPostData({ ...postData, alertLevelId: e.target.value })}>
+                                        <select id="inputState" className="form-control" value={postData?.alertLevelId} onChange={(e) => setPostData({ ...postData, alertLevelId: e.target.value })}>
                                             <option value="">Select...</option>
                                             {
                                                 alertLevel && alertLevel.map((lev) => {
@@ -603,7 +614,7 @@ export default function CreatePost() {
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label><svg viewBox="0 0 24 24" width="12" height="12" stroke="#16C31E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Post Alert within</label>
-                                        <select id="inputState" className="form-control" onChange={(e) => setPostData({ ...postData, alertRangeMeter: e.target.value })}>
+                                        <select id="inputState" className="form-control" value={postData?.alertRangeMeter} onChange={(e) => setPostData({ ...postData, alertRangeMeter: e.target.value })}>
                                             <option value="">Select...</option>
                                             {
                                                 alertRange && alertRange.map((ran, i) => {
@@ -654,7 +665,7 @@ export default function CreatePost() {
                     </div>
                 </div>
 
-                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} />
+                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
 
                 {/* <ul className="create-btm-option">
             <li>
@@ -722,7 +733,7 @@ export default function CreatePost() {
                                             <div className="row  g-3">
                                                 <div className="form-group col-12">
                                                     <label>Event Category</label>
-                                                    <select id="inputState" className="form-control" onChange={(e) => setPostData({ ...postData, eventCategoryId: e.target.value })}>
+                                                    <select id="inputState" className="form-control" value={postData?.eventCategoryId} onChange={(e) => setPostData({ ...postData, eventCategoryId: e.target.value })}>
                                                         <option value="">Select...</option>
                                                         {
                                                             eventCategory && eventCategory.map((event) => {
@@ -733,7 +744,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Event Title*</label>
-                                                    <input type="text" className="form-control" maLength={'64'} required onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
+                                                    <input type="text" className="form-control" maLength={'64'} required value={postData?.caption} onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
                                                     <p className="input-hints">Max 64 Characters</p>
                                                 </div>
                                                 <div className="form-group col-md-12">
@@ -745,7 +756,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Description</label>
-                                                    <textarea rows="3" className="form-control" onChange={(e) => setPostData({ ...postData, eventDescription: e.target.value })}></textarea>
+                                                    <textarea rows="3" className="form-control" value={postData?.eventDescription} onChange={(e) => setPostData({ ...postData, eventDescription: e.target.value })}></textarea>
                                                 </div>
                                                 <div className="form-group col-md-6">
                                                     <label>Event Start Date</label>
@@ -758,13 +769,13 @@ export default function CreatePost() {
 
                                                 <div className="form-group col-md-12">
                                                     <label>Address or Link to event</label>
-                                                    <input type="text" className="form-control" required onChange={(e) => setPostData({ ...postData, eventAddress: e.target.value })} />
+                                                    <input type="text" className="form-control" required value={postData?.eventAddress} onChange={(e) => setPostData({ ...postData, eventAddress: e.target.value })} />
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
                             </div>
                         </div>
                     </div>
@@ -846,14 +857,14 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Add tags</label>
-                                                    <input type="text" className="form-control" maxLength={'16'}/>
+                                                    <input type="text" className="form-control" maxLength={'16'} />
                                                     <p className="input-hints">Min 3 and Max 16 Characters</p>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
 
                             </div>
                         </div>
@@ -909,7 +920,7 @@ export default function CreatePost() {
                                             <div className="row  g-3">
                                                 <div className="form-group col-12">
                                                     <label>Poll Question</label>
-                                                    <input type="text" className="form-control" required onChange={(e) => { postData.postType === 'poll' ? setPostData({ ...postData, caption: e.target.value }) : setPostData({ ...postData, postType: "media" }) }} />
+                                                    <input type="text" className="form-control" value={postData?.caption} required onChange={(e) => { setPostData({ ...postData, caption: e.target.value }) }} />
                                                 </div>
                                                 <div className="poll-option-blk">
                                                     <div className="form-group col-md-12">
@@ -941,7 +952,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
 
                             </div>
                         </div>
@@ -1078,7 +1089,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
 
                             </div>
                         </div>
@@ -1191,7 +1202,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
 
                             </div>
                         </div>

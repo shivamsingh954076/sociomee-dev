@@ -2,7 +2,7 @@ import React, { Component, useEffect, useRef, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
 
-export default function AddInYourPost({createPostHandler,postData,setPostData,clickMedia}) {
+export default function AddInYourPost({ createPostHandler, postData, setPostData, clickMedia, pollOptions }) {
     const [value, onChange] = useState(new Date());
     // Model nav menu
     //   Create Post button 
@@ -53,35 +53,38 @@ export default function AddInYourPost({createPostHandler,postData,setPostData,cl
         navRef.current.classList.remove("comment");
     };
 
-    
+
     // This function checks data is filled or not
     useEffect(() => {
         if (postData?.postType === 'text') {
             if (postData?.caption) setFlag(true)
             else setFlag(false)
         }
-        if(postData?.postType==='media')
-        {
+        if (postData?.postType === 'media') {
             if (postData?.caption) setFlag(true)
             else setFlag(false)
         }
-        if(postData?.postType==='recommendation')
-        {
+        if (postData?.postType === 'recommendation') {
             if (postData?.caption) setFlag(true)
             else setFlag(false)
         }
-        if(postData?.postType==='alert')
-        {
+        if (postData?.postType === 'alert') {
             if (postData?.caption && postData?.alertLevelId && postData?.alertRangeMeter) setFlag(true)
             else setFlag(false)
         }
-        if(postData?.postType==='event')
-        {
-            if (postData?.caption && postData?.eventCategoryId && postData?.eventStartTime && postData?.eventEndTime && postData?.eventDescription && postData?.eventAddress) setFlag(true)
+        if (postData?.postType === 'event') {
+            if (postData?.caption && postData?.eventCategoryId && postData?.eventDescription && postData?.eventAddress) setFlag(true)
             else setFlag(false)
         }
+
     }, [postData])
-    
+
+    useEffect(() => {
+        if (postData?.postType === 'poll') {
+            if (postData?.caption && pollOptions?.poll1?.optionText && pollOptions?.poll2?.optionText) setFlag(true)
+            else setFlag(false)
+        }
+    }, [postData, pollOptions])
 
     return (
         <>
@@ -203,7 +206,7 @@ export default function AddInYourPost({createPostHandler,postData,setPostData,cl
             </div>
 
             <div id="post-btn" className="post-btn">
-                <button  className={'btn btn-solid'} onClick={createPostHandler} disabled={!flag}>post</button>
+                <button className={'btn btn-solid'} onClick={createPostHandler} disabled={!flag}>post</button>
             </div>
 
         </>
