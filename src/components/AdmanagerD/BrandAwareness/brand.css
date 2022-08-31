@@ -31,7 +31,7 @@
 }
 .desh-icon p:nth-child(2){
     color: #4D4D4D;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     /* font-family: 'Poppins', sans-serif; */
     font-size: 12px;
     font-weight: 400;
@@ -49,6 +49,16 @@
     margin-left: 10px;
     margin-top: 10px;
     border-left: 2px solid #81C14B;
+    align-items: center;
+}
+.create-add-main-no-backbround{
+    position: absolute;
+    width: 330px;
+    height: 40px;
+    /* background: #E5F0E0; */
+    margin-left: 10px;
+    margin-top: 10px;
+    /* border-left: 2px solid #81C14B; */
     align-items: center;
 }
 .create-add{
@@ -71,7 +81,7 @@
 }
 .create-add-one p:nth-child(2){
     color: #81C14B;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     font-weight: 400;
     font-size: 12px;
     color: #4D4D4D;
@@ -121,7 +131,7 @@ color: #808080;
 .step-select-child p:nth-child(2){
     position: absolute;
     left: 76px;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     font-weight: 600;
     font-size: 16px;
     color: #81C14B;
@@ -130,7 +140,7 @@ color: #808080;
 .step-select-second p:nth-child(1){
     position: absolute;
     left: 526px;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     font-style: normal;
     font-weight: 500;
     color: #4D4D4D;
@@ -140,7 +150,7 @@ color: #808080;
 .step-select-second p:nth-child(2){
     position: absolute;
     left: 525px;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     font-weight: 400;
     font-size: 12px;
     color: #808080;
@@ -170,7 +180,7 @@ color: #808080;
     position: absolute;
 left: 63px;
 top: 22px;
-font-family: 'Poppins';
+/* font-family: 'Poppins'; */
 font-style: normal;
 font-weight: 400;
 font-size: 18px;
@@ -184,7 +194,7 @@ font-weight: bold;
     height: 14px;
     left: 63px;
     top: 59px;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;

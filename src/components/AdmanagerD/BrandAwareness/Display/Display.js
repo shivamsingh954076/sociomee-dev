@@ -1,116 +1,118 @@
 import React from 'react'
 import "./Display.css"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import AdmanagerHeaderR from '../../AdmanagerHeaderR/AdmanagerHeaderR'
 
 const Display = () => {
   return (
     <>
-    <AdmanagerHeaderR/>
-     <div className="main-section-sp">
+      <AdmanagerHeaderR />
+      <div className="main-section-sp">
 
         <div className="sidebar-main-sp">
 
-            <div className="desh-icon-main-sp">
-                <div className="desh-icon-sp">
-                    <i className="fa fa-dashboard-sp"></i>
-                    <p>User Dashboard</p>
-                </div>
-                <div className="desh-second-sp">
-                    <i className="fa fa-ellipsis-h-sp"></i>
-                </div>
+          <div className="desh-icon-main">
+            <div className="desh-icon">
+              <img src="/assets/images/adIcon/grid.png" alt="" />
+              <p className='ml-2'>User Dashboard</p>
             </div>
-
-
-            <div className="create-add-main-sp">
-                <div className="create-add-sp">
-                    <div className="create-add-one-sp">
-                        <i className="fa fa-folder-o" aria-hidden="true"></i>
-                        <p>Create Ad</p>
-                    </div>
-                    <div className="create-add-second-sp">
-                        <i className="fa fa-ellipsis-h-sp"></i>
-                    </div>
-                </div>
+            <div className="desh-second">
+              <i className="fa fa-ellipsis-h"></i>
             </div>
+          </div>
 
-            <div className="create-add-main-second-sp">
-                <div className="create-add-sp" >
-                    <div className="create-add-one-sp">
-                        <i className="fa fa-folder-o" aria-hidden="true"></i>
-                        <p>Brand Awareness- CPV</p>
-                    </div>
-                    <div className="create-add-second-sp">
-                        <i className="fa fa-ellipsis-h"></i>
-                    </div>
-                </div>
+          <div className="create-add-main-no-backbround">
+            <div className="create-add">
+              <div className="create-add-one">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Create Ad</p>
+              </div>
+              <div className="create-add-second">
+                <i className="fa fa-ellipsis-h"></i>
+              </div>
             </div>
+          </div>
+
+          <div className="create-add-main-second-sp">
+            <div className="create-add-sp" >
+              <div className="create-add-one-sp mr-5">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Brand Awareness- CPV</p>
+              </div>
+              <div className="create-add-second-sp">
+                <i className="fa fa-ellipsis-h"></i>
+              </div>
+            </div>
+          </div>
 
         </div>
 
 
         <div className="step-select-main-sp"></div>
-           <div className="step-select-sp">
-            <div className="step-select-one-sp">
-                <div className="step-select-child-sp">
-                    <button>2</button>
-                    <p>Step 2</p>
-                </div>
+        <div className="step-select-sp">
+          <div className="step-select-one-sp">
+            <div className="step-select-child-sp">
+              <button>2</button>
+              <p>Step 2</p>
             </div>
-            <div className="step-select-second-sp">
-                <p>Choose Ad Display Format</p>
-                <p>Select the best format to display your Ad</p>
-            </div>
-           </div>
+          </div>
+          <div className="step-select-second-sp">
+            <p>Choose Ad Display Format</p>
+            <p>Select the best format to display your Ad</p>
+          </div>
+        </div>
 
 
-         <div className="brand-image-main-sp">
+        <div className="brand-image-main-sp">
           <div className="brand-aware-text-sp">
             <p>Brand Awareness- CPV</p>
           </div>
           <div className="single-image-main-sp">
-            {/* <img src="/assets/images/Icons/singleimage.jpg"/> */}
-            <p>Single Image Ad</p>   
-            <p>Create ad using an image, that <br/>    will be displayed in news feed.</p>
+            <img src="/assets/images/adIcon/Frame 1105.png" />
+            <p>Single Image Ad</p>
+            <p>Create ad using an image, that will be displayed in news feed.</p>
           </div>
 
           <div className="single-image-second-sp">
+            <img src="/assets/images/adIcon/Frame 1106.png" />
             <p>Carousel Image Ad</p>
-            <p>Create ad using multiple images, <br/> that will be displayed in news feed.</p>
+            <p>Create ad using multiple images, that will be displayed in news feed.</p>
           </div>
-          
+
 
           <div className="single-image-third-sp">
+            <img src="/assets/images/adIcon/Frame 1107.png" />
             <p>Video Ad</p>
-            <p>Create ad using a video that will <br/> be displayed in news feed.</p>
+            <p>Create ad using a video that will be displayed in news feed.</p>
           </div>
 
           <div className="single-image-fourth-sp">
+            <img src="/assets/images/adIcon/Frame 1108.png" />
             <p>Full Screen Video Ad</p>
-            <p>Create ad using a video, that will be <br/> displayed in the Story/Shotz feed.</p>
+            <p>Create ad using a video, that will be displayed in the Story/Shotz feed.</p>
           </div>
-         
+
           <div className="two-bumain-sp">
-            
+
             <button>Cancel</button>
-             </div>
-              <div className="two-bumain-sps">
-            
-             <Link to="/Display2">
+          </div>
+          <div className="two-bumain-sps">
 
-            <button>Next</button>
+            <Link to="/Display2">
+
+              <button>Next</button>
             </Link>
-             </div>
-          
-            
-            
-          
-         </div>
+          </div>
 
-    
-    
-    </div>
-    
+
+
+
+        </div>
+
+
+
+      </div>
+
     </>
   )
 }

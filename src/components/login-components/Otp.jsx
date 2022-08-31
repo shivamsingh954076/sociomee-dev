@@ -21,9 +21,7 @@ const Otp = () => {
 
         setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
         errorRef.current.classList.add('d-none')
-
     };
-
 
     const complete = otp.join("");
 
