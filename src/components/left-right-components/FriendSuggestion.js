@@ -1,9 +1,20 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { getSuggestedUsers } from '../../Services/Actions/UserProfile/suggestedUsersAction';
 import { sendUserFollowingRequests } from '../../Services/Actions/UserProfile/userFollowingRequestsAction';
+
+
+// Use for snakebar
+import MuiAlert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 
 export default function FriendSuggestion() {
     var FriendSuggestsettings = {
@@ -58,14 +69,30 @@ export default function FriendSuggestion() {
         ]
     };
 
+
+    // Snackbar Code
+    const [open, setOpen] = useState(false);
+    const [alert, setAlert] = useState({ sev: 'success', content: '' });
+
     const { suggestedUsers } = useSelector(state => state.suggestedUsersData)
-    
+
     const dispatch = useDispatch();
 
     // send friend request
-    const requestSender=(id)=>{
-        dispatch(sendUserFollowingRequests(id))
+    const requestSender = (id,isPrivate) => {
+        dispatch(sendUserFollowingRequests(id,isPrivate))
+        setOpen(true);
+        setAlert({ sev: "success", content: "Request Sent Successfully !", });
     }
+
+
+    // Cancel Snackbar
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
 
     useEffect(() => {
         dispatch(getSuggestedUsers())
@@ -110,7 +137,7 @@ export default function FriendSuggestion() {
                                                 </ul> */}
                                                 {/* <h6>+5 mutual</h6> */}
                                             </div>
-                                            <a className="d-block btn btn-primary text-white" onClick={()=>requestSender(user.id)}>Send Request</a>
+                                            <a className="d-block btn btn-primary text-white" onClick={() => requestSender(user.id,user.isPrivate)}>Send Request</a>
                                         </div>
                                     </div>
                                 </div>
@@ -121,6 +148,14 @@ export default function FriendSuggestion() {
                     </Slider>
                 </div>
             </div>
+            {/* Snackbar */}
+            <Stack spacing={2} sx={{ width: '100%' }} id="stack">
+                <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
+                        {alert.content}
+                    </Alert>
+                </Snackbar>
+            </Stack>
         </>
     );
 }
