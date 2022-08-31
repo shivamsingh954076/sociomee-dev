@@ -47,14 +47,12 @@ export default function Header() {
             headers: { Authorization: `Bearer ${userProfile.token}` }
         };
         const logoutBody = { userId: userProfile.id }
-        console.log(logoutBody)
 
         axios.post(`${process.env.REACT_APP_IPURL}/user/logOut/`, logoutBody, config)
             .then((respo) => {
                 if (respo.data.data?.successResult) {
                     localStorage.removeItem('user');
                     navigate('/');
-                    console.log(respo)
                 }
             })
             .catch((err) => {
@@ -400,8 +398,8 @@ export default function Header() {
                                                     <h4>Ad Manager</h4>
                                                 </NavLink>
                                             </li>
-                                            <li>
-                                                <a onClick={() => setOpen(true)}>
+                                            <li onClick={() => setOpen(true)}>
+                                                <a>
                                                     <img src="/assets/images/power.png" className="bar-icon-img" alt="logout" />
                                                     <h4>logout</h4>
                                                 </a>

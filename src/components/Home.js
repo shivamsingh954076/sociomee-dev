@@ -509,12 +509,12 @@ export default function Home({ user }) {
                                                                                 </div>
                                                                             </li>
                                                                             <li className="comment-click">
-                                                                                <a href="#">
+                                                                                <a>
                                                                                     <div className="post-btn-cust selected"><img src="assets/images/comment.png" /></div> comment
                                                                                 </a>
                                                                             </li>
                                                                             <li data-bs-target="#shareModal" data-bs-toggle="modal">
-                                                                                <a href="#">
+                                                                                <a>
                                                                                     <div className="post-btn-cust"><img src="assets/images/share.png" /></div> share
                                                                                 </a>
                                                                             </li>
@@ -525,20 +525,20 @@ export default function Home({ user }) {
                                                                             <div className="main-comment">
                                                                                 {userPosts?.firstComment ? userPosts.firstComment.map((comments) => {
                                                                                     return <div className="media" key={comments.id}>
-                                                                                        <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
+                                                                                        <a className="user-img popover-cls" data-bs-toggle="popover"
                                                                                             data-placement="right" data-name="Pabelo mukrani"
                                                                                             data-img="assets/images/story-2.jpg">
                                                                                             <img src={comments.profileImageThumb} className="img-fluid bg-img" alt="user" />
                                                                                         </a>
                                                                                         <div className="media-body">
-                                                                                            <a href="#">
+                                                                                            <a>
                                                                                                 <h5>{comments.fullName}</h5>
                                                                                             </a>
                                                                                             <p>{comments.comment}
                                                                                             </p>
                                                                                             <ul className="comment-option">
-                                                                                                <li><a href="#"><img src="assets/images/liked-icon.png" /> like ({comments.likesCount})</a></li>
-                                                                                                <li><a href="#"><img src="assets/images/chat-icon.png" /> reply ({comments.replyCount})</a></li>
+                                                                                                <li><a><img src="assets/images/liked-icon.png" /> like ({comments.likesCount})</a></li>
+                                                                                                <li><a><img src="assets/images/chat-icon.png" /> reply ({comments.replyCount})</a></li>
                                                                                             </ul>
                                                                                         </div>
                                                                                         {/* <div className="comment-time">
@@ -553,7 +553,7 @@ export default function Home({ user }) {
 
                                                                                 {userPosts.allowComments === 1 ? <><input type="text" className="form-control emojiPicker"
                                                                                     placeholder="write a comment.." value={commentData.comment} onChange={(e) => { setCommentData({ postId: userPosts.postId, comment: e.target.value }) }} />
-                                                                                    <a href="#">
+                                                                                    <a>
                                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-2 iw-14 ih-14"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                                                                     </a>
                                                                                     <a onClick={() => { submitComment(userPosts.postId) }}>

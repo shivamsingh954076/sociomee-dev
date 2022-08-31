@@ -216,9 +216,9 @@ export default function MyTimeline() {
                                                                         </div>
                                                                         <div className="dropdown-menu dropdown-menu-right custom-dropdown">
                                                                             <ul>
-                                                                                <li>
+                                                                                {/* <li>
                                                                                     <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>save post</a>
-                                                                                </li>
+                                                                                </li> */}
                                                                                 <li onClick={() => { setPop(true); setGlobalPostId(userPosts.postId) }}>
                                                                                     <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>delete post</a>
                                                                                 </li>

@@ -93,14 +93,14 @@ const SignupEmail = () => {
                                  <form className="theme-form">
                                     <div className="form-group">
                                        {/* <label>Enter your Email Address</label> */}
-                                       <input type="email" className="form-control" placeholder="Enter Email Address" value={email} onChange={(ev) => { setEmail(ev.target.value); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
+                                       <input type="email" className={`form-control ${error && 'border-danger'}`}  placeholder="Enter Email Address" value={email} onChange={(ev) => { setEmail(ev.target.value);setError(''); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
                                        <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                     </div>
                                     <div className="connect-with">
                                        <h6><span>OR</span></h6>
                                        <ul className="social-login-blk">
-                                          <li><a href="/"><img src="/assets/images/google-icon.png" /> Continue with Google</a></li>
-                                          <li><a href="/"><img src="/assets/images/apple-icon.png" /> Continue with Apple</a></li>
+                                          <li><a><img src="/assets/images/google-icon.png" /> Continue with Google</a></li>
+                                          <li><a><img src="/assets/images/apple-icon.png" /> Continue with Apple</a></li>
                                        </ul>
                                     </div>
                                     {/* <p className="notimsg-blk">Provide your email for better communication. </p> */}

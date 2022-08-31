@@ -27,7 +27,7 @@ const FriendRequest = () => {
                     <h3 className="fr-head">Follow Requests <small>{userFollowingRequests?.length} Request</small></h3>
                     <div className="settings">
                         <div className="setting-btn">
-                            <a href="#" className="d-flex">
+                            <a className="d-flex" onClick={()=>dispatch(getUserFollowingRequests())}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-theme strokeWidth-3 iw-11 ih-11"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
                             </a>
                         </div>
