@@ -6,13 +6,9 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
-import { useContext } from 'react';
-import UserContext from '../../Context/userContext';
 import LoginLanguage from './LoginLanguage';
 
 const Login = () => {
-    // global current user data store 
-    const [userProfile, setUserProfile] = useContext(UserContext)
     const errorRef = useRef(null);
     const errorRef2 = useRef(null);
     const phoneField = useRef(null)
@@ -86,7 +82,6 @@ const Login = () => {
                     else {
                         setOpen(true);
                         setAlert({ sev: "success", content: 'Login Successfully', });
-                        setUserProfile(res.data.data.successResult)
                         localStorage.setItem('user', JSON.stringify(res.data.data.successResult))
                         navigate('/Home')
                         // window.location.reload(false);

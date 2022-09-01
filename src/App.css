@@ -43,3 +43,11 @@
 .fr-btn .confirm-btn:hover{
   color:#fff !important;
 }
+
+.phone-code-list:hover{
+  cursor: pointer;
+  border:1px solid rgba(27, 139, 27, 0.445) !important ;
+}
+.active-phone-code{
+  border:1px solid rgba(27, 139, 27, 0.445) !important ;
+}
