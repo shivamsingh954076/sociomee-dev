@@ -5,58 +5,57 @@ import "./conf.css"
 import AdmanagerHeaderR from '../AdmanagerHeaderR/AdmanagerHeaderR'
 
 const ConfigureAd = () => {
-  const imageUpload =()=> {
+  const imageUpload = () => {
     document.getElementById('input_file').click();
   }
   return (
     <>
-<AdmanagerHeaderR/>
+      <AdmanagerHeaderR />
       <div className="main-section-spss">
 
-        <div className="sidebar-main-spss">
+        <div className="sidebar-main-sp">
 
-          <div className="desh-icon-main-spss">
-            <div className="desh-icon-spss">
-              <i className="fa fa-dashboard"></i>
-              <p>User Dashboard</p>
+          <div className="desh-icon-main">
+            <div className="desh-icon">
+              <img src="/assets/images/adIcon/grid.png" alt="" />
+              <p className='ml-2'>User Dashboard</p>
             </div>
-            <div className="desh-second-spss">
+            <div className="desh-second">
               <i className="fa fa-ellipsis-h"></i>
             </div>
           </div>
 
-
-          <div className="create-add-main-spss">
-            <div className="create-add-spss">
-              <div className="create-add-one-spss">
-                <i className="fa fa-folder-o" aria-hidden="true"></i>
-                <p>Create Ad</p>
+          <div className="create-add-main-no-backbround Configure-one">
+            <div className="create-add">
+              <div className="create-add-one">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Create Ad</p>
               </div>
-              <div className="create-add-second-spss">
+              <div className="create-add-second">
                 <i className="fa fa-ellipsis-h"></i>
               </div>
             </div>
           </div>
 
-          <div className="create-add-main-second-spss">
-            <div className="create-add-spss">
-              <div className="create-add-one-spss">
-                <i className="fa fa-folder-o" aria-hidden="true"></i>
-                <p>Single Image Ad</p>
+          <div className="create-add-main-no-backbround Configure-ad">
+            <div className="create-add">
+              <div className="create-add-one">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Brand Awareness- CPV</p>
               </div>
-              <div className="create-add-second-spss">
+              <div className="create-add-second">
                 <i className="fa fa-ellipsis-h"></i>
               </div>
             </div>
           </div>
 
-          <div className="create-add-main-third-spss">
-            <div className="create-add-spss">
-              <div className="create-add-one-spss">
-                <i className="fa fa-folder-o" aria-hidden="true"></i>
-                <p>Brand Awareness- CPV</p>
+          <div className="create-add-main-third-sp">
+            <div className="create-add-sp" >
+              <div className="create-add-one-sp mr-5">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Single Image Ad </p>
               </div>
-              <div className="create-add-second-spss">
+              <div className="create-add-second-sp">
                 <i className="fa fa-ellipsis-h"></i>
               </div>
             </div>
@@ -120,7 +119,7 @@ const ConfigureAd = () => {
               <p>Add Your Image</p>
 
               <button onClick={imageUpload}>Upload Image</button>
-            <input type="file" name="" id='input_file' hidden/>
+              <input type="file" name="" id='input_file' hidden />
               {/* <button>Upload Image</button> */}
             </div>
           </div>
@@ -129,17 +128,13 @@ const ConfigureAd = () => {
             <button>Cancel</button>
           </div>
           <div className="two-bumain-spsss">
-            <Link to="/ConfigureAd1">
+            <Link to="/ConfigureAd2">
 
               <button>Next</button>
             </Link>
           </div>
 
         </div>
-
-
-
-
 
       </div>
 

@@ -1,156 +1,150 @@
 import React from 'react'
 import "./video.css"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import AdmanagerHeaderR from '../AdmanagerHeaderR/AdmanagerHeaderR'
 
 const VideoAd = () => {
-  const videoUpload =()=> {
+  const videoUpload = () => {
     document.getElementById('input_file').click();
   }
 
   return (
-   <>
-   <AdmanagerHeaderR/>
-    <div className="main-section-pstt">
+    <>
+      <AdmanagerHeaderR />
+      <div className="main-section-pstt">
 
-        <div className="sidebar-main-pstt">
+        <div className="sidebar-main-sp">
 
-            <div className="desh-icon-main-pstt">
-                <div className="desh-icon-pstt">
-                    <i className="fa fa-dashboard"></i>
-                    <p>User Dashboard</p>
-                </div>
-                <div className="desh-second-pstt">
-                    <i className="fa fa-ellipsis-h"></i>
-                </div>
+          <div className="desh-icon-main">
+            <div className="desh-icon">
+              <img src="/assets/images/adIcon/grid.png" alt="" />
+              <p className='ml-2'>User Dashboard</p>
             </div>
-
-
-            <div className="create-add-main-pstt">
-                <div className="create-add-pstt">
-                    <div className="create-add-one-pstt">
-                        <i className="fa fa-folder-o" aria-hidden="true"></i>
-                        <p>Create Ad</p>
-                    </div>
-                    <div className="create-add-second-pstt">
-                        <i className="fa fa-ellipsis-h"></i>
-                    </div>
-                </div>
+            <div className="desh-second">
+              <i className="fa fa-ellipsis-h"></i>
             </div>
+          </div>
 
-            <div className="create-add-main-second-pstt">
-                <div className="create-add-pstt">
-                    <div className="create-add-one-pstt">
-                        <i className="fa fa-folder-o" aria-hidden="true"></i>
-                        <p>Video Ad</p>
-                    </div>
-                    <div className="create-add-second-pstt">
-                        <i className="fa fa-ellipsis-h"></i>
-                    </div>
-                </div>
+          <div className="create-add-main-no-backbround Configure-one">
+            <div className="create-add">
+              <div className="create-add-one">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Create Ad</p>
+              </div>
+              <div className="create-add-second">
+                <i className="fa fa-ellipsis-h"></i>
+              </div>
             </div>
+          </div>
 
-            <div className="create-add-main-third-pstt">
-                <div className="create-add-pstt">
-                    <div className="create-add-one-pstt">
-                        <i className="fa fa-folder-o" aria-hidden="true"></i>
-                        <p>Brand Awareness- CPV</p>
-                    </div>
-                    <div className="create-add-second-pstt">
-                        <i className="fa fa-ellipsis-h"></i>
-                    </div>
-                </div>
+          <div className="create-add-main-no-backbround Configure-ad">
+            <div className="create-add">
+              <div className="create-add-one">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Brand Awareness- CPV</p>
+              </div>
+              <div className="create-add-second">
+                <i className="fa fa-ellipsis-h"></i>
+              </div>
             </div>
+          </div>
 
+          <div className="create-add-main-third-sp">
+            <div className="create-add-sp" >
+              <div className="create-add-one-sp mr-5">
+                <img src="/assets/images/adIcon/folder.png" alt="" />
+                <p className='ml-2'>Video Ad </p>
+              </div>
+              <div className="create-add-second-sp">
+                <i className="fa fa-ellipsis-h"></i>
+              </div>
+            </div>
+          </div>
         </div>
-
 
         <div className="step-select-main-pstt"></div>
-           <div className="step-select-pstt">
-            <div className="step-select-one-pstt">
-                <div className="step-select-child-pstt">
-                    <button>3</button>
-                    <p>Step 3</p>
-                </div>
+        <div className="step-select-pstt">
+          <div className="step-select-one-pstt">
+            <div className="step-select-child-pstt">
+              <button>3</button>
+              <p>Step 3</p>
             </div>
-            <div className="step-select-second-pstt">
-                <p>Set-up Your Ad</p>
-                <p>Let’s start by selecting your objective which suits best for our goals.</p>
-            </div>
-           </div>
-
-
-         <div className="brand-image-main-pstt">
-          <div className="brand-aware-text-pstt">
-            <p>Brand Awareness- CPV / Video Ad</p>
           </div>
-         
-          <div>
-          <div className="ad-heading-pstt">
-            <p>Ad Heading</p>
-            
-          </div>
-
-        
-
-          <div className="ad-sale-pstt">
-            {/* <p>Enter your ad heading here...</p> */}
-            <input type="text" className='form-control p-2' placeholder='Ad Sub-Heading...' />
-
-          </div>
-          <p className="max-char-pstt">Max 42 Characters</p>
-
-          <div className="ad-heading-second-pstt">
-            <p>Ad Sub-Heading</p>
-
-          </div>
-          <div className="ad-sale-second-pstt">
-          <input type="text" className='form-control p-2' placeholder='Enter your ad sub-heading here...' />
-            {/* <p>Enter your ad sub-heading here...</p> */}
-            
-          </div>
-          <p className="max-char-second-pstt">Max 60 Characters</p>
-
-
-          <div className="ad-heading-third-pstt">
-            <p>Ad Description</p>
-          </div>
-          <div className="ad-sale-third-pstt">
-            {/* <p>Enter your ad description here...</p> */}
-            <textarea name='message' className='form-control' rows='8' placeholder=''> </textarea>
-
-          </div>
-          <p className="max-char-third-pstt">Max 300 Characters</p>
-
-
-          <div className="upload-main-pstt">
-            <p>Add your Video</p>
-            {/* <button>Upload Video</button> */}
-            <button onClick={videoUpload}>Upload video</button>
-            <input type="file" name="" id='input_file' hidden />
-            
+          <div className="step-select-second-pstt">
+            <p>Set-up Your Ad</p>
+            <p>Let’s start by selecting your objective which suits best for our goals.</p>
           </div>
         </div>
+
+
+        <div className="brand-image-main-pstt">
+          <div className="brand-aware-text-pstt">
+            <p>Brand Awareness- CPV / Video Ad</p>
+
+            {/* <span><h3>Preview on</h3> <input type="checkbox" /></span> */}
+          </div>
+
+          <div>
+            <div className="ad-heading-pstt">
+              <p>Add Heading</p>
+
+            </div>
+
+
+
+            <div className="ad-sale-pstt">
+              {/* <p>Enter your ad heading here...</p> */}
+              <input type="text" className='form-control p-2' placeholder='Ad Sub-Heading...' />
+
+            </div>
+            <p className="max-char-pstt">Max 42 Characters</p>
+
+            <div className="ad-heading-second-pstt">
+              <p>Ad Sub-Heading</p>
+
+            </div>
+            <div className="ad-sale-second-pstt">
+              <input type="text" className='form-control p-2' placeholder='Enter your ad sub-heading here...' />
+              {/* <p>Enter your ad sub-heading here...</p> */}
+
+            </div>
+            <p className="max-char-second-pstt">Max 60 Characters</p>
+
+
+            <div className="ad-heading-third-pstt">
+              <p>Ad Description</p>
+            </div>
+            <div className="ad-sale-third-pstt">
+              {/* <p>Enter your ad description here...</p> */}
+              <textarea name='message' className='form-control' rows='8' placeholder='Enter your description here...'> </textarea>
+
+            </div>
+            <p className="max-char-third-pstt">Max 300 Characters</p>
+
+
+            <div className="upload-main-pstt">
+              <p>Add your Video</p>
+              {/* <button>Upload Video</button> */}
+              <button onClick={videoUpload}>Upload video</button>
+              <input type="file" name="" id='input_file' hidden />
+
+            </div>
+          </div>
 
           <div className="two-bumain-pstt">
             <button>Cancel</button>
-           </div>
-             <div className="two-bumain-psttt">
-             <Link to="/VideoAd1">
-            
-            <button>Next</button>
+          </div>
+          <div className="two-bumain-psttt">
+            <Link to="/FullScrVideoAd">
+
+              <button>Next</button>
             </Link>
-           </div>
-           
-         </div>
+          </div>
+        </div>
+        
+      </div>
 
-    
-           
-
-
-    </div>
-   
-   </>
+    </>
   )
 }
 

@@ -66,6 +66,7 @@ import VideoAd1 from "./components/AdmanagerD/VideoAd/VideoAd1";
 import FullScrVideoAd from "./components/AdmanagerD/VideoAd/FullScrVideoAd";
 import FullScrVideoAd1 from "./components/AdmanagerD/VideoAd/FullScrVideoAd1";
 import CreateAd from "./components/AdmanagerD/BrandAwareness/CreateAd"; 
+import TargetAudienceScreen from "./components/AdmanagerD/TargetAudience/TargetAudienceScreen";
 
 
 
@@ -140,6 +141,7 @@ const Root = () => {
             <Route exact path="/VideoAd1" element={<VideoAd1/>}/>
              <Route exact path="/FullScrVideoAd" element={<FullScrVideoAd/>}/>
             <Route exact path="/FullScrVideoAd1" element={<FullScrVideoAd1/>}/>
+            <Route exact path="/TargetAudience" element={<TargetAudienceScreen/>}/>
 
 
             {/* <Route path="*" element={<NotFound/>}/> */}

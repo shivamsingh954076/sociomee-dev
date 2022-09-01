@@ -61,6 +61,15 @@
     /* border-left: 2px solid #81C14B; */
     align-items: center;
 }
+.Configure-one{
+    position: unset;
+    height: 30px;
+}
+.Configure-ad{
+    position: unset !important;
+    height: 30px;
+}
+
 .create-add{
     display: flex;
     justify-content: space-between;

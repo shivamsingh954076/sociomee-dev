@@ -202,7 +202,7 @@
 .single-image-main-sp {
     position: absolute;
     width: 407px;
-    height: 180px;
+    height: 210px;
     left: 20px;
     top: 50px;
     background: #F6F6F6;
@@ -233,7 +233,7 @@
 .single-image-second-sp {
     position: absolute;
     width: 407px;
-    height: 180px;
+    height: 210px;
     left: 445px;
     top: 50px;
     background: #F6F6F6;
@@ -261,7 +261,7 @@
 .single-image-third-sp {
     position: absolute;
     width: 407px;
-    height: 180px;
+    height: 210px;
     left: 20px;
     top: 250px;
     background: #F6F6F6;
@@ -289,7 +289,7 @@
 .single-image-fourth-sp {
     position: absolute;
     width: 407px;
-    height: 180px;
+    height: 210px;
     left: 445px;
     top: 250px;
     background: #F6F6F6;
@@ -367,3 +367,10 @@
  height: 30px;
  width: 30px;
 } */
+.ad-title-dec{
+    margin: 0 5rem;
+    text-align: center;
+}
+.ad-title{
+    font-weight: 600;
+}

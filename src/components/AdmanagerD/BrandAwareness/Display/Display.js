@@ -69,27 +69,27 @@ const Display = () => {
           </div>
           <div className="single-image-main-sp">
             <img src="/assets/images/adIcon/Frame 1105.png" />
-            <p>Single Image Ad</p>
-            <p>Create ad using an image, that will be displayed in news feed.</p>
+            <p className='ad-title mt-3 mb-2'>Single Image Ad</p>
+            <p className='ad-title-dec'>Create ad using an image, that will be displayed in news feed.</p>
           </div>
 
           <div className="single-image-second-sp">
             <img src="/assets/images/adIcon/Frame 1106.png" />
-            <p>Carousel Image Ad</p>
-            <p>Create ad using multiple images, that will be displayed in news feed.</p>
+            <p className='ad-title mt-3 mb-2'>Carousel Image Ad</p>
+            <p className='ad-title-dec'>Create ad using multiple images, that will be displayed in news feed.</p>
           </div>
 
 
           <div className="single-image-third-sp">
             <img src="/assets/images/adIcon/Frame 1107.png" />
-            <p>Video Ad</p>
-            <p>Create ad using a video that will be displayed in news feed.</p>
+            <p className='ad-title mt-3 mb-2'>Video Ad</p>
+            <p className='ad-title-dec'>Create ad using a video that will be displayed in news feed.</p>
           </div>
 
           <div className="single-image-fourth-sp">
             <img src="/assets/images/adIcon/Frame 1108.png" />
-            <p>Full Screen Video Ad</p>
-            <p>Create ad using a video, that will be displayed in the Story/Shotz feed.</p>
+            <p className='ad-title mt-3 mb-2'>Full Screen Video Ad</p>
+            <p className='ad-title-dec'>Create ad using a video, that will be displayed in the Story/Shotz feed.</p>
           </div>
 
           <div className="two-bumain-sp">
@@ -98,21 +98,13 @@ const Display = () => {
           </div>
           <div className="two-bumain-sps">
 
-            <Link to="/Display2">
+            <Link to="/ConfigureAd">
 
               <button>Next</button>
             </Link>
           </div>
-
-
-
-
         </div>
-
-
-
       </div>
-
     </>
   )
 }
