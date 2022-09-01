@@ -2,7 +2,6 @@ import React, { Component, useRef, useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
-import UserContext from '../Context/userContext';
 
 // MUI Dialog box
 import Button from '@mui/material/Button';
@@ -16,9 +15,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
 export default function Header() {
-
-    const [userProfile, setUserProfile] = useState('');
-
     // get user profile by user id 
     const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
 
@@ -44,9 +40,9 @@ export default function Header() {
     const logoutUser = () => {
         setOpen(false)
         const config = {
-            headers: { Authorization: `Bearer ${userProfile.token}` }
+            headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` }
         };
-        const logoutBody = { userId: userProfile.id }
+        const logoutBody = { userId: JSON.parse(localStorage.getItem('user')).id }
 
         axios.post(`${process.env.REACT_APP_IPURL}/user/logOut/`, logoutBody, config)
             .then((respo) => {
@@ -64,9 +60,6 @@ export default function Header() {
         setOpen(false);
     };
 
-    useEffect(() => {
-        setUserProfile(JSON.parse(localStorage.getItem('user')));
-    }, [])
 
     useEffect(() => {
         dispatch(loadProfileByUserId());
