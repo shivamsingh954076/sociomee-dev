@@ -26,7 +26,7 @@ const MyProfileHobbies = ({ userProfileByUserId }) => {
     }
 
     const submitHobbies = () => {
-        const hob = {hobbyIds:hobbies.map((val) => val.id)}
+        const hob = { hobbyIds: hobbies.map((val) => val.id) }
         dispatch(addUserHobbies(hob))
         dispatch(loadHobbiesByUserId());
 
@@ -107,7 +107,7 @@ const MyProfileHobbies = ({ userProfileByUserId }) => {
                                                         type="checkbox"
                                                         className="form-check-input"
                                                         id={hobbi.id}
-                                                        
+
                                                         checked={hobbies?.some((int) => int?.id === hobbi?.id)}
                                                     />
                                                     <label className="form-check-label" htmlFor={hobbi.name}>{hobbi.name}</label>
