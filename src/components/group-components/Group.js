@@ -16,8 +16,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import { loadAllPostsByUserId } from '../../Services/Actions/getAllPostsByUserIdAction';
-import { deletePost } from '../../Services/Actions/getAllUserPostsAction';
+import { loadAllPostsByUserId } from '../../Services/Actions/SocialFeed/getAllPostsByUserIdAction';
+import { deletePost } from '../../Services/Actions/SocialFeed/getAllUserPostsAction';
 import { loadAllGroupsByUserId } from '../../Services/Actions/Group/getAllGroupsByUserIdAction';
 
 export default function Group() {

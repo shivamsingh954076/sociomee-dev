@@ -28,7 +28,6 @@ const MyProfileHobbies = ({ userProfileByUserId }) => {
     const submitHobbies = () => {
         const hob = { hobbyIds: hobbies.map((val) => val.id) }
         dispatch(addUserHobbies(hob))
-        dispatch(loadHobbiesByUserId());
 
     }
 

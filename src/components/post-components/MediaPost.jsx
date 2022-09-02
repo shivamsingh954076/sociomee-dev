@@ -5,7 +5,7 @@ const MediaPost = ({ userPosts }) => {
         <>
             {
                 userPosts.mediaList[0].fileType === 'video' ? (
-                    <video width="320" height="240" controls>
+                    <video width="100%" height="300" controls>
                         <source src={userPosts.mediaList[0].fileURL} type="video/mp4" />
                     </video>
                 ) : (

@@ -1,6 +1,6 @@
-import * as types from '../Constants/index';
+import * as types from '../../Constants/SocialFeed/index';
 import axios from 'axios';
-import { loadAllPostsByUserId } from './getAllPostsByUserIdAction';
+import { loadAllPostsByUserId } from '../SocialFeed/getAllPostsByUserIdAction';
 
 const getAllUserPosts = (allUserPosts) => ({
     type: types.GET_ALL_USER_POSTS,

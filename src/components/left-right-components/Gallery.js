@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadAllPostsByUserId } from '../../Services/Actions/getAllPostsByUserIdAction';
+import { loadAllPostsByUserId } from '../../Services/Actions/SocialFeed/getAllPostsByUserIdAction';
 
 const Gallery = () => {
 
