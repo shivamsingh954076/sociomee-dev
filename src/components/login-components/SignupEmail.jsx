@@ -7,12 +7,15 @@ import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
+import { useUserAuth } from '../../Context/userAuthContext';
 
 const SignupEmail = () => {
    const location = useLocation();
    const [user, setUser] = useState(location.state);
 
-   const [email, setEmail] = useState("");
+   const { logIn, googleSignIn } = useUserAuth();
+
+   const [email, setEmail] = useState({email:''});
    const [flag, setFlag] = useState(false)
    const [error, setError] = useState('');
    const errorRef = useRef();
@@ -24,19 +27,33 @@ const SignupEmail = () => {
       navigate('/SignupProfile', { state: user })
    }
 
+   // get email by google
+   const handleGoogleSignIn = async (e) => {
+      e.preventDefault();
+      try {
+         const respo = await googleSignIn();
+         if (respo.user.email) {
+            email.email=respo.user.email;
+            emailVerification(e);
+         }
+      } catch (error) {
+         console.log(error.message);
+      }
+   };
+
 
    // Email Verification
    const emailVerification = (ev) => {
       ev.preventDefault();
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-      if (!email) { errorRef.current.classList.remove('d-none'); setError('Please Enter Email Address') }
-      else if (!email.match(mailFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Email Address') }
+      if (!email.email) { errorRef.current.classList.remove('d-none'); setError('Please Enter Email.email Address') }
+      else if (!email.email.match(mailFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Email Address') }
       else {
-         axios.post(`${process.env.REACT_APP_IPURL}/public/userEmailAvailable/`, { email: email })
+         axios.post(`${process.env.REACT_APP_IPURL}/public/userEmailAvailable/`, { email: email.email })
             .then(res => {
                console.log(res.data)
                if (res.data.data?.successResult) {
-                  navigate('/SignupProfile', { state: { user: user, email: email } })
+                  navigate('/SignupProfile', { state: { user: user, email: email.email } })
                }
                else {
                   errorRef.current.classList.remove('d-none');
@@ -54,7 +71,7 @@ const SignupEmail = () => {
    useEffect(() => {
       const mailFormat = (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
       const emailTimeout = setTimeout(() => {
-         if (email.match(mailFormat)) {
+         if (email.email.match(mailFormat)) {
             setFlag(true)
          }
          else {
@@ -93,13 +110,13 @@ const SignupEmail = () => {
                                  <form className="theme-form">
                                     <div className="form-group">
                                        {/* <label>Enter your Email Address</label> */}
-                                       <input type="email" className={`form-control ${error && 'border-danger'}`}  placeholder="Enter Email Address" value={email} onChange={(ev) => { setEmail(ev.target.value);setError(''); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
+                                       <input type="email" className={`form-control ${error && 'border-danger'}`} placeholder="Enter Email Address" value={email.email} onChange={(ev) => { setEmail({email:ev.target.value}); setError(''); errorRef.current.classList.add('d-none') }} onKeyPress={(e) => { e.target.value.length >= 30 && e.preventDefault() }} />
                                        <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                     </div>
                                     <div className="connect-with">
                                        <h6><span>OR</span></h6>
                                        <ul className="social-login-blk">
-                                          <li><a><img src="/assets/images/google-icon.png" /> Continue with Google</a></li>
+                                          <li onClick={handleGoogleSignIn}><a><img src="/assets/images/google-icon.png" /> Continue with Google</a></li>
                                           <li><a><img src="/assets/images/apple-icon.png" /> Continue with Apple</a></li>
                                        </ul>
                                     </div>
