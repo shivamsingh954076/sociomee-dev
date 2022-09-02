@@ -163,7 +163,7 @@ const Signup = () => {
                 </div>
             </section>
 
-            {/* language modal */}
+            {/* country code modal */}
             <div className="modal fade" id="languageModal" tabIndex="-1" role="dialog" aria-labelledby="bioModelTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">

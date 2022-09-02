@@ -1,6 +1,6 @@
 import * as types from '../../Constants/UserProfile/index';
 import axios from 'axios';
-import { loadProfileByUserId } from './getUserProfileByUserIdAction';
+import { loadProfileByUserId, loadSportsByUserId } from './getUserProfileByUserIdAction';
 
 const getAllSports = (allSports) => ({
     type: types.LOAD_ALL_SPORTS,
@@ -33,7 +33,7 @@ export const addSports = (sport) => {
         user && axios.post(`${process.env.REACT_APP_IPURL}/user/addSports`, sport, { headers: { Authorization: `Bearer ${user.token}` } })
             .then((res) => {
                 console.log(res)
-                dispatch(loadProfileByUserId())
+                dispatch(loadSportsByUserId())
             })
             .catch((error) => {
                 console.log(error);

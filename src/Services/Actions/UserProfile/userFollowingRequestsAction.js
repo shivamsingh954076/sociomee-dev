@@ -1,6 +1,7 @@
 import * as types from '../../Constants/UserProfile/index';
 import axios from 'axios';
 import { getSuggestedUsers } from './suggestedUsersAction'
+import { loadProfileByUserId } from './getUserProfileByUserIdAction';
 
 const userFollowingRequestsGet = (userFollowingRequests) => ({
     type: types.GET_FOLLOWING_REQUESTS,
@@ -37,6 +38,7 @@ export const sendUserFollowingRequests = (id, isPrivate) => {
             axios.post(`${process.env.REACT_APP_IPURL}/user/followUnFollow`, data, { headers: { Authorization: `Bearer ${user.token}` } })
                 .then((res) => {
                     dispatch(getSuggestedUsers())
+                    dispatch(loadProfileByUserId())
                     console.log(res.data)
                 })
                 .catch((error) => {

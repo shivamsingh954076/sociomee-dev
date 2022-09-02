@@ -8,12 +8,15 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost } from '../Services/Actions/getAllUserPostsAction';
+import { addPost } from '../Services/Actions/SocialFeed/getAllUserPostsAction';
 import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
-import { loadArticleCategory } from '../Services/Actions/getArticleCategoryAction';
-import { loadEventCategory } from '../Services/Actions/getEventCategoryAction';
-import { loadAlertLevel, loadAlertRange } from '../Services/Actions/getAlertDataAction';
+import { loadArticleCategory } from '../Services/Actions/SocialFeed/getArticleCategoryAction';
+import { loadEventCategory } from '../Services/Actions/SocialFeed/getEventCategoryAction';
+import { loadColors } from '../Services/Actions/SocialFeed/getColorsAction';
+import { loadAlertLevel, loadAlertRange } from '../Services/Actions/SocialFeed/getAlertDataAction';
 import AddInYourPost from './AddInYourPost';
+import PostDisplayType from './PostDisplayType';
+import ColorModal from './post-components/Modals/ColorModal';
 
 export default function CreatePost() {
     const [value2, onChange2] = useState(new Date());
@@ -30,11 +33,16 @@ export default function CreatePost() {
     const [eventCoverImage, setEventCoverImage] = useState();
     const [postMedia2, setPostMedia2] = useState('');
 
+    // thought color selection
+    const [selectedColor,setSelectedColor]=useState('#9acd32');
+
 
     // get all article category
     const { articleCategory } = useSelector(state => state.getArticleCategoryData)
     // get all event category
     const { eventCategory } = useSelector(state => state.getEventCategoryData)
+    // get all colors
+    const { colors } = useSelector(state => state.getColorsData)
 
 
 
@@ -70,7 +78,8 @@ export default function CreatePost() {
         locationLONG: "",
         location1: "",
         location2: "",
-        location3: ""
+        location3: "",
+        connectionName: 'Public'
     })
 
 
@@ -101,12 +110,15 @@ export default function CreatePost() {
     const bgNoneRef = useRef(null);
     const bgRef = useRef(null);
     // Create Thought Post 
-    const clickGradient = (e) => {
+    const clickGradient = (e,colorCode) => {
         bgRef.current.classList.add("d-block");
         bgNoneRef.current.classList.add("d-none");
         mediaRef.current.classList.remove("d-block");
         alertRef.current.classList.remove("d-block");
         RecommendationRef.current.classList.remove("d-block");
+        gradientMainBlockRef.current.classList.remove("d-none");
+        setSelectedColor(colorCode)
+        
     };
     const closeBgClick = (e) => {
         bgRef.current.classList.remove("d-block");
@@ -194,6 +206,7 @@ export default function CreatePost() {
         opneGradientRef.current.classList.add("d-none");
         colorListRef.current.classList.remove("d-none");
         colorToggleRef.current.classList.remove("d-none");
+        dispatch(loadColors())
     };
     const clickColorHide = (e) => {
         opneGradientRef.current.classList.remove("d-none");
@@ -459,34 +472,9 @@ export default function CreatePost() {
             <div className="create-post">
                 <div className="static-section">
                     <div className="card-title create-port-title">
-                        <div className="createpost-blk">
-                            <h3>create post</h3>
-                            <div className="setting-dropdown">
-                                <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                    <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589" /></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
-                                    <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                        <ul>
-                                            <li>
-                                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
-                                            </li>
-                                            <li>
-                                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
-                                            </li>
-                                            <li>
-                                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
-                                                    except</a>
-                                            </li>
-                                            <li>
-                                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
-                                            </li>
-                                            <li>
-                                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <PostDisplayType postData={postData} setPostData={setPostData} />
+
                         <div className="golive-more-blk">
                             <div className="create-btn-livetrad">
                                 <a className="btntrad">
@@ -506,7 +494,7 @@ export default function CreatePost() {
                                                     <a onClick={clickMedia}><img src="/assets/images/Media.png" /> Media</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={clickGradient}><img src="/assets/images/Thought.png" /> Thought</a>
+                                                    <a onClick={(e)=>clickGradient(e,'#9acd32')}><img src="/assets/images/Thought.png" /> Thought</a>
                                                 </li>
                                                 <li>
                                                     <a ><img src="/assets/images/Go_live.png" /> Go Live</a>
@@ -630,7 +618,7 @@ export default function CreatePost() {
                     </div>
                     <div className="create-bg">
                         <div className="bg-post gr-1" ref={bgRef} id="bg-post">
-                            <div className="input-sec">
+                            <div className="input-sec" style={{background:selectedColor}}>
                                 <input type="text" className="form-control enable"
                                     placeholder="What's going on" />
                                 <div className="close-icon" onClick={closeBgClick}>
@@ -644,28 +632,24 @@ export default function CreatePost() {
                             <img className="opengradient-box" ref={opneGradientRef} onClick={clickColorShow} src="assets/images/colorgroupbtn.png" />
                             <ul className="gradient-bg d-none" ref={colorListRef}>
                                 <li className="closearrow-btn" onClick={clickColorHide}></li>
-                                <li onClick={clickGradient} className="gr-1"></li>
-                                <li onClick={clickGradient} className="gr-2"></li>
-                                <li onClick={clickGradient} className="gr-3"></li>
-                                <li onClick={clickGradient} className="gr-4"></li>
-                                <li onClick={clickGradient} className="gr-5"></li>
-                                <li onClick={clickGradient} className="gr-6"></li>
-                                <li onClick={clickGradient} className="gr-7"></li>
-                                <li onClick={clickGradient} className="gr-8"></li>
-                                <li onClick={clickGradient} className="gr-9"></li>
-                                <li onClick={clickGradient} className="gr-10"></li>
-                                <li onClick={clickGradient} className="gr-11"></li>
-                                <li onClick={clickGradient} className="gr-12"></li>
-                                <li onClick={clickGradient} className="gr-13"></li>
-                                <li onClick={clickGradient} className="gr-14"></li>
-                                <li onClick={clickGradient} className="gr-15"></li>
+                                {
+                                    colors && colors.map(({
+                                        id,
+                                        colorHexCode
+                                    }) => {
+                                        return <li onClick={(e)=>clickGradient(e,colorHexCode)} className="gr-1" style={{ background: colorHexCode }} key={id}></li>
+                                    }).slice(0,16)
+                                }
+
                             </ul>
                             <a className="bg-color-btn d-none" ref={colorToggleRef} data-bs-toggle="modal" data-bs-target="#bgColorModel"><img src="assets/images/bg-color.png" /></a>
                         </div>
+                        {/* More Colors Modal */}
+                        <ColorModal colors={colors} clickGradient={clickGradient}/>
                     </div>
                 </div>
 
-                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
+                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
 
                 {/* <ul className="create-btm-option">
             <li>
@@ -695,34 +679,7 @@ export default function CreatePost() {
                             <div className="create-post">
                                 <div className="static-section">
                                     <div className="card-title create-port-title">
-                                        <div className="createpost-blk">
-                                            <h3>create post</h3>
-                                        </div>
-                                        <div className="setting-dropdown">
-                                            <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589" /></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
-                                                <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
-                                                                except</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <PostDisplayType postData={postData} setPostData={setPostData} />
                                     </div>
                                     <div className="event-create-post-block">
                                         <div className="user-profile-cp">
@@ -775,7 +732,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
                             </div>
                         </div>
                     </div>
@@ -791,34 +748,7 @@ export default function CreatePost() {
                             <div className="create-post">
                                 <div className="static-section">
                                     <div className="card-title create-port-title">
-                                        <div className="createpost-blk">
-                                            <h3>create post</h3>
-                                        </div>
-                                        <div className="setting-dropdown">
-                                            <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589" /></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
-                                                <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
-                                                                except</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <PostDisplayType postData={postData} setPostData={setPostData} />
                                     </div>
 
                                     <div className="article-create-post-block">
@@ -864,7 +794,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
 
                             </div>
                         </div>
@@ -881,34 +811,7 @@ export default function CreatePost() {
                             <div className="create-post">
                                 <div className="static-section">
                                     <div className="card-title create-port-title">
-                                        <div className="createpost-blk">
-                                            <h3>create post</h3>
-                                        </div>
-                                        <div className="setting-dropdown">
-                                            <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589" /></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
-                                                <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
-                                                                except</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <PostDisplayType postData={postData} setPostData={setPostData} />
                                     </div>
 
                                     <div className="poll-create-post-block">
@@ -952,7 +855,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
 
                             </div>
                         </div>
@@ -969,34 +872,7 @@ export default function CreatePost() {
                             <div className="create-post">
                                 <div className="static-section">
                                     <div className="card-title create-port-title">
-                                        <div className="createpost-blk">
-                                            <h3>create post</h3>
-                                        </div>
-                                        <div className="setting-dropdown">
-                                            <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589" /></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
-                                                <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
-                                                                except</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <PostDisplayType postData={postData} setPostData={setPostData} />
                                     </div>
                                     <div className="article-create-post-block">
                                         <div className="user-profile-cp">
@@ -1089,7 +965,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
 
                             </div>
                         </div>
@@ -1106,34 +982,7 @@ export default function CreatePost() {
                             <div className="create-post">
                                 <div className="static-section">
                                     <div className="card-title create-port-title">
-                                        <div className="createpost-blk">
-                                            <h3>create post</h3>
-                                        </div>
-                                        <div className="setting-dropdown">
-                                            <div className="btn-group custom-dropdown arrow-none dropdown-sm">
-                                                <h5 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 14 14" fill="none" className="iw-14 globe-svg"> <path fillRule="evenodd" clipRule="evenodd" d="M7.00004 0.583344C3.44171 0.583344 0.583374 3.44168 0.583374 7.00001C0.583374 10.5583 3.44171 13.4167 7.00004 13.4167C10.5584 13.4167 13.4167 10.5583 13.4167 7.00001C13.4167 3.44168 10.5584 0.583344 7.00004 0.583344ZM12.1917 6.41668H9.85837C9.74171 4.78334 9.21671 3.26668 8.28337 1.92501C10.3834 2.45001 11.9584 4.25834 12.1917 6.41668ZM8.75004 7.58334H5.30837C5.42504 9.15834 6.00837 10.675 7.05837 11.9C7.99171 10.675 8.57504 9.15834 8.75004 7.58334ZM5.30837 6.41668C5.48337 4.84168 6.06671 3.32501 7.00004 2.10001C7.99171 3.38334 8.57504 4.90001 8.69171 6.41668H5.30837ZM4.14171 6.41668C4.25837 4.78334 4.78337 3.26668 5.65837 1.92501C3.61671 2.45001 2.04171 4.25834 1.80837 6.41668H4.14171ZM1.80837 7.58334H4.14171C4.25837 9.21668 4.78337 10.7333 5.71671 12.075C3.61671 11.55 2.04171 9.74168 1.80837 7.58334ZM9.91671 7.58334C9.74171 9.21668 9.21671 10.7333 8.34171 12.075C10.3834 11.55 11.9584 9.74168 12.25 7.58334H9.91671Z" fill="#647589" /></svg> public <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14"><polyline points="6 9 12 15 18 9"></polyline></svg></h5>
-                                                <div className="dropdown-menu dropdown-menu-right custom-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> public</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>friends
-                                                                except</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>specific friends</a>
-                                                        </li>
-                                                        <li>
-                                                            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-font-light iw-16 ih-16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>only me</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <PostDisplayType postData={postData} setPostData={setPostData} />
                                     </div>
                                     <div className="event-create-post-block">
                                         <div className="user-profile-cp">
@@ -1202,7 +1051,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions}  />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
 
                             </div>
                         </div>

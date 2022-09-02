@@ -1,4 +1,4 @@
-import * as types from "../Constants/index";
+import * as types from "../../Constants/SocialFeed/index";
 
 const initialState = {
   uploadFile: [],

@@ -15,6 +15,7 @@ const Login = () => {
     const passwordField = useRef(null)
     const [error, setError] = useState('');
     const [user, setUser] = useState({ phone: "", password: "" })
+    const [language, setLanguage] = useState({ languagId: '' });
     const [style, setStyle] = useState(false);
     const [phoneCode, setPhoneCode] = useState([])
     let navigate = useNavigate();
@@ -205,7 +206,7 @@ const Login = () => {
 
                         </div>
                     </div>
-                    <LoginLanguage></LoginLanguage>
+                    <LoginLanguage setUser={language}/>
                 </div>
             </section>
         </>

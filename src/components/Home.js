@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useRoutes } from "react-router-dom";
 import Slider from "react-slick";
-import { loadAllUserPosts } from '../Services/Actions/getAllUserPostsAction';
-import { loadAllReactions } from '../Services/Actions/getAllReactionsAction';
+import { loadAllUserPosts } from '../Services/Actions/SocialFeed/getAllUserPostsAction';
+import { loadAllReactions } from '../Services/Actions/SocialFeed/getAllReactionsAction';
 import ContentLeft from './ContentLeft';
 import ContentRight from './ContentRight';
 import CreatePost from './CreatePost';
@@ -31,11 +31,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import { addCommentOnPost } from '../Services/Actions/addCommentOnPost';
+import { addCommentOnPost } from '../Services/Actions/SocialFeed/addCommentOnPost';
 import { loadProfileByUserId } from '../Services/Actions/UserProfile/getUserProfileByUserIdAction';
-import { addLikeOnPost } from '../Services/Actions/addLikeOnPost';
-import { addAnswerOnPollPost } from '../Services/Actions/addAnswerOnPollPostAction';
-import { setPostSaved } from '../Services/Actions/postSavedAction';
+import { addLikeOnPost } from '../Services/Actions/SocialFeed/addLikeOnPost';
+import { addAnswerOnPollPost } from '../Services/Actions/SocialFeed/addAnswerOnPollPostAction';
+import { setPostSaved } from '../Services/Actions/SocialFeed/postSavedAction';
 // import react infinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
 import PollPost from './post-components/PollPost';

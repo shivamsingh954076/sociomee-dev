@@ -53,7 +53,6 @@ const MyPorfileSports = () => {
             sportsId: userSports.map((val) => val.id)
         }
         dispatch(addSports(sport))
-        dispatch(loadSportsByUserId());
 
     }
 

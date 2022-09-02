@@ -1,5 +1,6 @@
 import * as types from '../../Constants/UserProfile/index';
 import axios from 'axios';
+import {loadHobbiesByUserId} from './getUserProfileByUserIdAction';
 
 const getAllUserSports = (userSports) => ({
     type: types.GET_USERS_SPORTS,
@@ -151,6 +152,7 @@ export const addUserHobbies = (hobbies) => {
             axios.post(`${process.env.REACT_APP_IPURL}/user/addHobbies`, hobbies, { headers: { Authorization: `Bearer ${user.token}` } })
                 .then((res) => {
                     console.log(res.data)
+                    dispatch(loadHobbiesByUserId());
                 })
                 .catch((error) => {
                     console.log(error);

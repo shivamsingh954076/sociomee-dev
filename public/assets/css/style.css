@@ -58350,9 +58350,9 @@ header .header-section .profile-btn .user-img img {
 }
 
 .bg-color-list-block li {
-  width: 77px;
+  /* width: 100px; */
   display: inline-grid;
-  padding: 5px 5px 0;
+  padding: 7px 8px 0;
 }
 
 .color-bg-choose {

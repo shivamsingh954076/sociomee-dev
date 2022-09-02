@@ -1,79 +1,68 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// Use for snakebar
-import MuiAlert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 
 const SignupDetail = () => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const [detail, setDetail] = useState({ dob: "", gender: "", "addressBy": "" });
+    const errorRef = useRef(null);
+    const [error, setError] = useState('');
 
-    // Snackbar Code
-    const [open, setOpen] = useState(false);
-    const [alert, setAlert] = useState({ sev: 'success', content: '' });
     const [flag, setFlag] = useState(false);
 
     // date picker state
     const [startDay, setStartDay] = useState(new Date("January 01, 2007 01:15:00"));
     const [startMonth, setStartMonth] = useState(startDay);
     const [startYear, setStartYear] = useState(startMonth);
+    const [finalDate] = useState({ day: '', month: '', year: '' })
 
     let navigate = useNavigate();
-
-
-    //  Snackbar Alert Function
-    const Alert = React.forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
 
 
     // Detail Input Handler
     const detailHandler = (ev) => {
         let { name, value } = ev.target;
         setDetail({ ...detail, [name]: value })
+        errorRef.current.classList.add('d-none');
+        setError('')
     }
     //Detail Submit Function
     const detailSubmit = (e) => {
         e.preventDefault();
-        detail.dob=`${startYear.getFullYear()}-${startMonth.getMonth()+1}-${startDay.getDate()}`;
-        if (!detail.dob) { setOpen(true); setAlert({ sev: "error", content: "Please Enter Date of birth" }); }
-        else if (!detail.gender || detail.gender === 'special') { setOpen(true); setAlert({ sev: "error", content: "Please Select Gender" }); }
+        if (startDay.getDate() < 10) finalDate.day = `0${startDay.getDate()}`
+        if ((startDay.getMonth() + 1) < 10) finalDate.month = `0${startDay.getMonth()+1}`
+        else {
+            finalDate.day = startDay.getDate();
+            finalDate.month = startDay.getMonth()+1;
+        }
+        detail.dob = `${startYear.getFullYear()}-${finalDate.month}-${finalDate.day}`;
+        if (!detail.dob) { errorRef.current.classList.remove('d-none'); setError('Please Enter Date of Birth') }
+        else if (!detail.gender || detail.gender === 'special') { errorRef.current.classList.remove('d-none'); setError('Please Select Gender') }
         else {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
             axios.post(`${process.env.REACT_APP_IPURL}/user/update`, detail, config)
                 .then((respo) => {
+                    console.log(respo.data.data)
                     if (respo.data.data?.successResult === "Updated User") {
-                        setOpen(true);
-                        setAlert({ sev: "success", content: "Updated Successfully" });
+                        navigate('/SignupInterest')
                     }
                     else {
-                        setOpen(true);
-                        setAlert({ sev: "error", content: "Something Went Wrong" });
+                        errorRef.current.classList.remove('d-none'); setError(respo.data.data?.errorResult)
                     }
                 })
                 .catch((err) => {
-                    setOpen(true);
-                    setAlert({ sev: "error", content: `${err} !`, });
+                    console.log(err)
+                    errorRef.current.classList.remove('d-none'); setError(err.response.data?.errorResult)
                 })
         }
 
     }
 
-    // Cancel Snackbar
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-        if (alert.sev === 'success') { navigate('/SignupInterest') }
-    };
 
     useEffect(() => {
         if (detail.gender) {
@@ -230,16 +219,9 @@ const SignupDetail = () => {
                                                     }
 
                                                 </div>
+                                                <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                                 <div className="btn-section">
-                                                    <Stack spacing={2} sx={{ width: '100%' }} id="stack">
-                                                        <button className="btn btn-solid btn-lg" onClick={detailSubmit} disabled={!flag}>CONTINUE</button>
-                                                        {/* Snackbar */}
-                                                        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={1500} onClose={handleClose}>
-                                                            <Alert onClose={handleClose} severity={alert.sev} sx={{ width: '100%' }}>
-                                                                {alert.content}
-                                                            </Alert>
-                                                        </Snackbar>
-                                                    </Stack>
+                                                    <button className="btn btn-solid btn-lg" onClick={detailSubmit} disabled={!flag}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

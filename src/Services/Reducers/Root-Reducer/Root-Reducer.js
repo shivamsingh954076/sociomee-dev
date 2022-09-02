@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux';
-import getAllUserPosts from '../getAllUserPosts'
-import getAllPostsByUserId from '../getAllPostsByUserId'
-import uploadFileReducer from '../uploadFileReducer'
-import getAllReactionsReducer from '../getAllReactionsReducer'
+// Social Feed
+import getAllUserPosts from '../SocialFeed/getAllUserPosts'
+import getAllPostsByUserId from '../SocialFeed/getAllPostsByUserId'
+import uploadFileReducer from '../SocialFeed/uploadFileReducer'
+import getAllReactionsReducer from '../SocialFeed/getAllReactionsReducer'
 import getUserProfileByUserIdReducer from '../UserProfile/getUserProfileByUserIdReducer'
-import getArticleCategoryReducer from '../getArticleCategoryReducer'
-import postSavedReducer from '../postSavedReducer'
+import getArticleCategoryReducer from '../SocialFeed/getArticleCategoryReducer'
+import postSavedReducer from '../SocialFeed/postSavedReducer'
 import getUserSubModulesReducer from '../UserProfile/getUsersSubModulesReducer'
-import getEventCategoryReducer from '../getEventCategoryReducer'
-import getAlertDataReducer from '../getAlertDataReducer'
+import getEventCategoryReducer from '../SocialFeed/getEventCategoryReducer'
+import getAlertDataReducer from '../SocialFeed/getAlertDataReducer'
+import getColorsReducer from '../SocialFeed/getColorsReducer'
+
 
 // bizPage
 import bizCategoryReducer from '../BizPage/bizCategoryReducer'
@@ -30,6 +33,7 @@ import getGroupAdministraterReducer from '../getGroupAdministraterReducer'
 
 
 const rootReducer = combineReducers({
+    // Social Feed
     getAllUserPostsData : getAllUserPosts,
     getAllPostsByUserIdData : getAllPostsByUserId,
     uploadFileData : uploadFileReducer,
@@ -40,6 +44,7 @@ const rootReducer = combineReducers({
     getUserSubModulesData : getUserSubModulesReducer,
     getEventCategoryData : getEventCategoryReducer,
     getAlertData : getAlertDataReducer,
+    getColorsData : getColorsReducer,
 
     // Biz Page
     bizCategoryData : bizCategoryReducer,

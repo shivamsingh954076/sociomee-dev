@@ -21,20 +21,20 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import { loadAllPostsByUserId } from '../../Services/Actions/getAllPostsByUserIdAction';
-import { deletePost } from '../../Services/Actions/getAllUserPostsAction';
+import { loadAllPostsByUserId } from '../../Services/Actions/SocialFeed/getAllPostsByUserIdAction';
+import { deletePost } from '../../Services/Actions/SocialFeed/getAllUserPostsAction';
 import ProfileCover from './ProfileCover';
-import { loadAllReactions } from '../../Services/Actions/getAllReactionsAction';
-import { addLikeOnPost } from '../../Services/Actions/addLikeOnPost';
+import { loadAllReactions } from '../../Services/Actions/SocialFeed/getAllReactionsAction';
+import { addLikeOnPost } from '../../Services/Actions/SocialFeed/addLikeOnPost';
 
 
 // Use for snakebar
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
-import { addCommentOnPost } from '../../Services/Actions/addCommentOnPost';
+import { addCommentOnPost } from '../../Services/Actions/SocialFeed/addCommentOnPost';
 import { loadProfileByUserId } from '../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
-import { addAnswerOnPollPost } from '../../Services/Actions/addAnswerOnPollPostAction';
+import { addAnswerOnPollPost } from '../../Services/Actions/SocialFeed/addAnswerOnPollPostAction';
 
 import PollPost from '../post-components/PollPost';
 import MediaPost from '../post-components/MediaPost';

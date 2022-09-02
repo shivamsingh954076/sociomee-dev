@@ -795,54 +795,6 @@ export  default function Models() {
         </div>
     </div>
 
-    <div className="modal fade" id="bgColorModel" tabIndex="-1" role="dialog" aria-labelledby="bgColorModelTitle" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-            <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLongTitle">Choose Background</h5>
-                <a href="/" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon-dark close-btn"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
-            </div>
-            <div className="modal-body">
-                <p>Popular</p>
-                <ul className="bg-color-list-block">
-                    <li><div className="color-bg-choose" style={{background:"#FF0000"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#70FF00"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#00FFC2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#D7A2A2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFE600"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#8F00FF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#0038FF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#8F00FF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFA800"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#0F8A0D"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#622727"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#00FFC2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#B0AFAF"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#000000"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#640066"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#101860"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFA800"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#0F8A0D"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#D7A2A2"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FFE600"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#635923"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#FF0000"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#70FF00"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#622727"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#6475B0"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#A165C6"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#91BC81"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#B6B785"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#50466C"}}></div></li>
-                    <li><div className="color-bg-choose" style={{background:"#AE7B3F"}}></div></li>
-                </ul>
-            </div>
-            <div className="modal-footer">
-                <button type="button" className="btn btn-solid">Done</button>
-            </div>
-            </div>
-        </div>  
-    </div>
     </>
   );
 } 

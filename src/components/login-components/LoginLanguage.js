@@ -10,7 +10,9 @@ export class LoginLanguage extends Component {
       selectedItem: ''
     };
     axios.post(`${process.env.REACT_APP_IPURL}/public/getAllAppLanguages/`)
-      .then((res) => { this.setState({ items: res.data.data.successResult.rows });this.props.setUser.languagId=res.data.data.successResult.rows[0].id})
+      .then((res) => { 
+        this.setState({ items: res.data.data.successResult.rows });
+        this.props.setUser.languagId=res.data?.data?.successResult?.rows[0]?.id})
       .catch((err) => {
         console.log(err)
       })
