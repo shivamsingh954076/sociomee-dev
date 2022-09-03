@@ -113,10 +113,10 @@ const AdPreviewScreen = () => {
                                     <div className="preview-data">
                                         <div>
                                             <img src="/assets/images/adIcon/chevrons-right.png" alt="" />
-                                            <span>All ●</span>
-                                            <span>Male ●</span>
-                                            <span>Female ●</span>
-                                            <span>Others ●</span>
+                                            <span>All <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span>Male <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span>Female <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span>Others <span className='bg-bullet ml-2 mr-2'>●</span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -141,7 +141,10 @@ const AdPreviewScreen = () => {
                                     <div className="preview-data">
                                         <div>
                                             <img src="/assets/images/adIcon/chevrons-right.png" alt="" />
-                                            <span>Doctors  ●  Engineer  ●  Advocate  ●  Students</span>
+                                            <span>Doctors  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span>Engineer  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span>Advocate  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span>Students<span className='bg-bullet ml-2 mr-2'>●</span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -154,8 +157,14 @@ const AdPreviewScreen = () => {
                                     <div className="preview-data">
                                         <div>
                                             <img src="/assets/images/adIcon/chevrons-right.png" alt="" />
-                                            <span>Food  ●  Singing  ●  Music  ●  Acting  ●  Dancing  ●  Football
-                                                Cricket  ●  Shooting </span>
+                                            <span>Food  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Singing  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Music  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Acting  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Dancing  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Football<span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Cricket  <span className='bg-bullet ml-2 mr-2'>●</span></span>
+                                            <span> Shooting <span className='bg-bullet ml-2 mr-2'>●</span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -172,6 +181,66 @@ const AdPreviewScreen = () => {
                                             <span>Lucknow Airport (LKO), Amausi, Lucknow, Uttar ...</span>
                                         </div>
                                     </div>
+                                </div>
+
+
+                                <div className="main-left">
+                                    <h2>Billing Detail</h2>
+
+                                    <div className="preview-data">
+                                        <div>
+                                            <div className="ad-heading-upsd-title-input in-between">
+                                                <p>Ad Duration</p>
+                                            </div>
+                                            <div className="">
+                                                <img src="/assets/images/adIcon/chevrons-right.png" alt="" />
+                                                <div className="d-flex justify-content-between">
+                                                    <span>Start Date</span>
+                                                    <span>4 Feb, 2021 </span>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <span>End Date</span>
+                                                <span>28 Feb, 2021</span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div className="ad-heading-upsd-title-input in-between">
+                                                <p>Amount</p>
+                                            </div>
+                                            <div className="">
+                                                <img src="/assets/images/adIcon/chevrons-right.png" alt="" />
+                                                <div className="d-flex justify-content-between">
+                                                    <span>Each day</span>
+                                                    <span>$20</span>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <span>Total Amount to be paid</span>
+                                                <span>$5000</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div className='total-paid-ad'>
+                                        <div className='d-flex justify-content-between'>
+                                            <div className='d-flex justify-content-between mb-2'>
+                                                <input type="checkbox" className='mr-2' name="" id="" />
+                                                <h4>Choose available Balance</h4>
+                                            </div>
+                                            <h3>€ 200</h3>
+                                        </div>
+                                        <div>
+                                            <h3>Add € 980 more credit to pay for your Ad</h3>
+                                        </div>
+                                    </div>
+
+                                    <Link to="/AdPreview" >
+                                        <button className="budget-btn btn Publish-btn">
+                                            Pay € 980 and Publish Ad
+                                        </button>
+                                    </Link>
                                 </div>
 
                             </div>
