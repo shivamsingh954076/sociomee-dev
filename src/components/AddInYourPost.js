@@ -76,6 +76,10 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
             if (postData?.caption && postData?.eventCategoryId && postData?.eventDescription && postData?.eventAddress) setFlag(true)
             else setFlag(false)
         }
+        if (postData?.postType === 'thought') {
+            if (postData?.caption) setFlag(true)
+            else setFlag(false)
+        }
 
     }, [postData])
 
