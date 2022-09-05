@@ -32,13 +32,10 @@ const SignupDetail = () => {
     //Detail Submit Function
     const detailSubmit = (e) => {
         e.preventDefault();
-        if (startDay.getDate() < 10) finalDate.day = `0${startDay.getDate()}`
-        if ((startDay.getMonth() + 1) < 10) finalDate.month = `0${startDay.getMonth()+1}`
-        else {
-            finalDate.day = startDay.getDate();
-            finalDate.month = startDay.getMonth()+1;
-        }
+        (startDay.getDate() < 10) ? finalDate.day = `0${startDay.getDate()}` : finalDate.day = startDay.getDate();
+        ((startDay.getMonth() + 1) < 10) ? finalDate.month = `0${startDay.getMonth() + 1}` : finalDate.month = startDay.getMonth() + 1;
         detail.dob = `${startYear.getFullYear()}-${finalDate.month}-${finalDate.day}`;
+        console.log(detail);
         if (!detail.dob) { errorRef.current.classList.remove('d-none'); setError('Please Enter Date of Birth') }
         else if (!detail.gender || detail.gender === 'special') { errorRef.current.classList.remove('d-none'); setError('Please Select Gender') }
         else {
