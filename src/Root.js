@@ -65,11 +65,16 @@ import VideoAd from "./components/AdmanagerD/VideoAd/VideoAd";
 import VideoAd1 from "./components/AdmanagerD/VideoAd/VideoAd1";
 import FullScrVideoAd from "./components/AdmanagerD/VideoAd/FullScrVideoAd";
 import FullScrVideoAd1 from "./components/AdmanagerD/VideoAd/FullScrVideoAd1";
-import CreateAd from "./components/AdmanagerD/BrandAwareness/CreateAd"; 
+import CreateAd from "./components/AdmanagerD/BrandAwareness/CreateAd";
 import TargetAudienceScreen from "./components/AdmanagerD/TargetAudience/TargetAudienceScreen";
 import BudgetScreen from "./components/AdmanagerD/Budget/BudgetScreen";
 import AdPreviewScreen from "./components/AdmanagerD/AdPreview/AdPreviewScreen";
 import AdPreviewScreenTwo from "./components/AdmanagerD/AdPreview/AdPreviewScreenTwo";
+
+import GoLive from "./components/golive-components/GoLive";
+import GoLiveDetail from "./components/golive-components/GoLiveDetail";
+import CreateGoLive from "./components/golive-components/CreateGoLive";
+import CreateGoLiveDetail from "./components/golive-components/CreateGoLiveDetail";
 
 
 
@@ -100,11 +105,11 @@ const Root = () => {
             <Route exact path="/JoinedGroup" element={<JoinedGroup />} />
             <Route exact path="/InviteGroup" element={<InviteGroup />} />
             <Route exact path="/GroupJointRequest" element={<GroupJointRequest />} />
-            
+
             <Route exact path="/GroupDetail/group/:id" element={<GroupDetail />} />
             <Route exact path="/GdAbout/group/:id" element={<GdAbout />} />
             <Route exact path="/GroupMember/group/:id" element={<GroupMember />} />
-            
+
             <Route exact path="/GdBlockedPeople" element={<GdBlockedPeople />} />
             <Route exact path="/GdPostRequest" element={<GdPostRequest />} />
             <Route exact path="/GdSetting" element={<GdSetting />} />
@@ -133,21 +138,26 @@ const Root = () => {
             <Route exact path="/CreateBiz" element={<CreateBiz />} />
             <Route exact path="/CreateBizPage" element={<CreateBizPage />} />
 
-            <Route exact path="/CreateAd" element={<CreateAd />}/>
-            <Route exact path="/Display" element={<Display/>}/>
-             <Route exact path="/Display2" element={<Display2/>}/>
-             <Route exact path="/ConfigureAd" element={<ConfigureAd/>}/>
-            <Route exact path="/ConfigureAd1" element={<ConfigureAd1/>}/>
-            <Route exact path="/ConfigureAd2" element={<ConfigureAd2/>}/>
-            <Route exact path="/ConfigureAd3" element={<ConfigureAd3/>}/>
-           <Route exact path="/VideoAd" element={<VideoAd/>}/>
-            <Route exact path="/VideoAd1" element={<VideoAd1/>}/>
-             <Route exact path="/FullScrVideoAd" element={<FullScrVideoAd/>}/>
-            <Route exact path="/FullScrVideoAd1" element={<FullScrVideoAd1/>}/>
-            <Route exact path="/TargetAudience" element={<TargetAudienceScreen/>}/>
-            <Route exact path="/Budget" element={<BudgetScreen/>}/>
-            <Route exact path="/AdPreview" element={<AdPreviewScreen/>}/>
-            <Route exact path="/AdPreviewTwo" element={<AdPreviewScreenTwo/>}/>
+            <Route exact path="/CreateAd" element={<CreateAd />} />
+            <Route exact path="/Display" element={<Display />} />
+            <Route exact path="/Display2" element={<Display2 />} />
+            <Route exact path="/ConfigureAd" element={<ConfigureAd />} />
+            <Route exact path="/ConfigureAd1" element={<ConfigureAd1 />} />
+            <Route exact path="/ConfigureAd2" element={<ConfigureAd2 />} />
+            <Route exact path="/ConfigureAd3" element={<ConfigureAd3 />} />
+            <Route exact path="/VideoAd" element={<VideoAd />} />
+            <Route exact path="/VideoAd1" element={<VideoAd1 />} />
+            <Route exact path="/FullScrVideoAd" element={<FullScrVideoAd />} />
+            <Route exact path="/FullScrVideoAd1" element={<FullScrVideoAd1 />} />
+            <Route exact path="/TargetAudience" element={<TargetAudienceScreen />} />
+            <Route exact path="/Budget" element={<BudgetScreen />} />
+            <Route exact path="/AdPreview" element={<AdPreviewScreen />} />
+            <Route exact path="/AdPreviewTwo" element={<AdPreviewScreenTwo />} />
+
+            <Route exact path="/GoLive" element={<GoLive />} />
+            <Route exact path="/GoLiveDetail" element={<GoLiveDetail />} />
+            <Route exact path="/CreateGoLive" element={<CreateGoLive />} />
+            <Route exact path="/CreateGoLiveDetail" element={<CreateGoLiveDetail />} />
 
 
             {/* <Route path="*" element={<NotFound/>}/> */}

@@ -130,9 +130,9 @@ export default function Header() {
                                     </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-video-btn">
-                                    <a className="main-link" href="/">
+                                    <NavLink className="main-link" to="/GoLive">
                                         <img src="/assets/images/video.svg" />
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="header-btn home-btn cust-group-btn">
                                     <a className="main-link" href="/">
@@ -462,6 +462,81 @@ export default function Header() {
                                                                         today
                                                                     </h5>
                                                                     <h6>sun at 5.55 AM</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/">
+                                                        <div className="media">
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
+                                                            <div className="media-body">
+                                                                <div>
+                                                                    <h5 className="mt-0"><span>Petey Cruiser</span> added a new
+                                                                        photo
+                                                                    </h5>
+                                                                    <h6>sun at 5.40 AM</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/">
+                                                        <div className="media">
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
+                                                            <div className="media-body">
+                                                                <div>
+                                                                    <h5 className="mt-0"><span>Petey Cruiser</span> added a new
+                                                                        photo
+                                                                    </h5>
+                                                                    <h6>sun at 5.40 AM</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/">
+                                                        <div className="media">
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
+                                                            <div className="media-body">
+                                                                <div>
+                                                                    <h5 className="mt-0"><span>Petey Cruiser</span> added a new
+                                                                        photo
+                                                                    </h5>
+                                                                    <h6>sun at 5.40 AM</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/">
+                                                        <div className="media">
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
+                                                            <div className="media-body">
+                                                                <div>
+                                                                    <h5 className="mt-0"><span>Petey Cruiser</span> added a new
+                                                                        photo
+                                                                    </h5>
+                                                                    <h6>sun at 5.40 AM</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/">
+                                                        <div className="media">
+                                                            <img src="/assets/images/user-sm-2.jpg" alt="user" />
+                                                            <div className="media-body">
+                                                                <div>
+                                                                    <h5 className="mt-0"><span>Petey Cruiser</span> added a new
+                                                                        photo
+                                                                    </h5>
+                                                                    <h6>sun at 5.40 AM</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
