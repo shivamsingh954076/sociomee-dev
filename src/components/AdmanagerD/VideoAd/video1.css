@@ -260,7 +260,7 @@ color: #808080;
     left: 20px;
     top: 200px;
     background: #FFFFFF;
-    border: 1px solid #DEDEDE;
+       /* border: 1px solid #DEDEDE; */
     border-radius: 6px;
     }
 .ad-sale-second-yttp p:nth-child(1){
@@ -294,7 +294,7 @@ color: #808080;
     left: 20px;
     top: 330px;
     background: #FFFFFF;
-    border: 1px solid #DEDEDE;
+       /* border: 1px solid #DEDEDE; */
     border-radius: 6px;
     }
 .ad-sale-third-yttp p:nth-child(1){

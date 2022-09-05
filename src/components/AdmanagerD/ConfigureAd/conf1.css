@@ -227,7 +227,7 @@ height: 45px;
 left: 20px;
 top: 89px;
 background: #FFFFFF;
-border: 1px solid #DEDEDE;
+/* border: 1px solid #DEDEDE; */
 border-radius: 6px;
 }
 .ad-sale-sphh p:nth-child(1){
@@ -259,7 +259,7 @@ color: #808080;
     left: 20px;
     top: 200px;
     background: #FFFFFF;
-    border: 1px solid #DEDEDE;
+    /* border: 1px solid #DEDEDE; */
     border-radius: 6px;
     }
 .ad-sale-second-sphh p:nth-child(1){
@@ -292,7 +292,7 @@ color: #808080;
     left: 20px;
     top: 300px;
     background: #FFFFFF;
-    border: 1px solid #DEDEDE;
+    /* border: 1px solid #DEDEDE; */
     border-radius: 6px;
     }
 .ad-sale-third-sphh p:nth-child(1){

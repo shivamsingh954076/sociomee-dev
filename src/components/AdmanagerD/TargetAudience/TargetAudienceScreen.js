@@ -303,6 +303,16 @@ const TargetAudienceScreen = () => {
                             <input type="checkbox" />
                             <p>Save this Audience Preference for future.</p>
                         </div>
+
+                        <div className="two-bumain-upsd">
+                            <button>Cancel</button>
+                        </div>
+                        <div className="two-bumain-upsdr">
+                            < Link to="/Budget" >
+                                <button>Next</button>
+                            </Link>
+                        </div>
+
                     </div>
                 </div>
 
