@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 
+import {addMonths} from '../../date_utils'
+
 const SignupDetail = () => {
 
     const user = JSON.parse(localStorage.getItem('user'))
@@ -32,14 +34,15 @@ const SignupDetail = () => {
     //Detail Submit Function
     const detailSubmit = (e) => {
         e.preventDefault();
-        if (startDay.getDate() < 10) finalDate.day = `0${startDay.getDate()}`
-        if ((startDay.getMonth() + 1) < 10) finalDate.month = `0${startDay.getMonth()+1}`
-        else {
-            finalDate.day = startDay.getDate();
-            finalDate.month = startDay.getMonth()+1;
-        }
+        const selectedYear=startYear.getFullYear()
+        const currentYear=new Date().getFullYear()
+        const finalYear=currentYear-selectedYear;
+        (startDay.getDate() < 10) ? finalDate.day = `0${startDay.getDate()}` : finalDate.day = startDay.getDate();
+        ((startDay.getMonth() + 1) < 10) ? finalDate.month = `0${startDay.getMonth() + 1}` : finalDate.month = startDay.getMonth() + 1;
         detail.dob = `${startYear.getFullYear()}-${finalDate.month}-${finalDate.day}`;
+        console.log(detail);
         if (!detail.dob) { errorRef.current.classList.remove('d-none'); setError('Please Enter Date of Birth') }
+        else if (finalYear<13) { errorRef.current.classList.remove('d-none'); setError('Minimum Age is 13') }
         else if (!detail.gender || detail.gender === 'special') { errorRef.current.classList.remove('d-none'); setError('Please Select Gender') }
         else {
             const config = {
@@ -141,10 +144,11 @@ const SignupDetail = () => {
                                                                 selected={startYear}
                                                                 onChange={(date) => { setStartYear(date); setStartMonth(date); setStartYear(date) }}
                                                                 showYearPicker
-                                                                dateFormat="yyyy"
                                                                 yearItemNumber={9}
+                                                                dateFormat="yyyy"
                                                                 className='form-control'
-                                                                maxDate={'January 01, 2007 01:15:00'}
+                                                                maxDate={addMonths(new Date(new Date().setFullYear(new Date().getFullYear() - 13)), 1)}
+                                                                showDisabledMonthNavigation
                                                             />
                                                             <label>Year</label>
                                                         </div>

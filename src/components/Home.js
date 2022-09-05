@@ -42,6 +42,8 @@ import PollPost from './post-components/PollPost';
 import MediaPost from './post-components/MediaPost';
 import AlertPost from './post-components/AlertPost';
 import EventPost from './post-components/EventPost';
+import ThoughtPost from './post-components/ThoughtPost';
+import Comments from './post-components/Comments';
 
 
 
@@ -419,15 +421,18 @@ export default function Home({ user }) {
                                                                         }
                                                                     </div>
                                                                     <div className="detail-box">
-                                                                        <h3 className=' overflow-auto'>{userPosts.postType !== 'alert' && userPosts.caption}</h3>
+                                                                        <h3 className=' overflow-auto'>{(userPosts.postType !== 'alert' && userPosts.postType !== 'thought') && userPosts.caption}</h3>
                                                                         {
-                                                                            userPosts.postType === 'poll' && <PollPost poll={userPosts} pageSize={pageSize} setOpen={setOpen} setAlert={setAlert} />
+                                                                            userPosts?.postType === 'poll' && <PollPost poll={userPosts} pageSize={pageSize} setOpen={setOpen} setAlert={setAlert} />
                                                                         }
                                                                         {
-                                                                            userPosts.postType === 'alert' && <AlertPost alert={userPosts} />
+                                                                            userPosts?.postType === 'alert' && <AlertPost alert={userPosts} />
                                                                         }
                                                                         {
                                                                             userPosts?.postType === 'event' && <EventPost event={userPosts} />
+                                                                        }
+                                                                        {
+                                                                            userPosts?.postType === 'thought' && <ThoughtPost thought={userPosts} />
                                                                         }
                                                                         <p></p>
                                                                         <h5 className="tag">
@@ -438,9 +443,9 @@ export default function Home({ user }) {
 
                                                                             }
                                                                         </h5>
-                                                                        <div className="bookmark favourite-btn">
+                                                                        {/* <div className="bookmark favourite-btn">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                                                        </div>
+                                                                        </div> */}
                                                                         <div className="people-likes">
                                                                             <ul>
                                                                                 {
@@ -523,29 +528,8 @@ export default function Home({ user }) {
                                                                     <div className="comment-section">
                                                                         <div className="comments d-block">
                                                                             <div className="main-comment">
-                                                                                {userPosts?.firstComment ? userPosts.firstComment.map((comments) => {
-                                                                                    return <div className="media" key={comments.id}>
-                                                                                        <a className="user-img popover-cls" data-bs-toggle="popover"
-                                                                                            data-placement="right" data-name="Pabelo mukrani"
-                                                                                            data-img="assets/images/story-2.jpg">
-                                                                                            <img src={comments.profileImageThumb} className="img-fluid bg-img" alt="user" />
-                                                                                        </a>
-                                                                                        <div className="media-body">
-                                                                                            <a>
-                                                                                                <h5>{comments.fullName}</h5>
-                                                                                            </a>
-                                                                                            <p>{comments.comment}
-                                                                                            </p>
-                                                                                            <ul className="comment-option">
-                                                                                                <li><a><img src="assets/images/liked-icon.png" /> like ({comments.likesCount})</a></li>
-                                                                                                <li><a><img src="assets/images/chat-icon.png" /> reply ({comments.replyCount})</a></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        {/* <div className="comment-time">
-                                                                                <h6>50 mins ago</h6>
-                                                                            </div> */}
-                                                                                    </div>
-                                                                                }) : null}
+                                                                            {/* Comments Section */}
+                                                                                {/* <Comments postId={userPosts.postId} /> */}
                                                                             </div>
                                                                         </div>
                                                                         <div className="reply">

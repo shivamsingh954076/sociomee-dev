@@ -34,7 +34,7 @@ export default function CreatePost() {
     const [postMedia2, setPostMedia2] = useState('');
 
     // thought color selection
-    const [selectedColor,setSelectedColor]=useState('#9acd32');
+    const [selectedColor, setSelectedColor] = useState('#9acd32');
 
 
     // get all article category
@@ -79,7 +79,8 @@ export default function CreatePost() {
         location1: "",
         location2: "",
         location3: "",
-        connectionName: 'Public'
+        "thoughtForeColor": "#fff",
+        "thoughtBackColor": "",
     })
 
 
@@ -90,7 +91,14 @@ export default function CreatePost() {
     // Snackbar Code
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
-    const [pollOptions, setPollOptions] = useState({ poll1: { optionText: "", sequence: 0 }, poll2: { optionText: "", sequence: 2 }, poll3: { optionText: "", sequence: 3 }, poll4: { optionText: "", sequence: 4 } })
+
+    const [tempPollOption, setTempPollOption] = useState({
+        seq1: '',
+        seq2: ''
+    })
+
+    const [pollOptionCount, setPollOptionCount] = useState([1, 2]);
+
 
     // get user profile by user id 
     const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
@@ -110,7 +118,7 @@ export default function CreatePost() {
     const bgNoneRef = useRef(null);
     const bgRef = useRef(null);
     // Create Thought Post 
-    const clickGradient = (e,colorCode) => {
+    const clickGradient = (e, colorCode) => {
         bgRef.current.classList.add("d-block");
         bgNoneRef.current.classList.add("d-none");
         mediaRef.current.classList.remove("d-block");
@@ -118,7 +126,8 @@ export default function CreatePost() {
         RecommendationRef.current.classList.remove("d-block");
         gradientMainBlockRef.current.classList.remove("d-none");
         setSelectedColor(colorCode)
-        
+        setPostData({ ...postData, postType: 'thought', thoughtForeColor: "#fff", thoughtBackColor: colorCode })
+
     };
     const closeBgClick = (e) => {
         bgRef.current.classList.remove("d-block");
@@ -225,6 +234,20 @@ export default function CreatePost() {
     const pollPopup = () => {
         setPostData({ ...postData, postType: 'poll' })
     }
+    const pollDataHandler = (e) => {
+        const { name, value } = e.target;
+        setTempPollOption({ ...tempPollOption, [name]: value })
+    }
+
+    const optionIncrementHandler = (e) => {
+        e.preventDefault();
+        if (pollOptionCount.length < 10) {
+            const nextData = `seq${pollOptionCount.length + 1}`
+            setPollOptionCount([...pollOptionCount, pollOptionCount.length + 1]);
+            setTempPollOption({ ...tempPollOption, [nextData]: '' })
+        }
+    }
+
 
     // create post functionality
     const createPostHandler = (e) => {
@@ -287,15 +310,13 @@ export default function CreatePost() {
                             })
                     }
                     else if (postData.postType === 'poll') {
-                        if (pollOptions.poll1.optionText === '' && pollOptions.poll2.optionText === '' && pollOptions.poll3.optionText === '' && pollOptions.poll4.optionText === '') {
+                        if (tempPollOption.seq1 === '' && tempPollOption.seq2 === '') {
                             setOpen(true); setAlert({ sev: "error", content: "Please Enter Poll Options !", });
                         }
                         else {
-                            let polOpt = [];
-                            for (let key in pollOptions) {
-                                if (pollOptions[key].optionText !== '') {
-                                    polOpt.push(pollOptions[key])
-                                }
+                            const polOpt = [];
+                            for (let key in tempPollOption) {
+                                polOpt.push({ optionText: tempPollOption[key], sequence: +key.slice(3) })
                             }
                             postData.pollOptions = polOpt;
                             postData.pollStartTime = value2;
@@ -326,7 +347,11 @@ export default function CreatePost() {
                                 "location2": "",
                                 "location3": ""
                             })
-                            setPollOptions({ poll1: { optionText: "", sequence: 0 }, poll2: { optionText: "", sequence: 2 }, poll3: { optionText: "", sequence: 3 }, poll4: { optionText: "", sequence: 4 } })
+                            setTempPollOption({
+                                seq1: '',
+                                seq2: ''
+                            })
+                            setPollOptionCount([1, 2])
                             document.getElementById('popupclose3').click();
                             setOpen(true);
                             setAlert({ sev: "success", content: "Post Add Successfully !", });
@@ -425,8 +450,42 @@ export default function CreatePost() {
 
                         }
                     }
-                    else {
+                    else if (postData.postType === 'thought') {
+                        if (!postData?.caption) {
+                            setOpen(true); setAlert({ sev: "error", content: "Please Fill Caption !", });
+                        }
+                        else {
+                            dispatch(addPost(postData));
+                            bgRef.current.classList.remove("d-block");
+                            bgNoneRef.current.classList.remove("d-none");
+                            setPostData({
+                                "postType": "text",
+                                "caption": "",
+                                "displayLocation": "",
+                                "schedule": "",
+                                "isScheduled": "",
+                                "feelingId": "",
+                                "feelingCategoryId": "",
+                                "allowComments": 0,
+                                "pollOptions": [],
 
+                                "mentionIds": null,
+                                "hashTags": [],
+                                "taggedUserIds": null,
+
+                                "locationLAT": "",
+                                "locationLONG": "",
+                                "location1": "",
+                                "location2": "",
+                                "location3": "",
+                                alertRangeMeter: '',
+                                alertLevelId: ''
+                            })
+                            setOpen(true);
+                            setAlert({ sev: "success", content: "Post Add Successfully !", });
+                        }
+                    }
+                    else {
                         dispatch(addPost(postData));
                         setPostData({
                             "postType": "text",
@@ -494,7 +553,7 @@ export default function CreatePost() {
                                                     <a onClick={clickMedia}><img src="/assets/images/Media.png" /> Media</a>
                                                 </li>
                                                 <li>
-                                                    <a onClick={(e)=>clickGradient(e,'#9acd32')}><img src="/assets/images/Thought.png" /> Thought</a>
+                                                    <a onClick={(e) => clickGradient(e, '#9acd32')}><img src="/assets/images/Thought.png" /> Thought</a>
                                                 </li>
                                                 <li>
                                                     <a ><img src="/assets/images/Go_live.png" /> Go Live</a>
@@ -618,12 +677,12 @@ export default function CreatePost() {
                     </div>
                     <div className="create-bg">
                         <div className="bg-post gr-1" ref={bgRef} id="bg-post">
-                            <div className="input-sec" style={{background:selectedColor}}>
-                                <input type="text" className="form-control enable"
-                                    placeholder="What's going on" />
+                            <div className="input-sec" style={{ background: selectedColor }}>
+                                <input type="text" className="form-control enable text-white thought-input"
+                                    placeholder="What's going on" value={postData?.caption} onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
                                 <div className="close-icon" onClick={closeBgClick}>
                                     <a>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-20 ih-20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                     </a>
                                 </div>
                             </div>
@@ -637,19 +696,19 @@ export default function CreatePost() {
                                         id,
                                         colorHexCode
                                     }) => {
-                                        return <li onClick={(e)=>clickGradient(e,colorHexCode)} className="gr-1" style={{ background: colorHexCode }} key={id}></li>
-                                    }).slice(0,16)
+                                        return <li onClick={(e) => clickGradient(e, colorHexCode)} className="gr-1" style={{ background: colorHexCode }} key={id}></li>
+                                    }).slice(0, 16)
                                 }
 
                             </ul>
                             <a className="bg-color-btn d-none" ref={colorToggleRef} data-bs-toggle="modal" data-bs-target="#bgColorModel"><img src="assets/images/bg-color.png" /></a>
                         </div>
                         {/* More Colors Modal */}
-                        <ColorModal colors={colors} clickGradient={clickGradient}/>
+                        <ColorModal colors={colors} clickGradient={clickGradient} />
                     </div>
                 </div>
 
-                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                 {/* <ul className="create-btm-option">
             <li>
@@ -732,7 +791,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
                             </div>
                         </div>
                     </div>
@@ -794,7 +853,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
@@ -813,7 +872,6 @@ export default function CreatePost() {
                                     <div className="card-title create-port-title">
                                         <PostDisplayType postData={postData} setPostData={setPostData} />
                                     </div>
-
                                     <div className="poll-create-post-block">
                                         <div className="user-profile-cp">
                                             <img src={userProfileByUserId.profileImage || 'assets/images/my-profile.jpg'} className="img-fluid" alt="profile" />
@@ -826,21 +884,22 @@ export default function CreatePost() {
                                                     <input type="text" className="form-control" value={postData?.caption} required onChange={(e) => { setPostData({ ...postData, caption: e.target.value }) }} />
                                                 </div>
                                                 <div className="poll-option-blk">
-                                                    <div className="form-group col-md-12">
-                                                        <label>Option 1</label>
-                                                        <input type="text" className="form-control" required value={pollOptions.poll1.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll1: { optionText: e.target.value, sequence: 0 } }) }} />
-                                                    </div>
-                                                    <div className="form-group col-md-12">
-                                                        <label>Option 2</label>
-                                                        <input type="text" className="form-control" required value={pollOptions.poll2.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll2: { optionText: e.target.value, sequence: 1 } }) }} />
-                                                    </div>
-                                                    <div className="form-group col-md-12">
-                                                        <label>Option 3</label>
-                                                        <input type="text" className="form-control" required value={pollOptions.poll3.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll3: { optionText: e.target.value, sequence: 2 } }) }} />
-                                                    </div>
-                                                    <div className="form-group col-md-12">
-                                                        <label>Option 4</label>
-                                                        <input type="text" className="form-control" required value={pollOptions.poll4.optionText} onChange={(e) => { setPollOptions({ ...pollOptions, poll4: { optionText: e.target.value, sequence: 3 } }) }} />
+                                                    {
+                                                        pollOptionCount && pollOptionCount.map((option, i) => {
+                                                            return <div className="form-group col-md-12" key={i}>
+                                                                <label>Option {option}</label>
+                                                                <input
+                                                                    type="text"
+                                                                    className="form-control"
+                                                                    required
+                                                                    name={`seq${option}`}
+                                                                    value={tempPollOption[`seq${option}`]}
+                                                                    onChange={pollDataHandler} />
+                                                            </div>
+                                                        })
+                                                    }
+                                                    <div className='d-flex justify-content-end no-account-blk'>
+                                                        {pollOptionCount.length < 10 && <button className='button-anchor' onClick={optionIncrementHandler}>Add More Option</button>}
                                                     </div>
                                                 </div>
                                                 <div className="form-group col-md-12">
@@ -855,16 +914,16 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             {/* Podcast Model Block */}
-            <div className="modal fade" id="createPostPodcast" tabIndex="-1" role="dialog" aria-labelledby="createPostPodcastTitle" aria-hidden="true">
+            <div div className="modal fade" id="createPostPodcast" tabIndex="-1" role="dialog" aria-labelledby="createPostPodcastTitle" aria-hidden="true" >
                 <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -965,7 +1024,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
@@ -974,7 +1033,7 @@ export default function CreatePost() {
             </div>
 
             {/* Sell Model Post */}
-            <div className="modal fade" id="createPostSell" tabIndex="-1" role="dialog" aria-labelledby="createPostSellTitle" aria-hidden="true">
+            <div div className="modal fade" id="createPostSell" tabIndex="-1" role="dialog" aria-labelledby="createPostSellTitle" aria-hidden="true" >
                 <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -1051,13 +1110,13 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             <Stack spacing={2} sx={{ width: '100%' }} id="stack">
                 {/* Snackbar */}

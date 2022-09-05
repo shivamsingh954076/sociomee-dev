@@ -11,6 +11,7 @@ import getUserSubModulesReducer from '../UserProfile/getUsersSubModulesReducer'
 import getEventCategoryReducer from '../SocialFeed/getEventCategoryReducer'
 import getAlertDataReducer from '../SocialFeed/getAlertDataReducer'
 import getColorsReducer from '../SocialFeed/getColorsReducer'
+import getAllCommentsReducer from '../SocialFeed/getAllCommentsReducer'
 
 
 // bizPage
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
     getEventCategoryData : getEventCategoryReducer,
     getAlertData : getAlertDataReducer,
     getColorsData : getColorsReducer,
+    getAllCommentsData : getAllCommentsReducer,
 
     // Biz Page
     bizCategoryData : bizCategoryReducer,

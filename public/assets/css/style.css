@@ -61916,6 +61916,7 @@ header .header-section .profile-btn .user-img img {
     justify-content: center;
   }
 }
+/* <<<<<<< HEAD */
 @media (max-width: 575px) {
   .gd-top-block {
     min-height: 170px;
@@ -61939,3 +61940,11 @@ header .header-section .profile-btn .user-img img {
     justify-content: flex-end;
   }
 }
+/* ======= */
+.button-anchor {
+color:#81C14B !important;
+border: none;
+    background: none;
+    font-weight: 500;
+}
+/* >>>>>>> 7ca43e2a7a8c7bd39a4437b23fca207424de7a0b */
