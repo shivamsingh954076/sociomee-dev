@@ -43,6 +43,7 @@ import EventPost from '../post-components/EventPost';
 import SuggestedBizPage from '../post-components/SuggestedItems/SuggestedBizPage';
 import SuggestedGroup from '../post-components/SuggestedItems/SuggestedGroup';
 import SuggestedAd from '../post-components/SuggestedItems/SuggestedAd';
+import ThoughtPost from '../post-components/ThoughtPost';
 
 export default function MyTimeline() {
 
@@ -237,7 +238,7 @@ export default function MyTimeline() {
                                                                     }
                                                                 </div>
                                                                 <div className="detail-box">
-                                                                    <h3 className=' overflow-auto'>{userPosts.postType !== 'alert' && userPosts.caption}</h3>
+                                                                    <h3 className=' overflow-auto'>{(userPosts.postType !== 'alert' && userPosts.postType !== 'thought') && userPosts.caption}</h3>
                                                                     {
                                                                         userPosts.postType === 'poll' && <PollPost poll={userPosts} pageSize={pageSize} setOpen={setOpen} setAlert={setAlert} />
                                                                     }
@@ -246,6 +247,9 @@ export default function MyTimeline() {
                                                                     }
                                                                     {
                                                                         userPosts?.postType === 'event' && <EventPost event={userPosts} />
+                                                                    }
+                                                                    {
+                                                                        userPosts?.postType === 'thought' && <ThoughtPost thought={userPosts} />
                                                                     }
                                                                     <p></p>
                                                                     <h5 className="tag">
@@ -256,9 +260,9 @@ export default function MyTimeline() {
 
                                                                         }
                                                                     </h5>
-                                                                    <div className="bookmark favourite-btn">
+                                                                    {/* <div className="bookmark favourite-btn">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-14 ih-14"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                                                    </div>
+                                                                    </div> */}
                                                                     <div className="people-likes">
                                                                         <ul>
                                                                             {

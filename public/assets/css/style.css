@@ -62168,3 +62168,9 @@ input[type=number] {
 .form-iconbox-blk svg {
   stroke: #81C14B;
 }
+.button-anchor {
+color:#81C14B !important;
+border: none;
+    background: none;
+    font-weight: 500;
+}

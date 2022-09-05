@@ -52,3 +52,6 @@ export const GET_ALL_USER_POSTS = "GET_ALL_USER_POSTS";
 
 // get all colors
 export const GET_ALL_COLORS = "GET_ALL_COLORS";
+
+// get all commments
+export const GET_ALL_COMMENTS = "GET_ALL_COMMENTS";

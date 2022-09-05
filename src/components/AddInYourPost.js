@@ -85,7 +85,7 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
 
     useEffect(() => {
         if (postData?.postType === 'poll') {
-            if (postData?.caption && pollOptions?.poll1?.optionText && pollOptions?.poll2?.optionText) setFlag(true)
+            if (postData?.caption && pollOptions?.seq1 && pollOptions?.seq2) setFlag(true)
             else setFlag(false)
         }
     }, [postData, pollOptions])
