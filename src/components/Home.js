@@ -43,6 +43,7 @@ import MediaPost from './post-components/MediaPost';
 import AlertPost from './post-components/AlertPost';
 import EventPost from './post-components/EventPost';
 import ThoughtPost from './post-components/ThoughtPost';
+import Comments from './post-components/Comments';
 
 
 
@@ -527,29 +528,8 @@ export default function Home({ user }) {
                                                                     <div className="comment-section">
                                                                         <div className="comments d-block">
                                                                             <div className="main-comment">
-                                                                                {userPosts?.firstComment ? userPosts.firstComment.map((comments) => {
-                                                                                    return <div className="media" key={comments.id}>
-                                                                                        <a className="user-img popover-cls" data-bs-toggle="popover"
-                                                                                            data-placement="right" data-name="Pabelo mukrani"
-                                                                                            data-img="assets/images/story-2.jpg">
-                                                                                            <img src={comments.profileImageThumb} className="img-fluid bg-img" alt="user" />
-                                                                                        </a>
-                                                                                        <div className="media-body">
-                                                                                            <a>
-                                                                                                <h5>{comments.fullName}</h5>
-                                                                                            </a>
-                                                                                            <p>{comments.comment}
-                                                                                            </p>
-                                                                                            <ul className="comment-option">
-                                                                                                <li><a><img src="assets/images/liked-icon.png" /> like ({comments.likesCount})</a></li>
-                                                                                                <li><a><img src="assets/images/chat-icon.png" /> reply ({comments.replyCount})</a></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        {/* <div className="comment-time">
-                                                                                <h6>50 mins ago</h6>
-                                                                            </div> */}
-                                                                                    </div>
-                                                                                }) : null}
+                                                                            {/* Comments Section */}
+                                                                                {/* <Comments postId={userPosts.postId} /> */}
                                                                             </div>
                                                                         </div>
                                                                         <div className="reply">

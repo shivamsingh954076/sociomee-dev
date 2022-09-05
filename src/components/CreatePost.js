@@ -91,15 +91,13 @@ export default function CreatePost() {
     // Snackbar Code
     const [open, setOpen] = useState(false);
     const [alert, setAlert] = useState({ sev: 'success', content: '' });
-    const [pollOptions, setPollOptions] = useState([
-        { optionText: "", sequence: 0 },
-        { optionText: "", sequence: 1 },
-        { optionText: "", sequence: 2 },
-        { optionText: "", sequence: 3 }
-    ])
 
-    console.log(pollOptions)
+    const [tempPollOption, setTempPollOption] = useState({
+        seq1: '',
+        seq2: ''
+    })
 
+    const [pollOptionCount, setPollOptionCount] = useState([1, 2]);
 
 
     // get user profile by user id 
@@ -236,12 +234,20 @@ export default function CreatePost() {
     const pollPopup = () => {
         setPostData({ ...postData, postType: 'poll' })
     }
-    const pollDataHandler=(e,seq)=>{
-        const index=pollOptions.findIndex((ind)=>ind.sequence===seq)
-        console.log(index)
-        pollOptions[index]=e.target.value;
-        setPollOptions(pollOptions)
+    const pollDataHandler = (e) => {
+        const { name, value } = e.target;
+        setTempPollOption({ ...tempPollOption, [name]: value })
     }
+
+    const optionIncrementHandler = (e) => {
+        e.preventDefault();
+        if (pollOptionCount.length < 10) {
+            const nextData = `seq${pollOptionCount.length + 1}`
+            setPollOptionCount([...pollOptionCount, pollOptionCount.length + 1]);
+            setTempPollOption({ ...tempPollOption, [nextData]: '' })
+        }
+    }
+
 
     // create post functionality
     const createPostHandler = (e) => {
@@ -304,15 +310,13 @@ export default function CreatePost() {
                             })
                     }
                     else if (postData.postType === 'poll') {
-                        if (pollOptions.poll1.optionText === '' && pollOptions.poll2.optionText === '' && pollOptions.poll3.optionText === '' && pollOptions.poll4.optionText === '') {
+                        if (tempPollOption.seq1 === '' && tempPollOption.seq2 === '') {
                             setOpen(true); setAlert({ sev: "error", content: "Please Enter Poll Options !", });
                         }
                         else {
-                            let polOpt = [];
-                            for (let key in pollOptions) {
-                                if (pollOptions[key].optionText !== '') {
-                                    polOpt.push(pollOptions[key])
-                                }
+                            const polOpt = [];
+                            for (let key in tempPollOption) {
+                                polOpt.push({ optionText: tempPollOption[key], sequence: +key.slice(3) })
                             }
                             postData.pollOptions = polOpt;
                             postData.pollStartTime = value2;
@@ -343,7 +347,11 @@ export default function CreatePost() {
                                 "location2": "",
                                 "location3": ""
                             })
-                            setPollOptions({ poll1: { optionText: "", sequence: 0 }, poll2: { optionText: "", sequence: 2 }, poll3: { optionText: "", sequence: 3 }, poll4: { optionText: "", sequence: 4 } })
+                            setTempPollOption({
+                                seq1: '',
+                                seq2: ''
+                            })
+                            setPollOptionCount([1, 2])
                             document.getElementById('popupclose3').click();
                             setOpen(true);
                             setAlert({ sev: "success", content: "Post Add Successfully !", });
@@ -700,7 +708,7 @@ export default function CreatePost() {
                     </div>
                 </div>
 
-                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                 {/* <ul className="create-btm-option">
             <li>
@@ -783,7 +791,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
                             </div>
                         </div>
                     </div>
@@ -845,7 +853,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
@@ -877,19 +885,22 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="poll-option-blk">
                                                     {
-                                                        pollOptions && pollOptions.map((option, i) => {
+                                                        pollOptionCount && pollOptionCount.map((option, i) => {
                                                             return <div className="form-group col-md-12" key={i}>
-                                                                <label>Option {i + 1}</label>
+                                                                <label>Option {option}</label>
                                                                 <input
                                                                     type="text"
                                                                     className="form-control"
                                                                     required
-                                                                    value={option.optionText}
-                                                                    onChange={(e) => {pollDataHandler(e,option.sequence)}} />
+                                                                    name={`seq${option}`}
+                                                                    value={tempPollOption[`seq${option}`]}
+                                                                    onChange={pollDataHandler} />
                                                             </div>
                                                         })
                                                     }
-
+                                                    <div className='d-flex justify-content-end no-account-blk'>
+                                                        {pollOptionCount.length < 10 && <button className='button-anchor' onClick={optionIncrementHandler}>Add More Option</button>}
+                                                    </div>
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Poll Duration</label>
@@ -903,16 +914,16 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             {/* Podcast Model Block */}
-            <div className="modal fade" id="createPostPodcast" tabIndex="-1" role="dialog" aria-labelledby="createPostPodcastTitle" aria-hidden="true">
+            <div div className="modal fade" id="createPostPodcast" tabIndex="-1" role="dialog" aria-labelledby="createPostPodcastTitle" aria-hidden="true" >
                 <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -1013,7 +1024,7 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
@@ -1022,7 +1033,7 @@ export default function CreatePost() {
             </div>
 
             {/* Sell Model Post */}
-            <div className="modal fade" id="createPostSell" tabIndex="-1" role="dialog" aria-labelledby="createPostSellTitle" aria-hidden="true">
+            <div div className="modal fade" id="createPostSell" tabIndex="-1" role="dialog" aria-labelledby="createPostSellTitle" aria-hidden="true" >
                 <div className="modal-dialog modal-dialog-centered create-post-model-block" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -1099,13 +1110,13 @@ export default function CreatePost() {
                                         </form>
                                     </div>
                                 </div>
-                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={pollOptions} />
+                                <AddInYourPost createPostHandler={createPostHandler} postData={postData} setPostData={setPostData} clickMedia={clickMedia} pollOptions={tempPollOption} />
 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             <Stack spacing={2} sx={{ width: '100%' }} id="stack">
                 {/* Snackbar */}
