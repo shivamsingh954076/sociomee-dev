@@ -39,6 +39,7 @@ const ConfigureAd2 = () => {
           <div className="create-add-main-no-backbround Configure-ad">
             <div className="create-add">
               <div className="create-add-one">
+                <span className='static-margin'></span>
                 <img src="/assets/images/adIcon/folder.png" alt="" />
                 <p className='ml-2'>Brand Awareness- CPV</p>
               </div>
@@ -51,6 +52,7 @@ const ConfigureAd2 = () => {
           <div className="create-add-main-third-sp">
             <div className="create-add-sp" >
               <div className="create-add-one-sp mr-5">
+                <span className='static-margin'></span>
                 <img src="/assets/images/adIcon/folder.png" alt="" />
                 <p className='ml-2'>Carosel Images Ad </p>
               </div>
@@ -84,7 +86,7 @@ const ConfigureAd2 = () => {
 
           <div>
             <div className="ad-heading-spyy">
-              <p>Ad Heading</p>
+              <p>Ad Heading <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
 
             <div className="media-main-spyy">
@@ -92,7 +94,6 @@ const ConfigureAd2 = () => {
             </div>
 
             <div className="ad-sale-spyy">
-              {/* <p>Enter your ad heading here...</p> */}
               <input type="text" className='form-control p-2' placeholder='Enter your ad heading here..' />
 
 
@@ -100,10 +101,9 @@ const ConfigureAd2 = () => {
             <p className="max-char-spyy">Max 42 Characters</p>
 
             <div className="ad-heading-second-spyy">
-              <p>Ad Sub-Heading</p>
+              <p>Ad Sub-Heading <span><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
             <div className="ad-sale-second-spyy">
-              {/* <p>Enter your ad sub-heading here...</p> */}
               <input type="text" className='form-control p-2' placeholder='Enter your ad sub-heading here' />
 
             </div>
@@ -114,10 +114,9 @@ const ConfigureAd2 = () => {
             </div>
 
             <div className="ad-heading-third-spyy">
-              <p>Ad Description</p>
+              <p>Ad Description <span><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
             <div className="ad-sale-third-spyy">
-              {/* <p>Enter your ad description here...</p> */}
               <textarea name='message' className='form-control' rows='8' placeholder='Enter your ad description here...'> </textarea>
 
             </div>
@@ -136,7 +135,7 @@ const ConfigureAd2 = () => {
           </div>
           <div className="two-bumain-spyyy">
             <Link to="/VideoAd">
-              <button>Next</button>
+              <button className='block-btn'>Next</button>
             </Link>
           </div>
 

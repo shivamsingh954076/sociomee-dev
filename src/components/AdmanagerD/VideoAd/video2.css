@@ -460,6 +460,9 @@
 }
 .brand-image-main-upsd-new {
     padding: 1rem;
-    width: auto !important;
+    /* width: auto !important; */
     height: auto !important;
+}
+.two-bumain-upsd-new button{
+    top: unset !important;
 }

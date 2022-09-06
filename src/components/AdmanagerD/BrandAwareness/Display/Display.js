@@ -100,7 +100,7 @@ const Display = () => {
 
             <Link to="/ConfigureAd">
 
-              <button>Next</button>
+              <button className='block-btn'>Next</button>
             </Link>
           </div>
         </div>

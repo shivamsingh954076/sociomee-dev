@@ -50,6 +50,7 @@ const TargetAudienceScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Brand Awareness- CPV</p>
                             </div>
@@ -62,6 +63,7 @@ const TargetAudienceScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Full Screen Video Ad </p>
                             </div>
@@ -71,9 +73,10 @@ const TargetAudienceScreen = () => {
                         </div>
                     </div>
 
-                    <div className="create-add-main-third-sp">
+                    <div className="create-add-main-third-sp create-add-main-third-sp-new">
                         <div className="create-add-sp" >
                             <div className="create-add-one-sp mr-5">
+                                <span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Choose Your Audience</p>
                             </div>
@@ -119,11 +122,32 @@ const TargetAudienceScreen = () => {
                         <div className="ad-heading-upsd-title-input">
                             <p>Target Gender</p>
                         </div>
+                        <div className='d-flex'>
+                            <div className="ad-heading-upsd-title-input d-flex">
+                                <input type="checkbox" />
+                                <span className='ml-1 pr-5'>All Genders</span>
+                            </div>
+                            <div className="ad-heading-upsd-title-input d-flex">
+                                <input type="checkbox" />
+                                <span className='ml-1 pr-5'>Male</span>
+                            </div>
+                            <div className="ad-heading-upsd-title-input d-flex">
+                                <input type="checkbox" />
+                                <span className='ml-1 pr-5'>Female</span>
+                            </div>
+                            <div className="ad-heading-upsd-title-input d-flex">
+                                <input type="checkbox" />
+                                <span className='ml-1 pr-5'>Others</span>
+                            </div>
+                        </div>
 
                         <div className="ad-heading-upsd-title-input">
                             <p>Target Age Range</p>
                         </div>
-                        <hr />
+                        <div className="ad-heading-upsd-title-input d-flex">
+                            <input type="range" className='range' />
+                        </div>
+
                         <div className="ad-heading-upsd-title-input">
                             <p>Targeted Profession</p>
                         </div>
@@ -131,49 +155,8 @@ const TargetAudienceScreen = () => {
                             <select id="inputState" className="form-control" name="bpCategoryId" data-bs-toggle="modal" data-bs-target="#interestesModel" placeholder='Customer'>
                                 Targeted Profession
                             </select>
-
-                            <div className="pt-4 card-block-box">
-                                <ul className="aboutlist-blk">
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 1
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 2
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-                        <hr />
+
                         <div className="ad-heading-upsd-title-input">
                             <p>Targeted Interests</p>
                         </div>
@@ -181,102 +164,8 @@ const TargetAudienceScreen = () => {
                             <select id="inputState" className="form-control" name="bpCategoryId" data-bs-toggle="modal" data-bs-target="#interestesModel" placeholder='Customer'>
                                 Targeted Interests
                             </select>
-                            <div className="pt-4 card-block-box">
-                                <ul className="aboutlist-blk">
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 1
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 2
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie 3
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-                        <hr />
+
                         <div className="ad-heading-upsd-title-input">
                             <p>Targeted Location</p>
                         </div>
@@ -284,32 +173,22 @@ const TargetAudienceScreen = () => {
                             <select id="inputState" className="form-control" name="bpCategoryId" data-bs-toggle="modal" data-bs-target="#interestesModel" placeholder='Customer'>
                                 Targeted Location
                             </select>
-                            <div className="pt-4 card-block-box">
-                                <ul className="aboutlist-blk">
-                                    <li>
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
-                                            </path>
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z">
-                                            </path>
-                                        </svg>
-                                        Hobbie
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
 
                         <div className="ad-heading-upsd-title-input d-flex">
+                            {/* <div className=""> */}
                             <input type="checkbox" />
                             <p>Save this Audience Preference for future.</p>
+                            {/* </div> */}
+                            {/* <input type="text" className='form-control p-2' placeholder='Enter audience preference...' /> */}
                         </div>
 
-                        <div className="two-bumain-upsd">
+                        <div className="two-bumain-upsd two-bumain-upsd-new">
                             <button>Cancel</button>
                         </div>
-                        <div className="two-bumain-upsdr">
+                        <div className="two-bumain-upsdr two-bumain-upsd-new">
                             < Link to="/Budget" >
-                                <button>Next</button>
+                                <button className='block-btn'>Next</button>
                             </Link>
                         </div>
 

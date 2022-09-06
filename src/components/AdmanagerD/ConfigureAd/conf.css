@@ -437,6 +437,12 @@
     align-items: center;
     margin: 1rem 0rem;
 }
+.total-budget-time{
+    justify-content: center;
+    width: 100%;
+    background: #F6F6F6;
+    height: 100px;
+}
 
 .budget-btn {
     background: #81C14B;

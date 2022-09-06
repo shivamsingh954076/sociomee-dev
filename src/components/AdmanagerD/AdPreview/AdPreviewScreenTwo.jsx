@@ -35,8 +35,21 @@ const AdPreviewScreenTwo = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Brand Awareness- CPV</p>
+                            </div>
+                            <div className="create-add-second">
+                                <i className="fa fa-ellipsis-h"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="create-add-main-no-backbround Configure-ad">
+                        <div className="create-add">
+                            <div className="create-add-one">
+                                <span className='static-margin'></span>
+                                <img src="/assets/images/adIcon/folder.png" alt="" />
+                                <p className='ml-2'>Full Screen Video Ad </p>
                             </div>
                             <div className="create-add-second">
                                 <i className="fa fa-ellipsis-h"></i>
@@ -47,8 +60,9 @@ const AdPreviewScreenTwo = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
-                                <p className='ml-2'>Full Screen Video Ad </p>
+                                <p className='ml-2'>Preview</p>
                             </div>
                             <div className="create-add-second">
                                 <i className="fa fa-ellipsis-h"></i>
@@ -58,6 +72,7 @@ const AdPreviewScreenTwo = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Choose Your Audience</p>
                             </div>
@@ -67,9 +82,10 @@ const AdPreviewScreenTwo = () => {
                         </div>
                     </div>
 
-                    <div className="create-add-main-third-sp">
+                    <div className="create-add-main-third-sp create-add-one-sp-five">
                         <div className="create-add-sp" >
                             <div className="create-add-one-sp mr-5">
+                                <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Budget & Ad duration</p>
                             </div>

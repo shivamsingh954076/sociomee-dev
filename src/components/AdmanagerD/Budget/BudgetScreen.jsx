@@ -35,6 +35,7 @@ const BudgetScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Brand Awareness- CPV</p>
                             </div>
@@ -47,6 +48,7 @@ const BudgetScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Full Screen Video Ad </p>
                             </div>
@@ -58,6 +60,7 @@ const BudgetScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Choose Your Audience</p>
                             </div>
@@ -67,9 +70,10 @@ const BudgetScreen = () => {
                         </div>
                     </div>
 
-                    <div className="create-add-main-third-sp">
+                    <div className="create-add-main-third-sp create-add-one-sp-five">
                         <div className="create-add-sp" >
                             <div className="create-add-one-sp mr-5">
+                            <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Budget & Ad duration</p>
                             </div>
@@ -112,15 +116,21 @@ const BudgetScreen = () => {
                         <div className="ad-heading-upsd-title-input">
                             <p>Choose the duration of ad </p>
                         </div>
-                        <div className="ad-sale-second-spss-input-new d-flex">
+                        <div className="ad-sale-second-spss-input-new d-flex col-lg-12">
                             {/* <div className='d-flex"'> */}
-                            <input type="date" className='form-control p-2' />
-                            <input type="date" className='form-control p-2' />
+                            <div className="col-lg-4">
+                                <p>Starting Date</p>
+                                <input type="date" className='form-control p-2' />
+                            </div>
+                            <div className="col-lg-4">
+                                <p>To</p>
+                                <input type="date" className='form-control p-2' />
+                            </div>
                             {/* </div> */}
-                            {/* <div className="total-budget d-flex">
+                            <div className="total-budget total-budget-time d-flex col-lg-4">
                                 <p>Ad Duration</p>
                                 <p>15 Days</p>
-                            </div> */}
+                            </div>
                         </div>
 
                         <div className="ad-heading-upsd-title-input total-budget">

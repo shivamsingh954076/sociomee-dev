@@ -101,7 +101,7 @@
     margin-right: 10px;
 }
 
-.create-add-one p:nth-child(2) {
+.create-add-one p {
     color: #81C14B;
     /* font-family: 'Poppins'; */
     font-weight: 400;

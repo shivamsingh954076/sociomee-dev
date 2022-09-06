@@ -39,6 +39,7 @@ const FullScrVideoAd = () => {
           <div className="create-add-main-no-backbround Configure-ad">
             <div className="create-add">
               <div className="create-add-one">
+                <span className='static-margin'></span>
                 <img src="/assets/images/adIcon/folder.png" alt="" />
                 <p className='ml-2'>Brand Awareness- CPV</p>
               </div>
@@ -51,6 +52,7 @@ const FullScrVideoAd = () => {
           <div className="create-add-main-third-sp">
             <div className="create-add-sp" >
               <div className="create-add-one-sp mr-5">
+                <span className='static-margin'></span>
                 <img src="/assets/images/adIcon/folder.png" alt="" />
                 <p className='ml-2'>Full Screen Video Ad</p>
               </div>
@@ -85,12 +87,9 @@ const FullScrVideoAd = () => {
 
           <div>
             <div className="ad-heading-upsd">
-              <p>Add Heading</p>
+              <p>Add Heading <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
 
             </div>
-
-
-
             <div className="ad-sale-upsd">
               {/* <p>Enter your ad heading here...</p> */}
               <input type="text" className='form-control p-2' placeholder='Enter your ad heading here...' />
@@ -100,34 +99,27 @@ const FullScrVideoAd = () => {
             <p className="max-char-upsd">Max 42 Characters</p>
 
             <div className="ad-heading-second-upsd">
-              <p>Add Sub-Heading</p>
-
+              <p>Add Sub-Heading <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
             <div className="ad-sale-second-upsd">
-              {/* <p>Enter your ad sub-heading here...</p> */}
               <input type="text" className='form-control p-2' placeholder='Enter your ad sub-heading here...' />
 
             </div>
             <p className="max-char-second-upsd">Max 60 Characters</p>
 
-
             <div className="ad-heading-third-upsd">
-              <p>Add Description</p>
+              <p>Add Description <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
             <div className="ad-sale-third-upsd">
-              {/* <p>Enter your ad description here...</p> */}
               <textarea name='message' className='form-control' rows='8' placeholder='Enter your ad description here...'> </textarea>
-
             </div>
             <p className="max-char-third-upsd">Max 300 Characters</p>
 
-
             <div className="upload-main-upsd">
-              <p>Add your Video</p>
+              <p>Add your Video </p>
 
               <button onClick={videoUpload}>Upload video</button>
               <input type="file" name="" id='input_file' hidden />
-              {/* <button>Upload Video</button> */}
             </div>
           </div>
 
@@ -137,16 +129,10 @@ const FullScrVideoAd = () => {
           <div className="two-bumain-upsdr">
             < Link to="/TargetAudience" >
 
-              <button>Next</button>
+              <button className='block-btn'>Next</button>
             </Link>
           </div>
-
         </div>
-
-
-
-
-
       </div>
 
 

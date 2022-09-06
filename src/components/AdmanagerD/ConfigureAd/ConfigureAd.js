@@ -40,6 +40,7 @@ const ConfigureAd = () => {
           <div className="create-add-main-no-backbround Configure-ad">
             <div className="create-add">
               <div className="create-add-one">
+                <span className='static-margin'></span>
                 <img src="/assets/images/adIcon/folder.png" alt="" />
                 <p className='ml-2'>Brand Awareness- CPV</p>
               </div>
@@ -52,6 +53,7 @@ const ConfigureAd = () => {
           <div className="create-add-main-third-sp">
             <div className="create-add-sp" >
               <div className="create-add-one-sp mr-5">
+                <span className='static-margin'></span>
                 <img src="/assets/images/adIcon/folder.png" alt="" />
                 <p className='ml-2'>Single Image Ad </p>
               </div>
@@ -86,7 +88,7 @@ const ConfigureAd = () => {
 
           <div>
             <div className="ad-heading-spss">
-              <p>Ad Heading</p>
+              <p>Ad Heading <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
 
             <div className="ad-sale-spss">
@@ -96,7 +98,7 @@ const ConfigureAd = () => {
             <p className="max-char-spss">Max 42 Characters</p>
 
             <div className="ad-heading-second-spss">
-              <p>Ad Sub-Heading</p>
+              <p>Ad Sub-Heading <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
             <div className="ad-sale-second-spss">
               <input type="text" className='form-control p-2' placeholder='Enter advertisement sub-heading...' />
@@ -106,7 +108,7 @@ const ConfigureAd = () => {
             <p className="max-char-second-spss">Max 60 Characters</p>
 
             <div className="ad-heading-third-spss">
-              <p>Ad Description</p>
+              <p>Ad Description <span ><img src="/assets/images/adIcon/alert-circle.png" alt="" /></span></p>
             </div>
             <div className="ad-sale-third-spss">
               <textarea name='message' className='form-control' rows='5' placeholder=''> </textarea>
@@ -130,7 +132,7 @@ const ConfigureAd = () => {
           <div className="two-bumain-spsss">
             <Link to="/ConfigureAd2">
 
-              <button>Next</button>
+              <button className='block-btn'>Next</button>
             </Link>
           </div>
 

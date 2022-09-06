@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import AdmanagerHeaderR from '../AdmanagerHeaderR/AdmanagerHeaderR'
+import './AdPreviewScreen.css'
 
 const AdPreviewScreen = () => {
     return (
@@ -35,8 +36,21 @@ const AdPreviewScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Brand Awareness- CPV</p>
+                            </div>
+                            <div className="create-add-second">
+                                <i className="fa fa-ellipsis-h"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="create-add-main-no-backbround Configure-ad">
+                        <div className="create-add">
+                            <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span>
+                                <img src="/assets/images/adIcon/folder.png" alt="" />
+                                <p className='ml-2'>Full Screen Video Ad </p>
                             </div>
                             <div className="create-add-second">
                                 <i className="fa fa-ellipsis-h"></i>
@@ -47,8 +61,9 @@ const AdPreviewScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
-                                <p className='ml-2'>Full Screen Video Ad </p>
+                                <p className='ml-2'>Preview</p>
                             </div>
                             <div className="create-add-second">
                                 <i className="fa fa-ellipsis-h"></i>
@@ -58,6 +73,7 @@ const AdPreviewScreen = () => {
                     <div className="create-add-main-no-backbround Configure-ad">
                         <div className="create-add">
                             <div className="create-add-one">
+                                <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Choose Your Audience</p>
                             </div>
@@ -67,9 +83,10 @@ const AdPreviewScreen = () => {
                         </div>
                     </div>
 
-                    <div className="create-add-main-third-sp">
+                    <div className="create-add-main-third-sp create-add-one-sp-six">
                         <div className="create-add-sp" >
                             <div className="create-add-one-sp mr-5">
+                                <span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span><span className='static-margin'></span>
                                 <img src="/assets/images/adIcon/folder.png" alt="" />
                                 <p className='ml-2'>Budget & Ad duration</p>
                             </div>
@@ -128,7 +145,7 @@ const AdPreviewScreen = () => {
                                     <div className="preview-data">
                                         <div>
                                             <img src="/assets/images/adIcon/chevrons-right.png" alt="" />
-                                            <span>18years to 26years</span>
+                                            <span>18 years to 26 years</span>
                                         </div>
                                     </div>
                                 </div>
@@ -288,12 +305,17 @@ const AdPreviewScreen = () => {
                                             <div className="recomandation-display-block">
                                                 <img src="assets/images/image (2).png" />
                                                 <div className="recom-btn-cont-blk new-recom-btn-cont-blk">
-                                                    <h4>25 Recommendations</h4>
-                                                    <a href="#" className="btn btn-outline">Recommend</a>
+                                                    <h4>Food Market Zone</h4>
+
+                                                    <a href="#" className="btn btn-outline">KNOW MORE</a>
                                                 </div>
                                             </div>
                                             <div className="detail-box">
                                                 <h5 className="tag">This award goes to the coworker who’s always doing the thankless work of keeping the office up to date on pop culture. </h5>
+                                            </div>
+                                            <div className="Why-this-ad">
+                                                <p>Why this Ad?</p>
+                                                <img src="/assets/images/adIcon/Share-icon.png" alt="" />
                                             </div>
                                         </div>
                                     </div>
