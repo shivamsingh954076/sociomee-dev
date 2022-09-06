@@ -179,7 +179,7 @@ const Signup = () => {
                                 </div>
 
                                 {/* list of countries */}
-                                <ul class="list-group">
+                                <ul className="list-group">
                                     {
                                         phoneCode && phoneCode
                                             ?.filter(code => code.name.match(new RegExp(searchValue, "i")))

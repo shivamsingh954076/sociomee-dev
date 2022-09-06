@@ -53,8 +53,8 @@ const MyProfileGroup = () => {
                         {
                             allGroupsByUserId.length !== 0 ? allGroupsByUserId.map((allUserGroups) => {
                                 return (
-                                    <div>
-                                        <div className="profile-slide-box" key={allUserGroups.id}>
+                                    <div key={allUserGroups.id}>
+                                        <div className="profile-slide-box">
                                             <div className="adaptive-overlay"></div>
                                             <div className="story-bg">
                                                 <img src={`${allUserGroups.coverPic || "assets/images/group-1.jpg"}`} className="img-fluid bg-img" />

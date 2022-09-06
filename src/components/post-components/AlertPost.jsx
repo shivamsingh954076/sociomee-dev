@@ -10,12 +10,12 @@ const AlertPost = ({alert}) => {
     }
     return (
         <>
-            <div class="private-event-display-block">
-                <div class="pvt-event-cont-blk" style={tagTextStyle}>
-                    <div class="pvt-eventcont" style={tagStyle}>#{alert?.alertLevel?.name}</div>
-                    <span class="ti-quote-left"></span>
+            <div className="private-event-display-block">
+                <div className="pvt-event-cont-blk" style={tagTextStyle}>
+                    <div className="pvt-eventcont" style={tagStyle}>#{alert?.alertLevel?.name}</div>
+                    <span className="ti-quote-left"></span>
                     <p style={{color:alert?.alertLevel?.textForeColor}}>{alert?.caption}</p>
-                    <span class="ti-quote-right"></span>
+                    <span className="ti-quote-right"></span>
                 </div>
             </div>
         </>

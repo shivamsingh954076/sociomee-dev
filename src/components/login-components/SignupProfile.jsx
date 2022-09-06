@@ -180,7 +180,7 @@ const SignupProfile = () => {
 
                                     </div>
                                     <div className="form-group">
-                                       <h3 class="choose-gender-blk">Pick a username</h3>
+                                       <h3 className="choose-gender-blk">Pick a username</h3>
                                        <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique UserName</p>
                                        <input type="text" className="form-control" ref={userNameFieldError} placeholder="Pick a username" name="userName" value={profile.userName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />
                                        <label className='d-flex justify-content-between'>
@@ -209,7 +209,7 @@ const SignupProfile = () => {
 
                                     </div>
                                     <div className="form-group">
-                                       <h3 class="choose-gender-blk">Create password</h3>
+                                       <h3 className="choose-gender-blk">Create password</h3>
                                        <p className="label-descrip-blk">Enter password of minimum 8 character with atleast one lowercase, uppercase, number and special character</p>
                                        <div className="input-block">
                                           <input type={!style ? 'password' : 'text'} ref={passwordFieldError} className="form-control" placeholder="Enter your password here" name="password" value={profile.password} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />

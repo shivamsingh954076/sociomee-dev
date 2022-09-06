@@ -39,7 +39,7 @@ export default function AdManagerSearch() {
                         </NavLink>
                     </li>
                     <li>
-                    <input type="text" class="form-control search-type" placeholder="Search"/>
+                    <input type="text" className="form-control search-type" placeholder="Search"/>
                     </li>
                 </ul>
             </div>

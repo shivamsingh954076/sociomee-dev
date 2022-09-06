@@ -16,6 +16,8 @@ const Gallery = () => {
     useEffect(() => {
         setPostMedia(allPostsByUserId.filter(post => post.postType === 'media'))?.slice(0,9)
     }, [allPostsByUserId])
+
+    
     return (
         <>
             <div className="gallery-section section-b-space">
@@ -54,7 +56,7 @@ const Gallery = () => {
                         <div className="row">
                             {
                                 postMedia && postMedia.map((media) => {
-                                    return <div className="col-4">
+                                    return <div className="col-4" key={media.postId}>
                                         <div className="overlay">
                                             <div className="portfolio-image">
                                                 <a href="#" data-bs-toggle="modal"

@@ -116,9 +116,9 @@ const SignupInterest = () => {
                                                         )}
                                                         onChange={(e, params) => setInterestData(params)} 
                                                     />*/}
-                                                    <div class="form-group search-group-box">
-                                                        <input type="text" class="form-control" placeholder="Search..." value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
-                                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="#B9B9C3" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="input-icon iw-20 ih-20">
+                                                    <div className="form-group search-group-box">
+                                                        <input type="text" className="form-control" placeholder="Search..." value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
+                                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="#B9B9C3" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20">
                                                             <circle cx="11" cy="11" r="8"></circle>
                                                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                                         </svg>
@@ -135,7 +135,7 @@ const SignupInterest = () => {
                                                                             <label className="form-check-label" htmlFor={intr.name}>
                                                                                 {intr.name}
                                                                                 <img src={intr.icon_url}
-                                                                                    class="icon"
+                                                                                    className="icon"
                                                                                     height="20"
                                                                                     width="20" />
                                                                             </label>

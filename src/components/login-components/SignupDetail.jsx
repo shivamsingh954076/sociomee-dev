@@ -107,9 +107,9 @@ const SignupDetail = () => {
                                     <div className="form-sec">
                                         <div>
                                             <form className="theme-form">
-                                                <div class="form-group">
-                                                    <div class="row dob-cust-blk">
-                                                        <div class="col-4">
+                                                <div className="form-group">
+                                                    <div className="row dob-cust-blk">
+                                                        <div className="col-4">
                                                             <DatePicker
                                                                 renderCustomHeader={({
 
@@ -124,7 +124,7 @@ const SignupDetail = () => {
                                                             />
                                                             <label>Date</label>
                                                         </div>
-                                                        <div class="col-4">
+                                                        <div className="col-4">
                                                             <DatePicker
                                                                 renderCustomHeader={({
 
@@ -139,7 +139,7 @@ const SignupDetail = () => {
                                                             />
                                                             <label>Month</label>
                                                         </div>
-                                                        <div class="col-4">
+                                                        <div className="col-4">
                                                             <DatePicker
                                                                 selected={startYear}
                                                                 onChange={(date) => { setStartYear(date); setStartMonth(date); setStartYear(date) }}
@@ -161,12 +161,12 @@ const SignupDetail = () => {
                                                     <p className="instruction-msg">Max 64 Characters</p>
                                                 </div> */}
 
-                                                <div class="form-group">
-                                                    <h3 class="choose-gender-blk">Choose Gender</h3>
-                                                    <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" htmlFor="male">
+                                                <div className="form-group">
+                                                    <h3 className="choose-gender-blk">Choose Gender</h3>
+                                                    <div className="form-check custom-form-check-login">
+                                                        <label className="form-check-label font-weight-normal" htmlFor="male">
                                                             <p>Male</p>
-                                                            <input class="form-check-input radio_animated"
+                                                            <input className="form-check-input radio_animated"
                                                                 type="radio"
                                                                 name="gender"
                                                                 id="male"
@@ -174,10 +174,10 @@ const SignupDetail = () => {
                                                                 onChange={detailHandler} />
                                                         </label>
                                                     </div>
-                                                    <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" htmlFor="female">
+                                                    <div className="form-check custom-form-check-login">
+                                                        <label className="form-check-label font-weight-normal" htmlFor="female">
                                                             <p>Female</p>
-                                                            <input class="form-check-input radio_animated"
+                                                            <input className="form-check-input radio_animated"
                                                                 type="radio"
                                                                 name="gender"
                                                                 id="female"
@@ -185,10 +185,10 @@ const SignupDetail = () => {
                                                                 onChange={detailHandler} />
                                                         </label>
                                                     </div>
-                                                    <div class="form-check custom-form-check-login">
-                                                        <label class="form-check-label font-weight-normal" htmlFor="special">
+                                                    <div className="form-check custom-form-check-login">
+                                                        <label className="form-check-label font-weight-normal" htmlFor="special">
                                                             <p>I am Special</p>
-                                                            <input class="form-check-input radio_animated"
+                                                            <input className="form-check-input radio_animated"
                                                                 type="radio"
                                                                 name="gender"
                                                                 id="special"
@@ -198,24 +198,24 @@ const SignupDetail = () => {
                                                     </div>
                                                     {
                                                         detail.gender === 'other' && (
-                                                            <div class="specialgender">
+                                                            <div className="specialgender">
                                                                 <h3>How should we address you</h3>
-                                                                <div class="form-check custom-form-check-login">
-                                                                    <label class="form-check-label font-weight-normal" htmlFor="he">
+                                                                <div className="form-check custom-form-check-login">
+                                                                    <label className="form-check-label font-weight-normal" htmlFor="he">
                                                                         <p>He</p>
-                                                                        <input class="form-check-input radio_animated" type="radio" name="addressBy" id="he" value="he" onChange={detailHandler} />
+                                                                        <input className="form-check-input radio_animated" type="radio" name="addressBy" id="he" value="he" onChange={detailHandler} />
                                                                     </label>
                                                                 </div>
-                                                                <div class="form-check custom-form-check-login">
-                                                                    <label class="form-check-label font-weight-normal" htmlFor="she">
+                                                                <div className="form-check custom-form-check-login">
+                                                                    <label className="form-check-label font-weight-normal" htmlFor="she">
                                                                         <p>She</p>
-                                                                        <input class="form-check-input radio_animated" type="radio" name="addressBy" id="she" value="she" onChange={detailHandler} />
+                                                                        <input className="form-check-input radio_animated" type="radio" name="addressBy" id="she" value="she" onChange={detailHandler} />
                                                                     </label>
                                                                 </div>
-                                                                <div class="form-check custom-form-check-login">
-                                                                    <label class="form-check-label font-weight-normal" htmlFor="notspecify">
+                                                                <div className="form-check custom-form-check-login">
+                                                                    <label className="form-check-label font-weight-normal" htmlFor="notspecify">
                                                                         <p>Rather not specify</p>
-                                                                        <input class="form-check-input radio_animated" type="radio" name="addressBy" id="notspecify" value="none" onChange={detailHandler} />
+                                                                        <input className="form-check-input radio_animated" type="radio" name="addressBy" id="notspecify" value="none" onChange={detailHandler} />
                                                                     </label>
                                                                 </div>
                                                             </div>
