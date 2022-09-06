@@ -15,7 +15,7 @@ export default function GoLive() {
           <div className="page-center">
             <GoliveHeader></GoliveHeader>
             <div className="container-fluid section-t-space px-0">
-                <div class="golive-section">
+                <div className="golive-section">
                     <div className="golive-block">
                       <div className="gollive-head"><h3>Your Connection <small><span></span> 514 Live</small></h3></div>
                       <div className="row">

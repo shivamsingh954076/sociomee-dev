@@ -81,7 +81,7 @@ const SuggestedBizPage = ({bizPage}) => {
                             <Slider {...bizPageSettings} className="ratio_landscape default-space no-arrow">
                                 {
                                     bizPage?.suggestedBusiness && bizPage?.suggestedBusiness?.map((page)=>{
-                                        return  <div key={page.id}>
+                                        return  <div key={page?.id}>
                                     <div className="bizpage-block">
                                         <img src={page.logoUrl} />
                                         <h4>{page.name}</h4>

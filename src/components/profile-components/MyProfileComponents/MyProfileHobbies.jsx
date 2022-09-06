@@ -61,7 +61,7 @@ const MyProfileHobbies = ({ userProfileByUserId }) => {
                     <ul className="aboutlist-blk">
                         {
                             userHobbiesByUserId.length !== 0 ? userHobbiesByUserId.map((hobbie) => {
-                                return (<li>
+                                return (<li key={hobbie.id}>
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-12 ih-12">
                                         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z">
                                         </path>

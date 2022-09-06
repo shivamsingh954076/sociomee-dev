@@ -32,13 +32,13 @@ const AdManagerTable = () => {
                         <th><input type="checkbox" /></th>
                         <th scope="row">13</th>
                         <td>
-                            <label class="switch">
+                            <label className="switch">
                                 <input type="checkbox"/>
-                                    <span class="slider round"></span>
+                                    <span className="slider round"></span>
                             </label>
                         </td>
                         <td className='img-con'>
-                            <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                            <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                             <div>
                                 <p>New Traffic Ad - Kickstarter</p>
                                 <div className='table-link'>
@@ -64,13 +64,13 @@ const AdManagerTable = () => {
                         <th><input type="checkbox" /></th>
                         <th scope="row">12</th>
                         <td>
-                            <label class="switch">
+                            <label className="switch">
                                 <input type="checkbox"/>
-                                    <span class="slider round"></span>
+                                    <span className="slider round"></span>
                             </label>
                         </td>
                         <td className='img-con'>
-                            <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                            <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                             <div>
                                 <p>New Traffic Ad - Kickstarter</p>
                                 <div className='table-link'>
@@ -96,13 +96,13 @@ const AdManagerTable = () => {
                         <th><input type="checkbox" /></th>
                         <th scope="row">11</th>
                         <td>
-                            <label class="switch">
+                            <label className="switch">
                                 <input type="checkbox"/>
-                                    <span class="slider round"></span>
+                                    <span className="slider round"></span>
                             </label>
                         </td>
                         <td className='img-con'>
-                            <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                            <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                             <div>
                                 <p>New Traffic Ad - Kickstarter</p>
                                 <div className='table-link'>
@@ -128,13 +128,13 @@ const AdManagerTable = () => {
                         <th><input type="checkbox" /></th>
                         <th scope="row">10</th>
                         <td>
-                            <label class="switch">
+                            <label className="switch">
                                 <input type="checkbox"/>
-                                    <span class="slider round"></span>
+                                    <span className="slider round"></span>
                             </label>
                         </td>
                         <td className='img-con'>
-                            <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                            <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                             <div>
                                 <p>New Traffic Ad - Kickstarter</p>
                                 <div className='table-link'>
@@ -160,13 +160,13 @@ const AdManagerTable = () => {
                         <th><input type="checkbox" /></th>
                         <th scope="row">9</th>
                         <td>
-                            <label class="switch">
+                            <label className="switch">
                                 <input type="checkbox"/>
-                                    <span class="slider round"></span>
+                                    <span className="slider round"></span>
                             </label>
                         </td>
                         <td className='img-con'>
-                            <img src="assets/images/story-0.jpg" class="img-fluid max-width" alt="" />
+                            <img src="assets/images/story-0.jpg" className="img-fluid max-width" alt="" />
                             <div>
                                 <p>New Traffic Ad - Kickstarter</p>
                                 <div className='table-link'>
@@ -192,7 +192,7 @@ const AdManagerTable = () => {
                         <th><input type="checkbox" /></th>
                         <th scope="row">8</th>
                         <td>
-                            <label class="switch">
+                            <label className="switch">
                                 <input type="checkbox"/>
                                     <span class="slider round"></span>
                             </label>

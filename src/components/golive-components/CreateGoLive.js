@@ -106,7 +106,7 @@ export default function CreateGoLive() {
                         <div className="col-lg-8 col-md-7 col-sm-8 col-7">
                           <div className="set-media-form-blk">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-24 ih-24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" className="form-control">
                               <option>Webcam</option>
                               <option>Webcam</option>
                               <option>Webcam</option>
@@ -123,7 +123,7 @@ export default function CreateGoLive() {
                         <div className="col-lg-8 col-md-7 col-sm-8 col-7">
                           <div className="set-media-form-blk">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-24 ih-24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" className="form-control">
                               <option>Microphone</option>
                               <option>Microphone</option>
                               <option>Microphone</option>
@@ -140,7 +140,7 @@ export default function CreateGoLive() {
                         <div className="col-lg-8 col-md-7 col-sm-8 col-7">
                           <label className="setmedia-formlabel">Catagories</label>
                           <div className="set-media-form-blk">
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" className="form-control">
                               <option>Select Category</option>
                               <option>Education</option>
                               <option>Comedy</option>
@@ -150,7 +150,7 @@ export default function CreateGoLive() {
                         <div className="col-lg-4 col-md-5 col-sm-4 col-5">
                           <label className="setmedia-formlabel">Who Can See</label>
                           <div className="set-media-form-blk">
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" className="form-control">
                               <option>Public</option>
                               <option>Connections</option>
                               <option>Colleagues</option>

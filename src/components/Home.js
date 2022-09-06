@@ -44,6 +44,7 @@ import AlertPost from './post-components/AlertPost';
 import EventPost from './post-components/EventPost';
 import ThoughtPost from './post-components/ThoughtPost';
 import Comments from './post-components/Comments';
+import timeAgo from '../functions/timeAgo';
 
 
 
@@ -234,6 +235,9 @@ export default function Home({ user }) {
         pageSize: 3
     })
 
+    // comment checker
+    const [commentChecker,setCommentChecker]=useState(false);
+
     const [hasMore, setHasMore] = useState(true);
     // get more data function
     const getMoreData = () => {
@@ -259,6 +263,7 @@ export default function Home({ user }) {
         else if (!commentData.comment) { setOpen(true); setAlert({ sev: "error", content: "Please Fill input field before submit !", }); }
         else {
             dispatch(addCommentOnPost(commentData))
+            setCommentChecker(true);
             setCommentData({
                 postId: '', comment: ''
             })
@@ -389,7 +394,7 @@ export default function Home({ user }) {
                                                                             </a>
                                                                             <div className="media-body">
                                                                                 <h5>{userPosts.fullName}</h5>
-                                                                                <h6>{new Date(userPosts.createdAt).toDateString()}</h6>
+                                                                                <h6>{timeAgo(userPosts.createdAt)}</h6>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -496,7 +501,7 @@ export default function Home({ user }) {
                                                                             <li className="react-btn">
                                                                                 <a className="react-click" onClick={() => { likeHandler(userPosts.postId, allReactions && allReactions[0].id) }}>
                                                                                     {allReactions && allReactions.filter(seq => seq.sequenceNo === 1).map((reaction, i) => {
-                                                                                        return <><div className="post-btn-cust selected bg-white" ><img src={reaction.imageURL} /></div> {reaction.name}</>
+                                                                                        return <React.Fragment key={i}><div className="post-btn-cust selected bg-white" ><img src={reaction.imageURL} /></div> {reaction.name}</React.Fragment>
                                                                                     })}
 
                                                                                 </a>
@@ -529,7 +534,7 @@ export default function Home({ user }) {
                                                                         <div className="comments d-block">
                                                                             <div className="main-comment">
                                                                             {/* Comments Section */}
-                                                                                {/* <Comments postId={userPosts.postId} /> */}
+                                                                                <Comments postId={userPosts.postId} commentChecker={commentChecker} />
                                                                             </div>
                                                                         </div>
                                                                         <div className="reply">

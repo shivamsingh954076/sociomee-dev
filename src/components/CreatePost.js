@@ -760,7 +760,7 @@ export default function CreatePost() {
                                                 </div>
                                                 <div className="form-group col-md-12">
                                                     <label>Event Title*</label>
-                                                    <input type="text" className="form-control" maLength={'64'} required value={postData?.caption} onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
+                                                    <input type="text" className="form-control" maxLength={'64'} required value={postData?.caption} onChange={(e) => setPostData({ ...postData, caption: e.target.value })} />
                                                     <p className="input-hints">Max 64 Characters</p>
                                                 </div>
                                                 <div className="form-group col-md-12">
