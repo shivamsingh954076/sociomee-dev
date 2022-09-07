@@ -6,18 +6,14 @@ const getAllTrendingHashtag = (trandingHashtags) => ({
     payload: trandingHashtags,
 });
 // get all biz category
-export const loadAllTrendingHashtag = () => {
+export const loadAllTrendingHashtag = (pageSize) => {
     
     let user = JSON.parse(localStorage.getItem('user'));
-    const config = {
-        headers: { Authorization: `Bearer ${user.token}` }
-    };
     return function (dispatch) {
         if (user) {
-            axios.post(`${process.env.REACT_APP_IPURL}/hashtag/getTrending`,{},config)
+            axios.post(`${process.env.REACT_APP_IPURL}/hashtag/getTrending`,pageSize,{headers: { Authorization: `Bearer ${user.token}` }})
                 .then((res) => {
-                    console.log("reponse hashtags:", res);
-                    dispatch(getAllTrendingHashtag(res.data.data.successResult.rows))
+                    dispatch(getAllTrendingHashtag(res.data.data.successResult))
                 })
                 .catch((error) => {
                     console.log(error);

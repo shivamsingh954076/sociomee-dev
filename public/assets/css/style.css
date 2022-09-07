@@ -8830,6 +8830,10 @@ fieldset:disabled .btn {
 
 .dropdown-menu.show {
   display: block;
+  width:100%;
+}
+.dropdown-menu.show li:hover{
+  background: #f9fbf7;
 }
 
 .dropdown-header {
@@ -43747,7 +43751,7 @@ header.home-landing .header-section .header-right {
 .create-post .options-input .icon-close {
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 70%;
   z-index: 1;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -43762,7 +43766,7 @@ header.home-landing .header-section .header-right {
 
 .create-post .options-input .search-input .icon-left {
   position: absolute;
-  top: 50%;
+  top: 70%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 13px;
@@ -58184,7 +58188,7 @@ header .header-section .profile-btn .user-img img {
 }
 
 .more-post-type-dropdown {
-  width: 340px;
+  width: 340px !important;
   inset: 0px 0px auto auto !important;
 }
 

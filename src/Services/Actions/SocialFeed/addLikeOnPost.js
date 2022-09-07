@@ -18,7 +18,7 @@ export const addLikeOnPost = (like) => {
             .then((res) => {
                 console.log("add like response :", res);
                 dispatch(likeAdded(res.data));
-                dispatch(loadAllUserPosts());
+                // dispatch(loadAllUserPosts());
 
             })
             .catch((error) => {
