@@ -60,3 +60,8 @@
 .static-margin{
   margin-left: 10px;
 }
+
+/* OVERRIDE PROFILE RADIUS */
+.conversation-panel .friend-section .friend-list .friend-box .user-img img {
+  border-radius: 25% !important;
+}

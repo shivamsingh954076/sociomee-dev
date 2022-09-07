@@ -31,39 +31,45 @@ import getAllUserGroups from '../getAllUserGroups'
 import getAllGroupsByUserId from '../getAllGroupsByUserId'
 import getGroupAdministraterReducer from '../getGroupAdministraterReducer'
 
+// COMMONE
+import TrendingHashtagReducer from '../Common/TrendingHashtagReducer'
+
 
 
 const rootReducer = combineReducers({
     // Social Feed
-    getAllUserPostsData : getAllUserPosts,
-    getAllPostsByUserIdData : getAllPostsByUserId,
-    uploadFileData : uploadFileReducer,
-    getAllReactionsData : getAllReactionsReducer,
-    getUserProfileByUserIdData : getUserProfileByUserIdReducer,
-    getArticleCategoryData : getArticleCategoryReducer,
-    postSavedData : postSavedReducer,
-    getUserSubModulesData : getUserSubModulesReducer,
-    getEventCategoryData : getEventCategoryReducer,
-    getAlertData : getAlertDataReducer,
-    getColorsData : getColorsReducer,
-    getAllCommentsData : getAllCommentsReducer,
+    getAllUserPostsData: getAllUserPosts,
+    getAllPostsByUserIdData: getAllPostsByUserId,
+    uploadFileData: uploadFileReducer,
+    getAllReactionsData: getAllReactionsReducer,
+    getUserProfileByUserIdData: getUserProfileByUserIdReducer,
+    getArticleCategoryData: getArticleCategoryReducer,
+    postSavedData: postSavedReducer,
+    getUserSubModulesData: getUserSubModulesReducer,
+    getEventCategoryData: getEventCategoryReducer,
+    getAlertData: getAlertDataReducer,
+    getColorsData: getColorsReducer,
+    getAllCommentsData: getAllCommentsReducer,
 
     // Biz Page
-    bizCategoryData : bizCategoryReducer,
-    bizSubCategoryData : bizSubCategoryReducer,
-    bizPageData : bizPageReducer,
+    bizCategoryData: bizCategoryReducer,
+    bizSubCategoryData: bizSubCategoryReducer,
+    bizPageData: bizPageReducer,
 
     // USER PROFILE
-    getAllInterestsData : getAllInterestsReducer,
-    getAllSportsData : getAllSportsReducer,
-    suggestedUsersData : suggestedUsersReducer,
-    userFollowingRequestsData : userFollowingRequestsReducer,
+    getAllInterestsData: getAllInterestsReducer,
+    getAllSportsData: getAllSportsReducer,
+    suggestedUsersData: suggestedUsersReducer,
+    userFollowingRequestsData: userFollowingRequestsReducer,
 
-     // GROUP
-     getAllUserGroupsData : getAllUserGroups,
-     getAllGroupsByUserData : getAllGroupsByUserId,
-     getAllGroupCategoryData : getAllGroupCategory,
-     getGroupAdministraterData : getGroupAdministraterReducer,
+    // GROUP
+    getAllUserGroupsData: getAllUserGroups,
+    getAllGroupsByUserData: getAllGroupsByUserId,
+    getAllGroupCategoryData: getAllGroupCategory,
+    getGroupAdministraterData: getGroupAdministraterReducer,
+
+    //  COMMON
+    TrendingHashtagData: TrendingHashtagReducer,
 
 });
 

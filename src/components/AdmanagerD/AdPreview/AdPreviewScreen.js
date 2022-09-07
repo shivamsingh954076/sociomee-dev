@@ -262,7 +262,7 @@ const AdPreviewScreen = () => {
 
                             </div>
                             <div className="col-lg-6">
-                                <div className='post-panel section-t-space'>
+                                <div className='post-panel-new section-t-space'>
                                     <h3>Preview</h3>
 
                                     <div className="post-wrapper col-grid-box section-b-space">
