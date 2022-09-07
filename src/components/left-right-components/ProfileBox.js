@@ -46,8 +46,8 @@ const ProfileBox = () => {
                     <a href="#" className="image-section">
                         <div className="profile-img">
                             <div>
-                                <img src={userProfileByUserId.profileImage || "/assets/images/my-profile.jpg"}
-                                    className="img-fluid bg-img" alt="profile" />
+                                <img src={userProfileByUserId.profileImage }
+                                    className="img-fluid bg-img" alt={userProfileByUserId?.fullName} />
                             </div>
                             <span className="stats">
                                 <img src="/assets/images/verified-1.png"

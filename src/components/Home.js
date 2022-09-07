@@ -442,8 +442,8 @@ export default function Home({ user }) {
                                                                         <p></p>
                                                                         <h5 className="tag">
                                                                             {
-                                                                                userPosts.postHashTags && userPosts.postHashTags.map((tags) => {
-                                                                                    return <span key={tags.id}>#{tags.name},</span>
+                                                                                userPosts.postHashTags && userPosts.postHashTags.map((tags,i) => {
+                                                                                    return <span key={tags.id || i}>#{tags.name},</span>
                                                                                 })
 
                                                                             }
@@ -455,8 +455,7 @@ export default function Home({ user }) {
                                                                             <ul>
                                                                                 {
                                                                                     userPosts.topLikes && userPosts.topLikes.map((likes, ind) => {
-                                                                                        return <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                                                            data-name="sufiya eliza" data-img="assets/images/story-2.jpg" key={ind}>
+                                                                                        return <li className="popover-cls" data-bs-toggle="popover" data-placement="right" data-name="sufiya eliza" data-img="/assets/images/story-2.jpg" key={ind}>
                                                                                             <img src={`https://sociomee-dev.s3.ap-south-1.amazonaws.com/${likes.profileThumb}`} className="img-fluid bg-img" alt="" />
                                                                                         </li>
                                                                                     })
@@ -534,7 +533,7 @@ export default function Home({ user }) {
                                                                         <div className="comments d-block">
                                                                             <div className="main-comment">
                                                                             {/* Comments Section */}
-                                                                                <Comments postId={userPosts.postId} commentChecker={commentChecker} />
+                                                                                <Comments postId={userPosts.postId} commentChecker={()=>commentChecker} pageSize={pageSize}/>
                                                                             </div>
                                                                         </div>
                                                                         <div className="reply">

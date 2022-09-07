@@ -3,14 +3,17 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import timeAgo from '../../functions/timeAgo';
 import { addLikeOnComment } from '../../Services/Actions/SocialFeed/addCommentOnPost';
+import { loadAllUserPosts } from '../../Services/Actions/SocialFeed/getAllUserPostsAction';
 
-const Comments = ({ postId,commentChecker }) => {
+const Comments = ({ postId, commentChecker, pageSize }) => {
     const [postComments, setPostComments] = useState([]);
     const user = JSON.parse(localStorage.getItem('user'));
     const dispatch = useDispatch();
 
-    const commentLikeHandler = (commentId) => {
-        dispatch(addLikeOnComment({ commentId: commentId, reactionId: "5e8592b0-ee8e-4602-8ef0-d22ad3e2b305" }))
+    const commentLikeHandler = async (commentId) => {
+        await dispatch(addLikeOnComment({ commentId: commentId, reactionId: "5e8592b0-ee8e-4602-8ef0-d22ad3e2b305" }))
+        dispatch(loadAllUserPosts(pageSize))
+
     }
 
     const data = {
@@ -31,7 +34,7 @@ const Comments = ({ postId,commentChecker }) => {
             .catch((error) => {
                 console.log(error);
             })
-    },[commentChecker])
+    }, [commentChecker])
 
     return (
         <>
@@ -51,7 +54,7 @@ const Comments = ({ postId,commentChecker }) => {
                                 <p>{comment.comment}
                                 </p>
                                 <ul className="comment-option">
-                                    <li onClick={()=>commentLikeHandler(comment.id)}><a><img src="/assets/images/liked-icon.png" /> like ({comment.likesCount})</a></li>
+                                    <li onClick={() => commentLikeHandler(comment.id)}><a><img src="/assets/images/liked-icon.png" /> like ({comment.likesCount})</a></li>
                                     <li><a><img src="/assets/images/chat-icon.png" /> reply ({comment.replyCount})</a></li>
                                 </ul>
                             </div>

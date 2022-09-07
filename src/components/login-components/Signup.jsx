@@ -30,7 +30,7 @@ const Signup = () => {
         if (!userData.code) { errorRef.current.classList.remove('d-none'); setError('Please Select Phone Code') }
         else if (defaultCountryCode !== user.countryId) { errorRef.current.classList.remove('d-none'); setError('Please select right country code') }
         else if (!userData.mobile) { errorRef.current.classList.remove('d-none'); setError('Please Enter Phone Number !') }
-        else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
+        else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
         else {
             setUser({ ...user, mobile: `${userData.code} ${userData.mobile}` })
             user.mobile = `${userData.code} ${userData.mobile}`;
