@@ -16,7 +16,7 @@ export const addCommentOnPost = (comment) => {
         axios.post(`${process.env.REACT_APP_IPURL}/post/addComment/`, comment, {headers: { Authorization: `Bearer ${user.token ? user?.token : ''}` }})
             .then((res) => {
                 dispatch(commentAdded(res.data));
-                dispatch(loadAllUserPosts());
+                // dispatch(loadAllUserPosts());
                 dispatch(loadAllCommments({ postId: comment.postId, pageSize: 4 }));
 
             })
@@ -33,7 +33,6 @@ export const addLikeOnComment = (like) => {
         axios.post(`${process.env.REACT_APP_IPURL}/post/setCommentLike`, like, { headers: { Authorization: `Bearer ${user.token ? user?.token : ''}` } })
             .then((res) => {
                 console.log(res.data)
-                dispatch(loadAllUserPosts());
 
             })
             .catch((error) => {

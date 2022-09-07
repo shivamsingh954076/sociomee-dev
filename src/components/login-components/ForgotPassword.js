@@ -29,7 +29,7 @@ export default function Signup() {
     e.preventDefault();
     const phoneFormat = /^[6-9]\d{9}$/;
     if (!userData.mobile) { errorRef.current.classList.remove('d-none'); setError('Please Enter Phone Number !') }
-    else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.toString().match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
+    else if (userData.mobile.length > 10 || userData.mobile.length < 10 || !userData.mobile.match(phoneFormat)) { errorRef.current.classList.remove('d-none'); setError('Please Enter Valid Phone Number ! ') }
     else {
       otpBody.mobile = `${userData.code} ${userData.mobile}`;
       axios.post(`${process.env.REACT_APP_IPURL}/public/sendOtp`, otpBody)

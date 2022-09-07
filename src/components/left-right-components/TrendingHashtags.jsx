@@ -5,13 +5,7 @@ import { loadAllTrendingHashtag } from '../../Services/Actions/Common/trandingHa
 import './style.css';
 
 const TrendingHashtags = () => {
-    let dispatch = useDispatch();
-
-    const { trandingHashtags } = useSelector(state => state.TrendingHashtagData);
-    console.log('this is hastahgs', trandingHashtags)
-    useEffect(() => {
-        dispatch(loadAllTrendingHashtag());
-    }, []);
+   
     return (
         <>
             <div className="event-box section-b-space ratio2_3">
