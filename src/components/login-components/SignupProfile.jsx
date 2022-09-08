@@ -233,7 +233,7 @@ const SignupProfile = () => {
                                     </div>
                                     <p className="error-input-msg d-none" ref={tncRef}>{error}</p>
                                     <div className="btn-section">
-                                       <button className="btn btn-solid btn-lg" onClick={submitHandler} disabled={!flag}>CONTINUE</button>
+                                       <button className="btn btn-solid btn-lg without-input-fill" onClick={submitHandler} disabled={!flag}>CONTINUE</button>
 
                                     </div>
                                  </form>

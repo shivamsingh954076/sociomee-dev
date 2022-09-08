@@ -148,7 +148,7 @@ const SignupInterest = () => {
                                                     </div>
                                                 </div>
                                                 <div className="btn-section">
-                                                    <button className="btn btn-solid btn-lg" onClick={registerUser} disabled={interestData.length < 3}>CONTINUE</button>
+                                                    <button className="btn btn-solid btn-lg without-input-fill" onClick={registerUser} disabled={interestData.length < 3}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

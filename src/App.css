@@ -65,3 +65,16 @@
 .conversation-panel .friend-section .friend-list .friend-box .user-img img {
   border-radius: 25% !important;
 }
+.react-datetime-picker__calendar{
+  z-index:2 !important;
+}
+.without-input-fill {
+  background: #ACDAD6;
+  border-color: #ACDAD6;
+}
+.button-anchor {
+  color:#81C14B !important;
+  border: none;
+      background: none;
+      font-weight: 500;
+  }

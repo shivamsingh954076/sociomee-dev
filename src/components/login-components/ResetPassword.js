@@ -127,7 +127,7 @@ export default function Login() {
                           </div>
                         </div>
                         <div className="btn-section">
-                          <button className="btn btn-solid btn-lg dffewfwef" onClick={resetPasswordHandler} disabled={!password.new || !password.confirm ? true : false}>Continue</button>
+                          <button className="btn btn-solid btn-lg dffewfwef without-input-fill" onClick={resetPasswordHandler} disabled={!password.new || !password.confirm ? true : false}>Continue</button>
                         </div>
                       </form>
                     </div>
