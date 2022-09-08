@@ -225,7 +225,7 @@ const SignupDetail = () => {
                                                 </div>
                                                 <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                                 <div className="btn-section">
-                                                    <button className="btn btn-solid btn-lg" onClick={detailSubmit} disabled={!flag}>CONTINUE</button>
+                                                    <button className="btn btn-solid btn-lg without-input-fill" onClick={detailSubmit} disabled={!flag}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

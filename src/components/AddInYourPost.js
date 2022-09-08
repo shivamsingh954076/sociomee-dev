@@ -1,21 +1,23 @@
-import React, { Component, useEffect, useRef, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react';
 import DateTimePicker from "react-datetime-picker";
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { loadAllTrendingHashtag } from '../Services/Actions/Common/trandingHashtagAction';
+import Autocomplete from "react-google-autocomplete";
 
 export default function AddInYourPost({ createPostHandler, postData, setPostData, clickMedia, pollOptions }) {
-    const [value, onChange] = useState(new Date());
+    const [value, onChange] = useState('');
     // Model nav menu
     //   Create Post button 
     const navRef = useRef(null);
+    const inputRef = useRef(null);
     const searchTag = useRef(null);
     const [flag, setFlag] = useState(false);
     const [toggle, setToggle] = useState(false);
 
     const [optionActive, setOptionActive] = useState('');
     const [tags, setTags] = useState('');
+    const [location, setLocation] = useState('');
 
     // infinite scroll functionality
     const [pageSize] = useState({
@@ -93,6 +95,16 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
         setOptionActive('');
 
     };
+
+    const handleSubmit = (e) => {
+        postData.hashTags = tags;
+        setTags('');
+        postData.displayLocation = location;
+        inputRef.current.value = '';
+        postData.schedule = value.toISOString();
+        onChange('');
+        createPostHandler(e)
+    }
 
 
     // This function checks data is filled or not
@@ -191,18 +203,16 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
 
             <div className="options-input" ref={navRef} id="additional-input">
 
-                {
-                    !toggle ? <a id="icon-close" onClick={() => {setToggle(true);searchTag.current.classList.add("show")}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="iw-22 icon-font-light icon-close bi bi-search">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </a> : <a id="icon-close" onClick={() => {setToggle(false);searchTag.current.classList.remove("show")}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="iw-15 icon-font-light icon-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </a>
-                }
-
-
                 <div className="search-input hashtag-input" >
+                    {
+                        !toggle ? <a id="icon-close" onClick={() => { setToggle(true); searchTag.current.classList.add("show") }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="iw-22 icon-font-light icon-close bi bi-search">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </a> : <a id="icon-close" onClick={() => { setToggle(false); searchTag.current.classList.remove("show") }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="iw-15 icon-font-light icon-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </a>
+                    }
                     <h4 className='mb-3'>Trending #tags</h4>
                     <div className="phone-with-code">
                         <input type="text" className="form-control" placeholder="Hashtag..." value={tags} />
@@ -241,7 +251,20 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
                 </div>
                 <div className="search-input place-input">
                     <h4 className='mb-3'>Search for Location</h4>
-                    <input type="text" className="form-control" placeholder="search for places..." />
+                    <Autocomplete
+                        className="form-control"
+                        apiKey={'AIzaSyBjNd5-n0m0NtT1qA4iKmgM3ahD2Podpas'}
+                        options={{
+                            fields: ["name"],
+                            strictBounds: false,
+                            types: [],
+                        }}
+                        onPlaceSelected={(place) => {
+                            setLocation(place.name)
+                        }}
+                        ref={inputRef}
+                    />
+
                     <a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </a>
@@ -265,11 +288,17 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
                     </a>
                 </div>
                 <div className="search-input schedule-input" >
+                    <h4 className='mb-3'>Select Date & time to schedule your post </h4>
+
                     {/* <input type="text" className="form-control" placeholder="Schedule your post..."/> */}
-                    <DateTimePicker onChange={onChange} value={value} className="form-control" />
-                    <a>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    </a>
+                    <div className='row'>
+                        <div className="col-6 d-flex align-items-center">
+                            <h4>Pick a date & time</h4>
+                        </div>
+                        <div className="col-6">
+                            <DateTimePicker onChange={onChange} value={value} minDate={new Date()} format="dd/MM/y h:mm:ss a" />
+                        </div>
+                    </div>
                 </div>
                 <div className="search-input comment-input" >
                     {/* <input type="text" className="form-control" placeholder="Allow Comments..."/> */}
@@ -308,7 +337,7 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
             </div>
 
             <div id="post-btn" className="post-btn">
-                <button className={'btn btn-solid'} onClick={() => { postData.hashTags = tags; createPostHandler() }} disabled={!flag}>post</button>
+                <button className={'btn btn-solid'} onClick={(e) => handleSubmit(e)} disabled={!flag}>post</button>
             </div>
 
         </>
