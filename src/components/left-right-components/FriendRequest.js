@@ -45,23 +45,6 @@ const FriendRequest = () => {
                                             </div>
                                             <div className="media-body">
                                                 <h4>{request?.fullName}</h4>
-                                                {/* <div className="people-likes matual-friend-sec">
-                                            <ul className="matual-friend-blk">
-                                                <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                    data-name="sufiya eliza" data-img="/assets/images/story-2.jpg">
-                                                    <img src="/assets/images/story-2.jpg" className="img-fluid bg-img" alt="" />
-                                                </li>
-                                                <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                    data-name="sufiya eliza" data-img="/assets/images/story-3.jpg">
-                                                    <img src="/assets/images/story-3.jpg" className="img-fluid bg-img" alt="" />
-                                                </li>
-                                                <li className="popover-cls" data-bs-toggle="popover" data-placement="right"
-                                                    data-name="sufiya eliza" data-img="/assets/images/story-4.jpg">
-                                                    <img src="/assets/images/story-4.jpg" className="img-fluid bg-img" alt="" />
-                                                </li>
-                                            </ul>
-                                            <h6>+5 Common</h6>
-                                        </div> */}
                                                 <div className="friend-request-btn">
                                                     <a className="fr-btn confirm-btn text-white" onClick={() => approveRequestHandler(request.id)}>Confirm</a>
                                                     <a className="fr-btn reject-btn" onClick={() => rejectRequestHandler(request.id)}>Reject</a>

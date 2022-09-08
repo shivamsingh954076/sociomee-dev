@@ -62,10 +62,10 @@ export default function LeftSidebar() {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="#">
+                        <NavLink to="/Connection">
                             <img src="/assets/images/left-side-menu-icon/user-check.svg" className="bar-icon-img" alt="Connections " />
                             <h4>Connections </h4>
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
                         <a href="#">

@@ -33,6 +33,8 @@ import getGroupAdministraterReducer from '../getGroupAdministraterReducer'
 
 // COMMONE
 import TrendingHashtagReducer from '../Common/TrendingHashtagReducer'
+import GetUserFollowersReducer from '../Common/GetUserFollowersReducer'
+import GetUserFollowingReducer from '../Common/GetUserFollowingReducer'
 
 
 
@@ -69,7 +71,9 @@ const rootReducer = combineReducers({
     getGroupAdministraterData: getGroupAdministraterReducer,
 
     //  COMMON
-    TrendingHashtagData: TrendingHashtagReducer,
+    TrendingHashtagData: TrendingHashtagReducer, 
+    GetUserFollowersData: GetUserFollowersReducer, 
+    GetUserFollowingData: GetUserFollowingReducer, 
 
 });
 

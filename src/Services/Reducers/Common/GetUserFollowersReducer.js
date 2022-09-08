@@ -1,16 +1,16 @@
 import * as types from "../../Constants/Common/index.js";
 
 const initialState = { 
-    trandingHashtags: [],
+    getUserFollowers: [],
     loading: true,
 };
 
-const TrendingHashtagReducer = (state = initialState, action) => {
+const GetUserFollowersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.GET_TRENDING_HASHTAG:
+        case types.GET_USER_FOLLOWERS:
             return {
                 ...state,
-                trandingHashtags: action.payload,
+                getUserFollowers: action.payload,
                 loading: false,
             };
 
@@ -19,4 +19,4 @@ const TrendingHashtagReducer = (state = initialState, action) => {
     }
 };
 
-export default TrendingHashtagReducer;
+export default GetUserFollowersReducer;

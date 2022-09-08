@@ -1,0 +1,29 @@
+.connection-profile-new{
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 100%;
+}
+.media-new{
+    justify-content: center;
+    align-items: center;
+}
+.media-body-new{
+    justify-content: space-around;
+    flex-direction: column;
+}
+.conn-btn{
+    border: none;
+}
+.conn-btn>img{
+    width: 40px !important;
+    height: 40px !important;
+    background: white;
+}
+.mp-head-blk-new{
+    align-items: center;
+    padding-bottom: 2rem;
+}
+.mp-head-blk-new>h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+}

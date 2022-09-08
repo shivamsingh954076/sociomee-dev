@@ -5,7 +5,12 @@ import { loadAllTrendingHashtag } from '../../Services/Actions/Common/trandingHa
 import './style.css';
 
 const TrendingHashtags = () => {
-   
+    let dispatch = useDispatch();
+    const { trandingHashtags } = useSelector(state => state.TrendingHashtagData)
+
+    useEffect(() => {
+        dispatch(loadAllTrendingHashtag())
+    }, [])
     return (
         <>
             <div className="event-box section-b-space ratio2_3">
@@ -15,21 +20,21 @@ const TrendingHashtags = () => {
                     </div>
 
                     {
-                        trandingHashtags.slice(0, 5).map((Hashtag) => {
+                        trandingHashtags.rows?.slice(0,5).map((Hashtag) => {
                             return (
                                 <div className="all-hashtags pl-2 pb-1">
                                     <div className="hashtag-icob">
                                         <img src="/assets/images/adIcon/Frame 1113.png" alt="icon" />
                                     </div>
                                     <div className="hashtag-stat pl-2">
-                                        <h4 >#{Hashtag.name}</h4>
-                                        <h5 >{Hashtag.count} Posts</h5>
+                                        <h4 >#{Hashtag.name || "hashtag"}</h4>
+                                        <h5 >{Hashtag.count || "0"} Posts</h5>
                                     </div>
                                 </div>
                             )
                         })
                     }
-                    
+
                     <div className="more-hags">
                         <Link to="#" className='more-tags-inn'>
                             See all Tags

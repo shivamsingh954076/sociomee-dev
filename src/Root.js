@@ -76,6 +76,9 @@ import GoLiveDetail from "./components/golive-components/GoLiveDetail";
 import CreateGoLive from "./components/golive-components/CreateGoLive";
 import CreateGoLiveDetail from "./components/golive-components/CreateGoLiveDetail";
 
+import Connection from "./components/Connections/Connection";
+import FollowRequestsScreen from "./components/Connections/ConnectionPlaceMenu/FollowRequestsScreen";
+import FollowingScreen from "./components/Connections/ConnectionPlaceMenu/FollowingScreen";
 
 
 const Root = () => {
@@ -158,6 +161,10 @@ const Root = () => {
             <Route exact path="/GoLiveDetail" element={<GoLiveDetail />} />
             <Route exact path="/CreateGoLive" element={<CreateGoLive />} />
             <Route exact path="/CreateGoLiveDetail" element={<CreateGoLiveDetail />} />
+
+            <Route exact path="/Connection" element={<Connection />} />
+            <Route exact path="/FollowRequests" element={<FollowRequestsScreen />} />
+            <Route exact path="/FollowingScreen" element={<FollowingScreen />} />
 
 
             {/* <Route path="*" element={<NotFound/>}/> */}

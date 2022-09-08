@@ -1,2 +1,6 @@
 // Tranding hashtag
 export const GET_TRENDING_HASHTAG = "GET_TRENDING_HASHTAG";
+
+export const GET_USER_FOLLOWERS = "GET_USER_FOLLOWERS";
+
+export const GET_USER_FOLLOWING = "GET_USER_FOLLOWING";
