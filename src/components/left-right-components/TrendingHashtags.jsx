@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loadAllTrendingHashtag } from '../../Services/Actions/Common/trandingHashtagAction';
@@ -11,6 +11,12 @@ const TrendingHashtags = () => {
     useEffect(() => {
         dispatch(loadAllTrendingHashtag())
     }, [])
+
+    // const [pageSize] = useState({
+    //     pageIndex: 0,
+    //     pageSize: 5
+    // })
+
     return (
         <>
             <div className="event-box section-b-space ratio2_3">

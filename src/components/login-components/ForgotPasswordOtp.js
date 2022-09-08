@@ -195,7 +195,7 @@ const Otp = () => {
                                                 </div>
                                                 <div className="resendotp-blk " id="resendotp">Didn't receive OTP yet? <Link to='#' className={'color-blue'} onClick={resendOtp}>Resend</Link></div>
                                                 <div className="btn-section">
-                                                    <button className="btn btn-solid btn-lg" onClick={otpSubmit} disabled={otp.join("").length === 6 ? false : true}>CONTINUE</button>
+                                                    <button className="btn btn-solid btn-lg without-input-fill" onClick={otpSubmit} disabled={otp.join("").length === 6 ? false : true}>CONTINUE</button>
                                                 </div>
                                             </form>
                                         </div>

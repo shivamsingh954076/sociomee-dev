@@ -122,7 +122,7 @@ const SignupEmail = () => {
                                     </div>
                                     {/* <p className="notimsg-blk">Provide your email for better communication. </p> */}
                                     <div className="btn-section">
-                                       <button className="btn btn-solid btn-lg" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
+                                       <button className="btn btn-solid btn-lg without-input-fill" onClick={emailVerification} disabled={!flag}>CONTINUE</button>
 
                                     </div>
                                     <div className="skip-reg-block">

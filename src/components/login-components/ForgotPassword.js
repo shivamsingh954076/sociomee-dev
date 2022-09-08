@@ -97,7 +97,7 @@ export default function Signup() {
                         </div>
                         <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                         <div className="btn-section">
-                          <button className="btn btn-solid btn-lg" onClick={handleSubmit} disabled={userData.mobile.length !== 10 ? true : false}>Send OTP</button>
+                          <button className="btn btn-solid btn-lg without-input-fill" onClick={handleSubmit} disabled={userData.mobile.length !== 10 ? true : false}>Send OTP</button>
                         </div>
                       </form>
                       <div className="connect-with">

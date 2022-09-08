@@ -138,12 +138,12 @@ const Signup = () => {
                                                             <input type="text" className="form-control w-75" placeholder="Enter Mobile Number" name="mobile" value={userData.mobile} onChange={(e) => { setUserData({ ...userData, mobile: e.target.value }); errorRef.current.classList.add('d-none') }} onKeyPress={numberFilter} />
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="input-icon iw-20 ih-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                                         </div>
-                                                    </div>
+                                                    </div> 
                                                     <p className="error-input-msg text-center d-none" ref={errorRef}>{error}</p>
                                                 </div>
                                                 <p className="notimsg-blk">When you will click on continue,  you will receive a verification code on the mobile number that you have entered.</p>
                                                 <div className="btn-section">
-                                                    <button className={"btn btn-solid btn-lg"} disabled={userData.mobile.length !== 10 ? true : false} onClick={handleSubmit}>CONTINUE</button>
+                                                    <button className={"btn btn-solid btn-lg without-input-fill"} disabled={userData.mobile.length !== 10 ? true : false} onClick={handleSubmit}>CONTINUE</button>
                                                 </div>
                                                 <div className="connect-with">
                                                     <div className="no-account-blk">
