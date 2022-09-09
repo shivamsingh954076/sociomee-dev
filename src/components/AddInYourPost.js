@@ -101,7 +101,8 @@ export default function AddInYourPost({ createPostHandler, postData, setPostData
         setTags('');
         postData.displayLocation = location;
         inputRef.current.value = '';
-        postData.schedule = value.toISOString();
+        postData.schedule = (value && value.toISOString());
+        postData.isScheduled = (value && 1);
         onChange('');
         createPostHandler(e)
     }

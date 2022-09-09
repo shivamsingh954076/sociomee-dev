@@ -172,7 +172,7 @@ const SignupProfile = () => {
                                  <form className="theme-form">
                                     <div className="form-group">
                                        {/* <label>What's your name?</label> */}
-                                       <input type="text" className="form-control" ref={nameFieldError} placeholder="Write your full name here" name="fullName" value={profile.fullName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 64 && e.preventDefault(); }} />
+                                       <input type="text" className="form-control" ref={nameFieldError} placeholder="Write your full name here" name="fullName" value={profile.fullName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 64 && e.preventDefault(); }} maxLength={64} />
                                        <label className='d-flex justify-content-between'>
                                           <p className="error-input-msg invisible" ref={nameRef}>{error}</p>
                                           {/* <p className="instruction-msg">Max 64 Characters</p> */}
@@ -182,7 +182,7 @@ const SignupProfile = () => {
                                     <div className="form-group">
                                        <h3 className="choose-gender-blk">Pick a username</h3>
                                        <p className="label-descrip-blk">Help your friends to find you on SocioMee with a unique UserName</p>
-                                       <input type="text" className="form-control" ref={userNameFieldError} placeholder="Pick a username" name="userName" value={profile.userName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />
+                                       <input type="text" className="form-control" ref={userNameFieldError} placeholder="Pick a username" name="userName" value={profile.userName} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} maxLength={20} />
                                        <label className='d-flex justify-content-between'>
                                           <p className="error-input-msg invisible" ref={userNameRef}>{error}</p>
                                           {/* <p className="instruction-msg">Max 20 Characters</p> */}
@@ -212,7 +212,7 @@ const SignupProfile = () => {
                                        <h3 className="choose-gender-blk">Create password</h3>
                                        <p className="label-descrip-blk">Enter password of minimum 8 character with atleast one lowercase, uppercase, number and special character</p>
                                        <div className="input-block">
-                                          <input type={!style ? 'password' : 'text'} ref={passwordFieldError} className="form-control" placeholder="Enter your password here" name="password" value={profile.password} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 20 && e.preventDefault(); }} />
+                                          <input type={!style ? 'password' : 'text'} ref={passwordFieldError} className="form-control" placeholder="Enter your password here" name="password" value={profile.password} onChange={onChangeHandler} onKeyPress={(e) => { e.target.value.length >= 25 && e.preventDefault(); }} maxLength={25}/>
 
                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B9B9C3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={!style ? 'input-icon iw-20 ih-20 d-none' : 'input-icon iw-20 ih-20'} onClick={() => setStyle(!style)}>
                                              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
