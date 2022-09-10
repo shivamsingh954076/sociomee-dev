@@ -236,7 +236,7 @@ export default function Home({ user }) {
     })
 
     // comment checker
-    const [commentChecker,setCommentChecker]=useState(false);
+    const [commentChecker, setCommentChecker] = useState(false);
 
     const [hasMore, setHasMore] = useState(true);
     // get more data function
@@ -395,6 +395,12 @@ export default function Home({ user }) {
                                                                             <div className="media-body">
                                                                                 <h5>{userPosts.fullName}</h5>
                                                                                 <h6>{timeAgo(userPosts.createdAt)}</h6>
+                                                                                {
+                                                                                    userPosts.displayLocation && <h6 className='mt-2 d-flex align-items-center'>
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#81C14B" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light mr-1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                                                        {userPosts.displayLocation}
+                                                                                    </h6>
+                                                                                }
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -442,7 +448,7 @@ export default function Home({ user }) {
                                                                         <p></p>
                                                                         <h5 className="tag">
                                                                             {
-                                                                                userPosts.postHashTags && userPosts.postHashTags.map((tags,i) => {
+                                                                                userPosts.postHashTags && userPosts.postHashTags.map((tags, i) => {
                                                                                     return <span key={tags.id || i}>#{tags.name},</span>
                                                                                 })
 
@@ -532,8 +538,8 @@ export default function Home({ user }) {
                                                                     <div className="comment-section">
                                                                         <div className="comments d-block">
                                                                             <div className="main-comment">
-                                                                            {/* Comments Section */}
-                                                                                <Comments postId={userPosts.postId} commentChecker={()=>commentChecker} pageSize={pageSize}/>
+                                                                                {/* Comments Section */}
+                                                                                <Comments postId={userPosts.postId} commentChecker={() => commentChecker} pageSize={pageSize} />
                                                                             </div>
                                                                         </div>
                                                                         <div className="reply">
