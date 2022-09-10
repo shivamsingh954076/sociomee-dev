@@ -6,7 +6,6 @@ const suggestedUsersGet = (suggestedUsers) => ({
     payload: suggestedUsers,
 });
 
-
 // get suggested user 
 export const getSuggestedUsers = () => {
     return function (dispatch) {

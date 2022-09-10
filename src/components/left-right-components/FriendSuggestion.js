@@ -137,7 +137,8 @@ export default function FriendSuggestion() {
                                                 </ul> */}
                                                 {/* <h6>+5 mutual</h6> */}
                                             </div>
-                                            <a className="d-block btn btn-primary text-white" onClick={() => requestSender(user.id,user.isPrivate)}>Send Request</a>
+                                            <a className="d-block btn btn-primary text-white" 
+                                            onClick={() => requestSender(user.id, user.isPrivate)}>Send Request</a>
                                         </div>
                                     </div>
                                 </div>

@@ -15,8 +15,8 @@
     border: none;
 }
 .conn-btn>img{
-    width: 40px !important;
-    height: 40px !important;
+    width: 30px !important;
+    height: 30px !important;
     background: white;
 }
 .mp-head-blk-new{
@@ -26,4 +26,34 @@
 .mp-head-blk-new>h2{
     font-size: 1.8rem;
     font-weight: 600;
+}
+.mp-releted-pro-blk-new{
+    position: unset !important;
+    align-items: center;
+}
+.gallery-img-sublink-new>.dropbtn-gal>svg{
+    transform: rotate(90deg);
+    background: none;
+    border: none;
+}
+.gallery-img-sublink-new{
+    background: none;
+    border: none;
+}
+.dropdown-menu.dropdown-menu-right.custom-dropdown.drop-menu-gal-new{
+    transform: translate(530px, 35px) !important;
+    width: unset !important;
+}
+.dropdown-menu.dropdown-menu-right.custom-dropdown.drop-menu-gal-new-follower{
+    transform: translate(270px, 35px) !important;
+    width: unset !important;
+}
+.green-text{
+    color: #81C14B !important;
+}
+.orange-text{
+    color: #F1AB59 !important;
+}
+.red-text{
+    color: #F95252 !important;
 }

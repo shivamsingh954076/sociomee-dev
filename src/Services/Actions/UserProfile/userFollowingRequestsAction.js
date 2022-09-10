@@ -35,7 +35,8 @@ export const sendUserFollowingRequests = (id, isPrivate) => {
                 "isFollowed": true,
                 "isPrivate": isPrivate === 0 ? false : true
             }
-            axios.post(`${process.env.REACT_APP_IPURL}/user/followUnFollow`, data, { headers: { Authorization: `Bearer ${user.token}` } })
+            axios.post(`${process.env.REACT_APP_IPURL}/user/followUnFollow`, data,
+                { headers: { Authorization: `Bearer ${user.token}` } })
                 .then((res) => {
                     dispatch(getSuggestedUsers())
                     dispatch(loadProfileByUserId())

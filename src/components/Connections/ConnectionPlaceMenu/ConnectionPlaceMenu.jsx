@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
+import { loadProfileByUserId } from '../../../Services/Actions/UserProfile/getUserProfileByUserIdAction';
 
 const ConnectionPlaceMenu = () => {
+    // get user profile by user id 
+    const { userProfileByUserId } = useSelector(state => state.getUserProfileByUserIdData);
+    let dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(loadProfileByUserId());
+    }, [])
+
     return (
         <>
             <div className="marketplace-menu">
@@ -12,23 +21,23 @@ const ConnectionPlaceMenu = () => {
                                 <NavLink to="/Connection">All</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/FollowRequests">Follow Request (132)</NavLink>
+                                <NavLink to="/FollowRequests">Follow Request ({ })</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/FollowingScreen">Following (2.6k)</NavLink>
+                                <NavLink to="/FollowingScreen">Following ({userProfileByUserId.followingCount})</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/MpSold">Followers (4.6k)</NavLink>
+                                <NavLink to="/FollowersScreen">Followers ({userProfileByUserId.followersCount})</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/MpSold">SocioMates (100)</NavLink>
+                                <NavLink to="/#">SocioMates (100)</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/MpSold">Categries</NavLink>
+                                <NavLink to="/#">Categries</NavLink>
                             </li>
                         </ul>
                     </div>
-                   
+
                 </div>
             </div>
         </>
