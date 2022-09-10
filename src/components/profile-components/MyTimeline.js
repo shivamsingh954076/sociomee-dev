@@ -44,6 +44,8 @@ import SuggestedBizPage from '../post-components/SuggestedItems/SuggestedBizPage
 import SuggestedGroup from '../post-components/SuggestedItems/SuggestedGroup';
 import SuggestedAd from '../post-components/SuggestedItems/SuggestedAd';
 import ThoughtPost from '../post-components/ThoughtPost';
+import timeAgo from '../../functions/timeAgo';
+import Comments from '../post-components/Comments';
 
 export default function MyTimeline() {
 
@@ -59,6 +61,11 @@ export default function MyTimeline() {
     const [commentData, setCommentData] = useState({
         postId: '', comment: ''
     })
+
+    
+    // comment checker
+    const [commentChecker, setCommentChecker] = useState(false);
+
 
     // infinite scroll functionality
     const [pageSize, setPageSize] = useState({
@@ -122,6 +129,7 @@ export default function MyTimeline() {
         else if (!commentData.comment) { setOpen(true); setAlert({ sev: "error", content: "Please Fill input field before submit !", }); }
         else {
             dispatch(addCommentOnPost(commentData))
+            setCommentChecker(true);
             setCommentData({
                 postId: '', comment: ''
             })
@@ -206,7 +214,13 @@ export default function MyTimeline() {
                                                                         </a>
                                                                         <div className="media-body">
                                                                             <h5>{userPosts.fullName}</h5>
-                                                                            <h6>{new Date(userPosts.createdAt).toDateString()}</h6>
+                                                                            <h6>{timeAgo(userPosts.createdAt)}</h6>
+                                                                            {
+                                                                                userPosts.displayLocation && <h6 className='mt-2 d-flex align-items-center'>
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#81C14B" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="iw-15 icon-left icon-font-light mr-1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                                                    {userPosts.displayLocation}
+                                                                                </h6>
+                                                                            }
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -345,29 +359,8 @@ export default function MyTimeline() {
                                                                 <div className="comment-section">
                                                                     <div className="comments d-block">
                                                                         <div className="main-comment">
-                                                                            {userPosts?.firstComment ? userPosts.firstComment.map((comments) => {
-                                                                                return <div className="media" key={comments.id}>
-                                                                                    <a href="#" className="user-img popover-cls" data-bs-toggle="popover"
-                                                                                        data-placement="right" data-name="Pabelo mukrani"
-                                                                                        data-img="assets/images/story-2.jpg">
-                                                                                        <img src={comments.profileImageThumb} className="img-fluid bg-img" alt="user" />
-                                                                                    </a>
-                                                                                    <div className="media-body">
-                                                                                        <a href="#">
-                                                                                            <h5>{comments.fullName}</h5>
-                                                                                        </a>
-                                                                                        <p>{comments.comment}
-                                                                                        </p>
-                                                                                        <ul className="comment-option">
-                                                                                            <li><a href="#"><img src="assets/images/liked-icon.png" /> like ({comments.likesCount})</a></li>
-                                                                                            <li><a href="#"><img src="assets/images/chat-icon.png" /> reply ({comments.replyCount})</a></li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                    {/* <div className="comment-time">
-                                                                                <h6>50 mins ago</h6>
-                                                                            </div> */}
-                                                                                </div>
-                                                                            }) : null}
+                                                                            {/* Comments Section */}
+                                                                            <Comments postId={userPosts.postId} commentChecker={() => commentChecker} pageSize={pageSize} />
                                                                         </div>
                                                                     </div>
                                                                     <div className="reply">
